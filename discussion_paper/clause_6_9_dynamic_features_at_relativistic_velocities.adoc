@@ -1,4 +1,7 @@
 === Dynamic Features at Relativistic Velocities
 
-Discussion
+At very high velocities, measurements between moving features sufer from relativistic effects. The proposition is to build on Minkowski SpaceTime to address these cases. 
+
+More to come.
+
 

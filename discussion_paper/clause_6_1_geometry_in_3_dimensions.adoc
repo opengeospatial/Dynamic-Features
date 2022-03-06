@@ -1,4 +1,22 @@
 === Geometry in 3 Dimensions
 
-Discussion
+Proposition: We already have sufficient standards to define 3-D geometric objects.
+
+==== CityGML
+
+CityGML defines the geometry of city objects using the geometric primitives and aggregate elements defined in ISO 19107.
+
+Volumetric shapes are defined using the Boundary Representation (B-Rep) approach. B-Rep defines a 3-dimensional surface which serves as the interface between the interior of the volumetric shape and the exterior. This surface is usually defined by a collection of shape elements which together form a closed surface. CityGML also allows a surface to be defined by a point cloud.
+
+Some structures, such as a tunnel or overpass, pose difficulties for this model. The surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. Not always a desireable result. CityGML provides the concept of a "Closure Surface". A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a single three-dimension entity, even though there is a hole in the bounding surface. 
+
+https://en.wikipedia.org/wiki/Boundary_representation
+
+Also look at IndoorGML, and Land/Infrastructure. These three OGC standards should use a common geometry. 
+
+==== SPICE
+
+https://naif.jpl.nasa.gov/naif/toolkit.html
+
+At first glance SPICE has many similarities to CitGML.  
 

@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-02-03</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-02-06</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}" class="bare">http://www.opengis.net/doc/{doc-type}/{standard}/{m.n}</a></p></td>
@@ -497,7 +497,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock"><strong>Copyright notice</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Copyright &#169; &lt;year&gt; Open Geospatial Consortium</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Copyright &#169; 2022 Open Geospatial Consortium</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">To obtain additional rights of use, visit <a href="http://www.opengeospatial.org/legal/" class="bare">http://www.opengeospatial.org/legal/</a></p></td>
@@ -576,9 +576,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_dynamic_features">5. Dynamic Features</a>
 <ul class="sectlevel2">
-<li><a href="#_geometry_in_3_dimensions">5.1. Geometry in 3 Dimensions</a></li>
-<li><a href="#_temporal_geometry">5.2. Temporal Geometry</a></li>
-<li><a href="#_temporal_properties">5.3. Temporal Properties</a></li>
+<li><a href="#_geometry_in_3_dimensions">5.1. Geometry in 3 Dimensions</a>
+<ul class="sectlevel3">
+<li><a href="#_citygml">5.1.1. CityGML</a></li>
+<li><a href="#_spice">5.1.2. SPICE</a></li>
+</ul>
+</li>
+<li><a href="#_temporal_geometry">5.2. Temporal Geometry</a>
+<ul class="sectlevel3">
+<li><a href="#_iso_19141_moving_features">5.2.1. ISO 19141 - Moving Features</a></li>
+</ul>
+</li>
+<li><a href="#_temporal_properties">5.3. Temporal Properties</a>
+<ul class="sectlevel3">
+<li><a href="#_temporalproperties_object">5.3.1. TemporalProperties Object</a></li>
+</ul>
+</li>
 <li><a href="#_articulated_geometries">5.4. Articulated Geometries</a></li>
 <li><a href="#_complex_articulated_systems">5.5. Complex Articulated Systems</a></li>
 <li><a href="#_mass_properties">5.6. Mass Properties</a></li>
@@ -786,55 +799,165 @@ Global Grid Forum (2002)</p>
 <div class="sect2">
 <h3 id="_geometry_in_3_dimensions"><a class="anchor" href="#_geometry_in_3_dimensions"></a>5.1. Geometry in 3 Dimensions</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>Proposition: We already have sufficient standards to define 3-D geometric objects.</p>
+</div>
+<div class="sect3">
+<h4 id="_citygml"><a class="anchor" href="#_citygml"></a>5.1.1. CityGML</h4>
+<div class="paragraph">
+<p>CityGML defines the geometry of city objects using the geometric primitives and aggregate elements defined in ISO 19107.</p>
+</div>
+<div class="paragraph">
+<p>Volumetric shapes are defined using the Boundary Representation (B-Rep) approach. B-Rep defines a 3-dimensional surface which serves as the interface between the interior of the volumetric shape and the exterior. This surface is usually defined by a collection of shape elements which together form a closed surface. CityGML also allows a surface to be defined by a point cloud.</p>
+</div>
+<div class="paragraph">
+<p>Some structures, such as a tunnel or overpass, pose difficulties for this model. The surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. Not always a desireable result. CityGML provides the concept of a "Closure Surface". A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a single three-dimension entity, even though there is a hole in the bounding surface.</p>
+</div>
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/Boundary_representation" class="bare">https://en.wikipedia.org/wiki/Boundary_representation</a></p>
+</div>
+<div class="paragraph">
+<p>Also look at IndoorGML, and Land/Infrastructure. These three OGC standards should use a common geometry.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_spice"><a class="anchor" href="#_spice"></a>5.1.2. SPICE</h4>
+<div class="paragraph">
+<p><a href="https://naif.jpl.nasa.gov/naif/toolkit.html" class="bare">https://naif.jpl.nasa.gov/naif/toolkit.html</a></p>
+</div>
+<div class="paragraph">
+<p>At first glance SPICE has many similarities to CitGML.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_temporal_geometry"><a class="anchor" href="#_temporal_geometry"></a>5.2. Temporal Geometry</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>Proposition: We have sufficient standards to define geometries which change with time.</p>
+</div>
+<div class="sect3">
+<h4 id="_iso_19141_moving_features"><a class="anchor" href="#_iso_19141_moving_features"></a>5.2.1. ISO 19141 - Moving Features</h4>
+<div class="paragraph">
+<p>"ISO 19141:2008 defines a method to describe the geometry of a feature that moves as a rigid body."</p>
+</div>
+<div class="paragraph">
+<p>But a look at 19141 suggests much more than that.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ISO_19141_Main.bmp" alt="ISO 19141 Main">
+</div>
+</div>
+<div class="paragraph">
+<p>MF_TemporalGeometry</p>
+</div>
+<div class="paragraph">
+<p>MF_TemporalGeometry is a specialization of MF_OneParamGeometry in which the parameter is time as expressed by TM_Coordinate.  TM_Coordinate is specified in ISO 19108; it expresses time as a multiple of a single unit of measure such as year, day, or second.</p>
+</div>
+<div class="paragraph">
+<p>MF_OneParameterGeometry</p>
+</div>
+<div class="paragraph">
+<p>A one parameter set of geometries is a function f from an interval t Î [a, b] such that f(t) is a geometry and for each point P Î f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] ® P(t) such that P(t) Î f(t). A leaf of a one parameter set of geometries is the geometry f(t) at a particular value of the parameter. The set of geometries forms a prism that is the set of points in the union of the geometries (or the union of the trajectories).</p>
+</div>
+<div class="paragraph">
+<p>The type "MF_OneParamGeometry" acts as the root classifier for all geometric object classified as one parameter sets of geometric objects. As a one-paramter set, they have "leaf" projections ( for each parameter value.  As geometric objects they act as the infinite union of all their "leaf" (cross sections for each parameter value).</p>
+</div>
+<div class="paragraph">
+<p>So if our object it defined by a bounding surface, and that surface is made up of a number of shapes descended from MF_TemporalGeometry, then the surface geometry of our object can change over time. Hence it is not rigid. ISO 19141, when used with CityGML, can also define deforming (plastic) bodies.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_temporal_properties"><a class="anchor" href="#_temporal_properties"></a>5.3. Temporal Properties</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>Proposition: Features can change in state as well at location</p>
+</div>
+<div class="paragraph">
+<p>ISO 19141 introduced the concept of a One Parameter Geometry.</p>
+</div>
+<div class="paragraph">
+<p>MF_OneParamGeometry:</p>
+</div>
+<div class="paragraph">
+<p>A one parameter set of geometries is a function f from an interval t Î [a, b] such that f(t) is a geometry and for each point P Î f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] ® P(t) such that P(t) Î f(t). A leaf of a one parameter set of geometries is the geometry f(t) at a particular value of the parameter. The set of geometries forms a prism that is the set of points in the union of the geometries (or the union of the trajectories).</p>
+</div>
+<div class="paragraph">
+<p>The type "MF_OneParamGeometry" acts as the root classifier for all geometric object classified as one parameter sets of geometric objects. As a one-paramter set, they have "leaf" projections ( for each parameter value.  As geometric objects they act as the infinite union of all their "leaf" (cross sections for each parameter value).</p>
+</div>
+<div class="paragraph">
+<p>According to the Feature Model, geometry is a property of a Feature. Since we have defined MF_OneParamGeometry, it stands to reason that there can be a MF_OneParamProperty. Likewise, there can be a subclass MF_TemporalProperty.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, MF_TemporalProperty can represent any Feature Property which changes with time. The JSON encoding standard for Moving Features provides us whith this capability.</p>
+</div>
+<div class="sect3">
+<h4 id="_temporalproperties_object"><a class="anchor" href="#_temporalproperties_object"></a>5.3.1. TemporalProperties Object</h4>
+<div class="paragraph">
+<p>A TemporalProperties object is a JSON array of ParametricValues objects that groups a collection of dynamic non-spatial attributes and its parametric values with time.</p>
+</div>
+<div class="sect4">
+<h5 id="_parametricvalues_object"><a class="anchor" href="#_parametricvalues_object"></a>ParametricValues Object</h5>
+<div class="paragraph">
+<p>A ParametricValues object is a JSON object that represents a collection of parametric values of dynamic non-spatial attributes that are ascertained at the same times. A parametric value may be a time-varying measure, a sequence of texts, or a sequence of images. Even though the parametric value may depend on the spatiotemporal location, MF-JSON Prism only considers the temporal dependencies of their changes of value.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_articulated_geometries"><a class="anchor" href="#_articulated_geometries"></a>5.4. Articulated Geometries</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object.</p>
+</div>
+<div class="paragraph">
+<p>An articulated geometry is such an aggregation where each element has less than 6 degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements.</p>
+</div>
+<div class="paragraph">
+<p>The aggregate as a whole can also move, but that movement becomes more complex. typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature will change as the relative position of the elements change.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_complex_articulated_systems"><a class="anchor" href="#_complex_articulated_systems"></a>5.5. Complex Articulated Systems</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>This may be a redundant section.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_mass_properties"><a class="anchor" href="#_mass_properties"></a>5.6. Mass Properties</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>This may be a redundant section.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_the_problem_of_time"><a class="anchor" href="#_the_problem_of_time"></a>5.7. The Problem of Time</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.</p>
+</div>
+<div class="paragraph">
+<p>Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time.</p>
+</div>
+<div class="paragraph">
+<p>So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRS. A temporal equivalent to GeoPOSE.</p>
+</div>
+<div class="paragraph">
+<p>Introduce the Timer concept from MISB.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_temporal_reference_systems"><a class="anchor" href="#_temporal_reference_systems"></a>5.8. Temporal Reference Systems</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>May be redundant</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_dynamic_features_at_relativistic_velocities"><a class="anchor" href="#_dynamic_features_at_relativistic_velocities"></a>5.9. Dynamic Features at Relativistic Velocities</h3>
 <div class="paragraph">
-<p>Discussion</p>
+<p>At very high velocities, measurements between moving features sufer from relativistic effects. The proposition is to build on Minkowski SpaceTime to address these cases.</p>
+</div>
+<div class="paragraph">
+<p>More to come.</p>
 </div>
 <div style="page-break-after: always;"></div>
 <div style="page-break-after: always;"></div>
@@ -922,7 +1045,7 @@ Global Grid Forum (2002)</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-03 14:05:25 UTC
+Last updated 2022-03-06 23:21:37 UTC
 </div>
 </div>
 </body>

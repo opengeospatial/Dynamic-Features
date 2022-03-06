@@ -1,4 +1,3 @@
 === Complex Articulated Systems
 
-Discussion
-
+This may be a redundant section.

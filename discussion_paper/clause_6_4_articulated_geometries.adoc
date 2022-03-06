@@ -1,4 +1,10 @@
 === Articulated Geometries
 
-Discussion
+Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object. 
+
+An articulated geometry is such an aggregation where each element has less than 6 degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements. 
+
+The aggregate as a whole can also move, but that movement becomes more complex. typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature will change as the relative position of the elements change. 
+
+
 
