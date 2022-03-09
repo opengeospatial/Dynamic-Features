@@ -10,3 +10,85 @@ So if all time is local, we need a Temporal Reference System concept which captu
 
 Introduce the Timer concept from MISB. 
 
+
+
+GM_Object
+|===
+|Operation |Parameters |Returns
+|boundary | |GM_Boundary
+|buffer |Distance |GM_Object
+|centroid | |DirectPosition
+|closure | |GM_Complex
+|convexHull | |GM_Object
+|coordinateDimension | |Integer
+|dimension |DirectPosition |Integer
+|distance |GM_Object |Distance
+|envelope | |GM_Envelope
+|isCycle | |Boolean
+|isSimple | |Boolean
+|maximalComplex | |set<GM_Complex>
+|mbRegion | |GM_Object
+|represenativePoint | |DirectPosition
+|transform |SC_CRS |GM_Object
+|===
+
+MF_OneParamGeometry
+|===
+|Operation |Parameters |Returns
+|leafGeometry |Number |GM_Object
+|prism | |GM_Object
+|trajectory |DirectPosition, Number |MF_Trajectory
+|===
+
+MF_TemporalGeometry
+|===
+|Operation |Parameters |Returns
+|endTime | |TM_Coordinate
+|intersection |GM_Object, TM_Period |TM_TemporalGeometry
+|leafGeometry |TM_Coordinate |GM_Object
+|nearestApproach |GM_Object, TM_Period |Distance, TM_GeometricPrimitive
+|startTime | |TM_Coordinate
+|trajectory |DirectPosition, TM_Coordinate |MF_TemporalTrajectory
+|===
+
+MF_Trajectory
+|===
+|Operation |Parameters |Returns
+|leaf |Number |DirectPosition
+|leafGeometry |Number |GM_Point
+|parameterToMeasure | |set<MF_MeasureFunction>
+|positionAtParameter |Number |MF_PositionExpression
+|prism | |GM_Curve
+|===
+
+MF_TemporalTrajectory
+|===
+|Operation |Parameters |Returns
+|acceleration |TM_Coordinate |Vector
+|cumulativeDistanceAtTime |TM_Coordinate |Distance
+|measureAtTime |TM_Coordinate |Measure
+|nearestApproach |GM_Object |Distance, TM_GeometricPrimitive
+|offsetAtTime |TM_Coordinate |Measure
+|pointAtTime |TM_GeometricPrimitive |DirectPosition
+|positionAtTime |TM_Coordinate |LR_PositionExpression
+|secondaryOffsetAtTime |TM_Coordinate |Vector
+|subTrajectory |TM_Coordinate, TM_Coordinate |MF_TemporalTrajectory
+|timeAtCumulativeDistance |Distance |TM_GeometricPrimitive
+|timeAtDistance |Distance |TM_GeometricPrimitive
+|timeAtPoint |DirectPosition |TM_GeometricPrimitive
+|timeToDistance | |GM_Curve
+|timeToMeasure | |MF_MeasureFunction
+|velocity |TM_Coordinate |Vector
+|===
+
+MF_PrismGeometry
+|===
+|Operation |Parameters |Returns
+|geometryAtTime |TM_Coordinate |GM_Object
+|localCoordinateSystem | |SC_CRS
+|rotationAtTime |TM_Coordinate |MF_RotationMatrix
+|===
+
+
+
+

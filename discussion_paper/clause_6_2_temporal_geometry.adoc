@@ -8,7 +8,7 @@ Proposition: We have sufficient standards to define geometries which change with
 
 But a look at 19141 suggests much more than that.  
 
-image::images/ISO_19141_Main.bmp[]
+image::images/ISO_19141_Main.png[]
 
 MF_TemporalGeometry
 
