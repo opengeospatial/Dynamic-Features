@@ -1,5 +1,3 @@
 == Scope
-[NOTE]
-====
-Insert Scope text here. Give the subject of the document and the aspects of that scope covered by the document.
-====
+
+Moving Feature standards and technologies have made considerable progress. It is time to evaluate the foundations of OGC standards to determine if they are sufficient to support current and future Moving Feature standards. This discussion paper examines ISO and OGC standards against current and anticipated future needs. It also examines other standards and conventions which may be useful for enhancing the OGC/ISO foundation.

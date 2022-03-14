@@ -7,3 +7,5 @@ The normative provisions in this document are denoted by the URI
 http://www.opengis.net/spec/{standard}/{m.n}
 
 All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
+
+NOTE: A description of UML and how it is used in ISO and OGC standards will be included here.

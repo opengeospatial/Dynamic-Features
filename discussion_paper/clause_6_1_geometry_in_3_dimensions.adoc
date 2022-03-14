@@ -1,22 +1,67 @@
 === Geometry in 3 Dimensions
 
-Proposition: We already have sufficient standards to define 3-D geometric objects.
+*Topic:* Is the OGC geometry model sufficient to support 3D?
 
-==== CityGML
+First we need to define 3D. Our proposed definition is as
+follows:
 
-CityGML defines the geometry of city objects using the geometric primitives and aggregate elements defined in ISO 19107.
+*3D Feature:* A Feature whos’ geometry is defined by a volume
+enclosed by a boundary surface.
 
-Volumetric shapes are defined using the Boundary Representation (B-Rep) approach. B-Rep defines a 3-dimensional surface which serves as the interface between the interior of the volumetric shape and the exterior. This surface is usually defined by a collection of shape elements which together form a closed surface. CityGML also allows a surface to be defined by a point cloud.
+This definition is consistent with ISO 19107. This ISO standard defines both the GM_Object and GM_Boundary classes as root level geometry classes. The association between object and boundary is achieved through the “boundary()” operation on the GM_Object class.
 
-Some structures, such as a tunnel or overpass, pose difficulties for this model. The surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. Not always a desireable result. CityGML provides the concept of a "Closure Surface". A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a single three-dimension entity, even though there is a hole in the bounding surface. 
+image::images/Geometry_3D.png[]
+
+GM_Object and GM_Boundary are dimensionless. Further refinement is needed to fully define a 3D geometry.
+
+==== Volumetrics
+
+Starting with volumetrics, GM_Object is subclassed into GM_Primitive then into GM_Solid.  The “volume()” operation on GM_Solid returns the volume (defined in ISO 19103) associated with a Feature. Thus, ISO 19107 supports the concept of a 3D volume.
+
+Real 3D objects are often not solid. So the 3D model must also support voids, or even entire 3D Features within their interior. GM_Primitive addresses this need through the “interior to” association. The two roles on this association are the containingPrimitive (the GM_Primitive which contains another GM_Primitive) and the containedPrimitive (the GM_Primitive which is contained). This association has proven its worth in 2D space so there is little doubt that it will be just as effective in 3D.
+
+==== Boundaries
+
+A 3D volume is delineated by a bounding surface.  GM_Boundary is the root class for boundaries. The subclass GM_PrimitiveBoundary provides the boundary for GM_Primitives. The GM_PrimitiveBoundary subclass GM_SolidBoundary is defined as the boundary for a GM_Solid.
+
+image::images/Boundary_3D.png[]
+
+ISO 19107 goes even farther. A GM_SolidBoundary is composed of both interior and exterior boundaries. These boundaries are defined by the GM_Shell class. Following the class associations we see:
+
+* A GM_Shell is a GM_CompositeSurface
+* A GM_CompositeSurface is composed of
+GM_OrientablePrimitives
+* A GM_Surface is a type of GM_OrientablePrimitive
+* A GM_PolyhedralSurface is a type of GM_Surface
+* A GM_PolyhedralSurface can be composed of
+GM_Polygons 
+
+A surface constructed of polygons is an example of Boundary Representation (B-Rep) of a surface. This approach is fundamental to rendering 3D computer graphics. (ref Adam Powers 1981)
+
+==== Closure Surfaces
+
+Some structures, such as a tunnel or overpass, pose difficulties for this geometry model. The boundary surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. This is not always a desireable result. CityGML provides the concept of a "Closure Surface".
+
+A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a single three-dimension entity, even though there is a hole in the bounding surface. 
+
+image::images/Closure_Surface.png[]
+
+As implemented in CityGML 3.0, the ClosureSurface class has quite an ancestory. We may want to generalize this concept for use outside of CityGML. However, the capabilties provided by the ancestor classes do provide value and may be worth incorporating into a general 3D model.
+
+==== B-Rep
+
+The polyhedral surfaces which bound volumetric shapes are similar to the Boundary Representation (B-Rep) approach used in CAD and computer graphics. B-Rep defines a 3-dimensional surface which serves as the interface between the interior of the volumetric shape and the exterior. This surface is usually defined by a collection of shape elements (polygons) which together form a closed surface. 
 
 https://en.wikipedia.org/wiki/Boundary_representation
 
-Also look at IndoorGML, and Land/Infrastructure. These three OGC standards should use a common geometry. 
+==== Point Clouds
+
+"In addition to the spatial representations defined in the Core module, the geometry of physical spaces and of thematic surfaces can now also be provided by 3D point clouds using MultiPoint geometry. This allows, for example, spatially representing the building hull, a room within a building or a single wall surface just by a point cloud. All thematic feature types including transportation objects, vegetation, city furniture, etc. can also be spatially represented by point clouds. In this way, the ClearanceSpace of a road or railway could, for instance, be modelled directly from the result of a mobile laser scanning campaign. Point clouds can either be included in a CityGML dataset or just reference an external file of some common types such as LAS or LAZ."
 
 ==== SPICE
 
 https://naif.jpl.nasa.gov/naif/toolkit.html
 
-At first glance SPICE has many similarities to CitGML.  
+This section will contain a discussion of SPICE and how well it aligns with the ISO/OGC concepts.
+
 
