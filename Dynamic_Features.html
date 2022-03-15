@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-03-14</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-03-15</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}" class="bare">http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}</a></p></td>
@@ -588,11 +588,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_moving_features">5.2. Moving Features</a>
 <ul class="sectlevel3">
-<li><a href="#_parameter_based_properties">5.2.1. Parameter based Properties</a></li>
-<li><a href="#_rigid_vs_plastic">5.2.2. Rigid vs. Plastic</a></li>
+<li><a href="#_basic_concepts">5.2.1. Basic Concepts</a></li>
+<li><a href="#_mf_oneparametergeometry">5.2.2. MF_OneParameterGeometry</a></li>
+<li><a href="#_mf_temporalgeometry">5.2.3. MF_TemporalGeometry</a></li>
+<li><a href="#_temporal_properties">5.2.4. Temporal Properties</a></li>
+<li><a href="#_mf_temporaltrajectory">5.2.5. MF_TemporalTrajectory</a></li>
+<li><a href="#_mf_prismgeometry">5.2.6. MF_PrismGeometry</a></li>
+<li><a href="#_rigid_vs_plastic">5.2.7. Rigid vs. Plastic</a></li>
 </ul>
 </li>
-<li><a href="#_temporal_properties">5.3. Temporal Properties</a>
+<li><a href="#_temporal_properties_2">5.3. Temporal Properties</a>
 <ul class="sectlevel3">
 <li><a href="#_temporalproperties_object">5.3.1. TemporalProperties Object</a></li>
 </ul>
@@ -928,8 +933,6 @@ GM_Polygons</p>
 <div class="paragraph">
 <p><strong>Topic:</strong> Is the OGC geometry model sufficient to support 3D?</p>
 </div>
-<div class="sect3">
-<h4 id="_parameter_based_properties"><a class="anchor" href="#_parameter_based_properties"></a>5.2.1. Parameter based Properties</h4>
 <div class="paragraph">
 <p>ISO 19141 is the standard for Moving Features. It introduces the concept of Feature Properties whose values are a function of an input parameter.</p>
 </div>
@@ -938,9 +941,40 @@ GM_Polygons</p>
 <img src="images/Movement.png" alt="Movement">
 </div>
 </div>
+<div class="sect3">
+<h4 id="_basic_concepts"><a class="anchor" href="#_basic_concepts"></a>5.2.1. Basic Concepts</h4>
 <div class="paragraph">
-<p><strong>MF_OneParameterGeometry</strong></p>
+<p><strong>Volume and Boundary surface</strong></p>
 </div>
+<div class="paragraph">
+<p>ISO 19107 provides us with the GM_Object and GM_Boundary classes. GM_Object represents the space that is occupied by a geometry. GM_Boundary represents a surface which forms the boundary between inside and outside of the associated GM_Object. GM_Object and GM_Boundary are both specialized according to the number of dimensions they support.</p>
+</div>
+<div class="paragraph">
+<p><strong>Location and shape</strong></p>
+</div>
+<div class="paragraph">
+<p>The location of a Feature is a single GM_Point which represents its current position in the universe. GM_Point is a geometry of zero dimensions, but is specified with values of all of the applicable coordinate axis.</p>
+</div>
+<div class="paragraph">
+<p>The Shape of a Feature is the bounding geometry. Shape tells you nothing about where a Feature is but does specify the volume of the space it occupies.</p>
+</div>
+<div class="paragraph">
+<p><strong>Global and Local coordinate systems</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LocalGlobalCRS.png" alt="LocalGlobalCRS">
+</div>
+</div>
+<div class="paragraph">
+<p>Moving Features deal with two coordinate system. The Global (external) coordinate system is defined for the area external to the Feature. It is mostly used to identify the loctation and orientation of the Feature.</p>
+</div>
+<div class="paragraph">
+<p>The local coordinate system is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where location is measured.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mf_oneparametergeometry"><a class="anchor" href="#_mf_oneparametergeometry"></a>5.2.2. MF_OneParameterGeometry</h4>
 <div class="paragraph">
 <p>We start our discussion with the class MF_OneParameterGeometry. MF_OneParameterGeometry is a subclass of GM_Object. So moving features have the 3D geometric properties of any other GM_Object. What is different is that this geometry can change as a function of a parameter.
 A one parameter set of geometries is defined as "a function f from an interval t Î [a, b] such that f(t) is a geometry and for each point P Î f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] ® P(t) such that P(t) Î f(t). A leaf of a one parameter set of geometries is the geometry f(t) at a particular value of the parameter".</p>
@@ -948,15 +982,15 @@ A one parameter set of geometries is defined as "a function f from an interval t
 <div class="paragraph">
 <p>A one parameter geometry instance includes a "leafgeometry()" operation. This operation takes the parameter (t) as input and returns the leaf P(t) for that parameter as a GM_Object.</p>
 </div>
-<div class="paragraph">
-<p><strong>MF_TemporalGeometry</strong></p>
 </div>
+<div class="sect3">
+<h4 id="_mf_temporalgeometry"><a class="anchor" href="#_mf_temporalgeometry"></a>5.2.3. MF_TemporalGeometry</h4>
 <div class="paragraph">
 <p>An MF_TemporalGeometry is a MF_OneParameterGeometry where the parameter is Time expressed as a TM_Coordinate. TM_Coordinate is specified in ISO 19108; it expresses time as a multiple of a single unit of measure such as year, day, or second. The "leafgeometry()" operation of an instance of MF_TemporalGeometry would take a TM_Coordinat in as input and return a GM_Object instance representing the geometry of the Feature at the specified point in time.</p>
 </div>
-<div class="paragraph">
-<p><strong>Temporal Properties</strong></p>
 </div>
+<div class="sect3">
+<h4 id="_temporal_properties"><a class="anchor" href="#_temporal_properties"></a>5.2.4. Temporal Properties</h4>
 <div class="paragraph">
 <p>The JSON encoding of the OGC Moving Features standard introduces the concept of temporal properties.</p>
 </div>
@@ -976,17 +1010,110 @@ A one parameter set of geometries is defined as "a function f from an interval t
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rigid_vs_plastic"><a class="anchor" href="#_rigid_vs_plastic"></a>5.2.2. Rigid vs. Plastic</h4>
+<h4 id="_mf_temporaltrajectory"><a class="anchor" href="#_mf_temporaltrajectory"></a>5.2.5. MF_TemporalTrajectory</h4>
+<div class="paragraph">
+<p>A trajectory is a GM_Curve which represents the positions a Moving Feature has or is expected to occupy. A Temporal Trajectory supports operations which will report the properties of the Moving Feature at a specific time. The geometry property is restricted to GM_Point.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/MF_Trajectory.png" alt="MF Trajectory">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mf_prismgeometry"><a class="anchor" href="#_mf_prismgeometry"></a>5.2.6. MF_PrismGeometry</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/Foliation.png" alt="Foliation">
+</div>
+</div>
+<div class="paragraph">
+<p>A leaf represents the geometry of a Feature as a function of time</p>
+</div>
+<div class="paragraph">
+<p>Each point in the bounding surface is traced across leafs using a temporal trajectory</p>
+</div>
+<div class="paragraph">
+<p>The space occupied by the Feature over time, the sum of all of the leaf geometries, is a Prism.</p>
+</div>
+<div class="paragraph">
+<p>A collection of leafs is a foliation.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A leaf is the same in both the prism and trajectory model. The difference is in the numbmer of dimensions allowed</p>
+</li>
+<li>
+<p>A prism can be viewed as a volume enclosed by a surface defined by a collection of trajectories</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This gives up two alternatives. A leaf can store the full geometry as it exists at the specified time. Or, a leaf can generate the geometry from the collection of trajectories.</p>
+</div>
+<div class="paragraph">
+<p>In the first case, the full geometry must be represented in each leaf whether or not it has changed. However, it is most easily represented in local coordinate space so that only actual changes in the shape have to be captured.</p>
+</div>
+<div class="paragraph">
+<p>In the second case intermediate geometries do not have to be captured. The values at a specific time can be calculated from the trajectory curve. However, for a moving feature it becomes necessary to update all fo the trajectories whenever the feature changes location.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Prism.png" alt="Prism">
+</div>
+</div>
+<div class="paragraph">
+<p>GeometryAtTime(): The operation "geometryAtTime" shall accept a time in the domain of the prism geometry and return the geometry of the moving feature, as it is at a given time in the global coordinate reference system. This shape might be a realistic rendition of the object, or it may be an iconized rendition of the type of object, as needed by the application. For example, in a simulation a truck might be represented as an icon as opposed to a photorealistic rendition. This allows the application to use the local geometry to convey information such as certainty of identification or feature status through the use of appropriate icons and other portrayal parameters.</p>
+</div>
+<div class="paragraph">
+<p><strong>RotationAtTime():</strong> The operation "rotationAtTime" shall accept a time in the domain of the prism geometry and return the rotation matrix that embeds the local geometry into geographic space at a given time (TM_Coordinate). The vectors of the rotation matrix allow the feature to be aligned and scaled as appropriate to the vectors of the global "map" coordinate reference system. Because scale may change in complex ways as a feature moves with respect to a projected coordinate reference system, the rotation matrix may also contain scale factors.</p>
+</div>
+<div class="paragraph">
+<p><strong>LocalCoordinateSystem():</strong> The operation "localCoordinateSystem" shall return a SC_CRS for the design coordinate reference system in which the moving feature&#8217;s shape is defined.</p>
+</div>
+<div class="paragraph">
+<p><strong>BaseGeometry Attribute:</strong> The attribute "baseGeometry" is the geometry of the moving object in a local rectangular coordinate reference system based on the axis of the object. The object should have a natural up, front and right (cross product of up and front). If the representation to be used is not "centred" on its origin, the application should use an MF_LocalGeometry (7.3) subclass to create a local origin.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rigid_vs_plastic"><a class="anchor" href="#_rigid_vs_plastic"></a>5.2.7. Rigid vs. Plastic</h4>
 <div class="paragraph">
 <p>ISO 19141:2008 states that it "defines a method to describe the geometry of a feature that moves as a rigid body."</p>
 </div>
 <div class="paragraph">
 <p>That may not be a limitation in fact. If our object iS defined by a bounding surface, and that surface is made up of a number of shapes descended from MF_TemporalGeometry, then the surface geometry of our object can change over time. Hence it is not rigid. ISO 19141 can also define deforming (plastic) bodies.</p>
 </div>
+<div class="paragraph">
+<p>ISO 19141 Section 5.1</p>
+</div>
+<div class="paragraph">
+<p>A moving feature can be modelled as a combination of movements. The overall motion can be expressed as the temporal path or trajectory of some reference point on the object (the “origin”), such as its center of gravity. Once the origin’s trajectory has been established, the position along the trajectory can be described using a linear reference system (as defined in ISO 19133). The “parameterization by length” for curves (as defined in ISO 19107) can be used as a simple linear reference if no other is available. The relationship between time (t) and measure value (m) can be represented as the graph of the t→ m function in a plane with coordinates (t, m). This separation of the geometry of the path and the actual “time to position” function allows the moving feature to be tracked along existing geometry.</p>
+</div>
+<div class="paragraph">
+<p>Figure 1 illustrates how the concepts of foliation, prism, trajectory, and leaf relate to one another. In this illustration, a 2D rectangle moves and rotates. Each representation of the rectangle at a given time is a leaf. The path traced by each corner point of the rectangle (and by each of its other points) is a trajectory. The set of points contained in all of the leaves, and in all of the trajectories, forms a prism. The set of leaves also forms a foliation.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Foliation.png" alt="Foliation">
+</div>
+</div>
+<div class="paragraph">
+<p>These two object representations, of the path and the position along that path, give the general position of the moving feature. The other variable in describing the position of the feature is the rotation about the chosen reference point. To describe this, a local engineering coordinate system is established using the object reference point as its origin. The geometry of the feature is described in the engineering coordinate system and the real-world orientation of the feature is given by mapping of the local coordinate axes to the global coordinate system (the CRS of the trajectory of the reference point). This can be given as a matrix that maps the unit vectors of the local coordinate system to vectors in the global CRS.</p>
+</div>
+<div class="paragraph">
+<p>If the global CRS and local CRS have the same dimension, then each point within the local CRS can be traced in time through the global CRS by combinations of these various mappings. The map would trace from time (t) to the measure (m) to a position on the reference point&#8217;s path using the LRS. Then using the rotation matrix, the calculated offset from this point gives a direct position in the global CRS.</p>
+</div>
+<div class="paragraph">
+<p>This means that the ‘prism’ of the moving feature (defined as all the points which part of the feature passes through) can be viewed (and calculated to whatever degree of accuracy needed) as a bundle of trajectories of points on the local engineering representation of the feature&#8217;s geometry. If viewed in a 4 dimensional spatiotemporal coordinate system, the points on the feature at different times are different points. Then the preimage of the prism (points on the trajectories augmented by a time coordinate) is a foliation, meaning that there is a complete and separate representation of the geometry of the feature for each specific time (called a “leaf”). These names come from a 3D metaphor of a book, where each page or leaf is a slice of time in the “folio”.</p>
+</div>
+<div class="paragraph">
+<p>This might form the basis for an extension of this standard to non-rigid, mutable objects. Each leaf in the 4D foliation is a separate representation of the object, and by creating methods to describe the change through time of the shape and form of the feature, the existing machinery in this International Standard can be used to place those representations in positions with respect to the global coordinate system.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_temporal_properties"><a class="anchor" href="#_temporal_properties"></a>5.3. Temporal Properties</h3>
+<h3 id="_temporal_properties_2"><a class="anchor" href="#_temporal_properties_2"></a>5.3. Temporal Properties</h3>
 <div class="paragraph">
 <p>Proposition: Features can change in state as well at location</p>
 </div>
@@ -1740,7 +1867,7 @@ z' = z</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-14 20:58:10 +0100
+Last updated 2022-03-15 21:50:51 +0100
 </div>
 </div>
 </body>
