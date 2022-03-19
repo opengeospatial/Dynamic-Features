@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-03-15</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-03-18</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}" class="bare">http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}</a></p></td>
@@ -564,9 +564,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_scope">1. Scope</a></li>
 <li><a href="#_references">2. References</a></li>
-<li><a href="#_terms_and_definitions">3. Terms and Definitions</a>
+<li><a href="#terms_and_definitions_section">3. Terms and Definitions</a>
 <ul class="sectlevel2">
-<li><a href="#_term_name">3.1. <strong>term name</strong></a></li>
+<li><a href="#base_representation_definition">3.1. <strong>base representation</strong></a></li>
+<li><a href="#design_coordinate_reference_system_definition">3.2. <strong>design coordinate reference system</strong></a></li>
+<li><a href="#direct_position_definition">3.3. <strong>direct position</strong></a></li>
+<li><a href="#external_coordinate_reference_system_definition">3.4. <strong>external coordinate reference system</strong></a></li>
+<li><a href="#feature_definition">3.5. feature</a></li>
+<li><a href="#foliation_definition">3.6. <strong>foliation</strong></a></li>
+<li><a href="#geometric_object_definition">3.7. <strong>geometric object</strong></a></li>
+<li><a href="#geometric_primitive_definition">3.8. <strong>geometric primitive</strong></a></li>
+<li><a href="#global_coordinate_system_definition">3.9. <strong>global coordinate system</strong></a></li>
+<li><a href="#gm_point_definition">3.10. <strong>GM_Point</strong></a></li>
+<li><a href="#instant_definition">3.11. <strong>instant</strong></a></li>
+<li><a href="#leaf_definition">3.12. <strong>leaf</strong></a></li>
+<li><a href="#one_parameter_geometries_set_definition">3.13. <strong>one parameter set of geometries</strong></a></li>
+<li><a href="#prism_definition">3.14. <strong>prism</strong></a></li>
+<li><a href="#temporal_coordinate_system_definition">3.15. <strong>temporal coordinate system</strong></a></li>
+<li><a href="#temporal_position_definition">3.16. <strong>temporal position</strong></a></li>
+<li><a href="#temporal_reference_system_definition">3.17. <strong>temporal reference system</strong></a></li>
+<li><a href="#trajectory_definition">3.18. <strong>trajectory</strong></a></li>
+<li><a href="#vector_definition">3.19. <strong>vector</strong></a></li>
 </ul>
 </li>
 <li><a href="#_conventions">4. Conventions</a>
@@ -594,28 +612,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_temporal_properties">5.2.4. Temporal Properties</a></li>
 <li><a href="#_mf_temporaltrajectory">5.2.5. MF_TemporalTrajectory</a></li>
 <li><a href="#_mf_prismgeometry">5.2.6. MF_PrismGeometry</a></li>
-<li><a href="#_rigid_vs_plastic">5.2.7. Rigid vs. Plastic</a></li>
+<li><a href="#_non_rigid_bodies">5.2.7. Non-rigid Bodies</a></li>
 </ul>
 </li>
-<li><a href="#_temporal_properties_2">5.3. Temporal Properties</a>
+<li><a href="#_articulated_geometries">5.3. Articulated Geometries</a>
 <ul class="sectlevel3">
-<li><a href="#_temporalproperties_object">5.3.1. TemporalProperties Object</a></li>
+<li><a href="#_geopose">5.3.1. GeoPOSE</a></li>
+<li><a href="#_misb_staging_system">5.3.2. MISB Staging System</a></li>
+<li><a href="#_discussions">5.3.3. Discussions</a></li>
 </ul>
 </li>
-<li><a href="#_articulated_geometries">5.4. Articulated Geometries</a>
+<li><a href="#_mass_properties">5.4. Mass Properties</a></li>
+<li><a href="#_temporal_reference_systems">5.5. Temporal Reference Systems</a></li>
+<li><a href="#_dynamic_features_at_relativistic_velocities">5.6. Dynamic Features at Relativistic Velocities</a>
 <ul class="sectlevel3">
-<li><a href="#_geopose">5.4.1. GeoPOSE</a></li>
-<li><a href="#_misb_staging_system">5.4.2. MISB Staging System</a></li>
-<li><a href="#_discussion">5.4.3. Discussion</a></li>
-<li><a href="#_lorentz_transformation">5.4.4. Lorentz Transformation</a></li>
-<li><a href="#_minkowski_space_time">5.4.5. Minkowski Space Time</a></li>
+<li><a href="#_lorentz_transformation">5.6.1. Lorentz Transformation</a></li>
+<li><a href="#_minkowski_space_time">5.6.2. Minkowski Space Time</a></li>
 </ul>
 </li>
-<li><a href="#_complex_articulated_systems">5.5. Complex Articulated Systems</a></li>
-<li><a href="#_mass_properties">5.6. Mass Properties</a></li>
-<li><a href="#_the_problem_of_time">5.7. The Problem of Time</a></li>
-<li><a href="#_temporal_reference_systems">5.8. Temporal Reference Systems</a></li>
-<li><a href="#_dynamic_features_at_relativistic_velocities">5.9. Dynamic Features at Relativistic Velocities</a></li>
 </ul>
 </li>
 <li><a href="#_revision_history">Annex A: Revision History</a></li>
@@ -761,7 +775,7 @@ Global Grid Forum (2002)</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_terms_and_definitions"><a class="anchor" href="#_terms_and_definitions"></a>3. Terms and Definitions</h2>
+<h2 id="terms_and_definitions_section"><a class="anchor" href="#terms_and_definitions_section"></a>3. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this Best Practice.</p>
@@ -770,9 +784,138 @@ Global Grid Forum (2002)</p>
 <p>For the purposes of this document, the following additional terms and definitions apply.</p>
 </div>
 <div class="sect2">
-<h3 id="_term_name"><a class="anchor" href="#_term_name"></a>3.1. <strong>term name</strong></h3>
+<h3 id="base_representation_definition"><a class="anchor" href="#base_representation_definition"></a>3.1. <strong>base representation</strong></h3>
 <div class="paragraph">
-<p>text of the definition</p>
+<p>&lt;moving features〉representation, using a local origin and local ordinate vectors, of a geometric object at a given reference time [ISO 19141:2008, definition 4.1.1]</p>
+</div>
+<div class="paragraph">
+<p>NOTE 1 A rigid geometric object may undergo translation or rotation, but remains congruent with its base representation.</p>
+</div>
+<div class="paragraph">
+<p>NOTE 2 The local origin and ordinate vectors establish an engineering coordinate reference system (ISO 19111), also called a local frame or a local Euclidean coordinate system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="design_coordinate_reference_system_definition"><a class="anchor" href="#design_coordinate_reference_system_definition"></a>3.2. <strong>design coordinate reference system</strong></h3>
+<div class="paragraph">
+<p>engineering coordinate reference system in which the base representation of a moving object is specified. [ISO 19141:2008, definition 4.1.3]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="direct_position_definition"><a class="anchor" href="#direct_position_definition"></a>3.3. <strong>direct position</strong></h3>
+<div class="paragraph">
+<p>DirectPosition object data types hold the coordinates for a position within some coordinate reference system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="external_coordinate_reference_system_definition"><a class="anchor" href="#external_coordinate_reference_system_definition"></a>3.4. <strong>external coordinate reference system</strong></h3>
+<div class="paragraph">
+<p>the coordinate reference system in which the geometry of the curve for a trajectory is defined. Usually an earth-fixed geographic CRS. [ISO 19141:2008, derived]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="feature_definition"><a class="anchor" href="#feature_definition"></a>3.5. feature</h3>
+<div class="paragraph">
+<p>abstraction of real world phenomena [ISO 19101:2002, definition 4.11]</p>
+</div>
+<div class="paragraph">
+<p>NOTE A feature may occur as a type or an instance. Feature type or feature instance shall be used when only one is meant.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="foliation_definition"><a class="anchor" href="#foliation_definition"></a>3.6. <strong>foliation</strong></h3>
+<div class="paragraph">
+<p>one parameter set of geometries such that each point in the prism of the set is in one and only one trajectory and in one and only one leaf [ISO 19141:2008, definition 4.1.8]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="geometric_object_definition"><a class="anchor" href="#geometric_object_definition"></a>3.7. <strong>geometric object</strong></h3>
+<div class="paragraph">
+<p>spatial object representing a geometric set [ISO 19107:2003, definition 4.47]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="geometric_primitive_definition"><a class="anchor" href="#geometric_primitive_definition"></a>3.8. <strong>geometric primitive</strong></h3>
+<div class="paragraph">
+<p>geometric object representing a single, connected, homogeneous element of space [ISO 19107:2003, definition 4.48]</p>
+</div>
+<div class="paragraph">
+<p>NOTE Geometric primitives are non-decomposed objects that present information about geometric configuration. They include points, curves, surfaces, and solids.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="global_coordinate_system_definition"><a class="anchor" href="#global_coordinate_system_definition"></a>3.9. <strong>global coordinate system</strong></h3>
+<div class="paragraph">
+<p>the CRS of the trajectory of the reference point.</p>
+</div>
+<div class="paragraph">
+<p>NOTE A global coordinate system is usually in terms of the moving frame of the curve (oriented on the local tangent) or in terms of the external CRS in which the geometry of the curve is defined. [ISO 19141:2008, derived]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gm_point_definition"><a class="anchor" href="#gm_point_definition"></a>3.10. <strong>GM_Point</strong></h3>
+<div class="paragraph">
+<p>GM_Point is the basic data type for a geometric object consisting of one and only one point. That point is represented as a DirectPosition.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="instant_definition"><a class="anchor" href="#instant_definition"></a>3.11. <strong>instant</strong></h3>
+<div class="paragraph">
+<p>0-dimensional geometric primitive representing position in time [ISO 19108:2002, definition 4.1.17]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="leaf_definition"><a class="anchor" href="#leaf_definition"></a>3.12. <strong>leaf</strong></h3>
+<div class="paragraph">
+<p>&lt;one parameter set of geometries&gt; geometry at a particular value of the parameter [ISO 19141:2008, definition 4.1.12]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="one_parameter_geometries_set_definition"><a class="anchor" href="#one_parameter_geometries_set_definition"></a>3.13. <strong>one parameter set of geometries</strong></h3>
+<div class="paragraph">
+<p>function f from an interval t ∈ [a, b] such that f(t) is a geometry and for each point P ∈ f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] →P(t) such that P(t) ∈ f(t) [ISO 19141:2008, definition 4.1.15]</p>
+</div>
+<div class="paragraph">
+<p>EXAMPLE A curve C with constructive parameter t is a one parameter set of points c(t).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="prism_definition"><a class="anchor" href="#prism_definition"></a>3.14. <strong>prism</strong></h3>
+<div class="paragraph">
+<p>&lt;one parameter set of geometries&gt; set of points in the union of the geometries (or the union of the trajectories) of a one parameter set of geometries [ISO 19141:2008, definition 4.1.18]</p>
+</div>
+<div class="paragraph">
+<p>NOTE This is a generalization of the concept of a geometric prism that is the convex hull of two congruent polygons in 3D-space. Such polyhedrons can be viewed as a foliation of congruent polygons.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="temporal_coordinate_system_definition"><a class="anchor" href="#temporal_coordinate_system_definition"></a>3.15. <strong>temporal coordinate system</strong></h3>
+<div class="paragraph">
+<p>temporal reference system based on an interval scale on which distance is measured as a multiple of a single unit of time [ISO 19108:2002, definition 4.1.31]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="temporal_position_definition"><a class="anchor" href="#temporal_position_definition"></a>3.16. <strong>temporal position</strong></h3>
+<div class="paragraph">
+<p>location relative to a temporal reference system [ISO 19108:2002, definition 4.1.34]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="temporal_reference_system_definition"><a class="anchor" href="#temporal_reference_system_definition"></a>3.17. <strong>temporal reference system</strong></h3>
+<div class="paragraph">
+<p>reference system against which time is measured [ISO 19108:2002, definition 4.1.35]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trajectory_definition"><a class="anchor" href="#trajectory_definition"></a>3.18. <strong>trajectory</strong></h3>
+<div class="paragraph">
+<p>path of a moving point described by a one parameter set of points [ISO 19141:2008, definition 4.1.22]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="vector_definition"><a class="anchor" href="#vector_definition"></a>3.19. <strong>vector</strong></h3>
+<div class="paragraph">
+<p>quantity having direction as well as magnitude [ISO 19123:2005, definition 4.1.43]</p>
 </div>
 </div>
 </div>
@@ -931,10 +1074,10 @@ GM_Polygons</p>
 <div class="sect2">
 <h3 id="_moving_features"><a class="anchor" href="#_moving_features"></a>5.2. Moving Features</h3>
 <div class="paragraph">
-<p><strong>Topic:</strong> Is the OGC geometry model sufficient to support 3D?</p>
+<p><strong>Topic:</strong> Is the OGC geometry model sufficient to support 3D Moving Features?</p>
 </div>
 <div class="paragraph">
-<p>ISO 19141 is the standard for Moving Features. It introduces the concept of Feature Properties whose values are a function of an input parameter.</p>
+<p>ISO 19141 is the standard for Moving Features. It introduces Feature Properties whose values are a function of an input parameter. Typically that parameter is time.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -959,7 +1102,7 @@ GM_Polygons</p>
 <p>The Shape of a Feature is the bounding geometry. Shape tells you nothing about where a Feature is but does specify the volume of the space it occupies.</p>
 </div>
 <div class="paragraph">
-<p><strong>Global and Local coordinate systems</strong></p>
+<p><strong>Coordinate systems</strong></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -967,10 +1110,16 @@ GM_Polygons</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Moving Features deal with two coordinate system. The Global (external) coordinate system is defined for the area external to the Feature. It is mostly used to identify the loctation and orientation of the Feature.</p>
+<p>Moving Features deal with three spatial coordinate systems; External, Global, and Local.</p>
 </div>
 <div class="paragraph">
-<p>The local coordinate system is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where location is measured.</p>
+<p>The External coordinate system is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS.</p>
+</div>
+<div class="paragraph">
+<p>The Global coordinate system is describes the area external to the Feature at a specific time. It is mostly used to identify the loctation and orientation of the Feature in regards to the path (tranjectory) in which it is traveling.</p>
+</div>
+<div class="paragraph">
+<p>The local coordinate system is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where the location and orientation of the Feature is measured.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1012,12 +1161,21 @@ A one parameter set of geometries is defined as "a function f from an interval t
 <div class="sect3">
 <h4 id="_mf_temporaltrajectory"><a class="anchor" href="#_mf_temporaltrajectory"></a>5.2.5. MF_TemporalTrajectory</h4>
 <div class="paragraph">
-<p>A trajectory is a GM_Curve which represents the positions a Moving Feature has or is expected to occupy. A Temporal Trajectory supports operations which will report the properties of the Moving Feature at a specific time. The geometry property is restricted to GM_Point.</p>
+<p>A trajectory is a curve (GM_Curve) which represents the path that a Moving Feature takes as it moves. In other words, it represents the location of the Feature as a function of time.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/MF_Trajectory.png" alt="MF Trajectory">
 </div>
+</div>
+<div class="paragraph">
+<p>A Trajectory has two operations of particular interest; leaf() and leafgeometry(). The parameter for a Temporal Trajectory is always time (TM_Coordinate). One limitation of a trajectory is that it only represents location and orientation.</p>
+</div>
+<div class="paragraph">
+<p>The leaf() operation returns the direct position that the trajectory passes at that value of the trajectory parameter. This is a point on the trajectory GM_Curve geometry. It typically serves as the origin of the Global CRS with the local tangent designating the X axis.</p>
+</div>
+<div class="paragraph">
+<p>The LeafGeometry() operation returns the GM_Point that is at that position on the trajectory. This is the geometry of the Moving Feature expressed in the Local CRS. Since trajectories only convey location, only GM_Point geometries are supported.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1028,128 +1186,53 @@ A one parameter set of geometries is defined as "a function f from an interval t
 </div>
 </div>
 <div class="paragraph">
-<p>A leaf represents the geometry of a Feature as a function of time</p>
-</div>
-<div class="paragraph">
-<p>Each point in the bounding surface is traced across leafs using a temporal trajectory</p>
-</div>
-<div class="paragraph">
-<p>The space occupied by the Feature over time, the sum of all of the leaf geometries, is a Prism.</p>
-</div>
-<div class="paragraph">
-<p>A collection of leafs is a foliation.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>A leaf is the same in both the prism and trajectory model. The difference is in the numbmer of dimensions allowed</p>
-</li>
-<li>
-<p>A prism can be viewed as a volume enclosed by a surface defined by a collection of trajectories</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>This gives up two alternatives. A leaf can store the full geometry as it exists at the specified time. Or, a leaf can generate the geometry from the collection of trajectories.</p>
-</div>
-<div class="paragraph">
-<p>In the first case, the full geometry must be represented in each leaf whether or not it has changed. However, it is most easily represented in local coordinate space so that only actual changes in the shape have to be captured.</p>
-</div>
-<div class="paragraph">
-<p>In the second case intermediate geometries do not have to be captured. The values at a specific time can be calculated from the trajectory curve. However, for a moving feature it becomes necessary to update all fo the trajectories whenever the feature changes location.</p>
+<p>A Prism Geometry provides additional geometric information for a trajectory.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Prism.png" alt="Prism">
+<img src="images/prism.png" alt="prism">
 </div>
 </div>
 <div class="paragraph">
-<p>GeometryAtTime(): The operation "geometryAtTime" shall accept a time in the domain of the prism geometry and return the geometry of the moving feature, as it is at a given time in the global coordinate reference system. This shape might be a realistic rendition of the object, or it may be an iconized rendition of the type of object, as needed by the application. For example, in a simulation a truck might be represented as an icon as opposed to a photorealistic rendition. This allows the application to use the local geometry to convey information such as certainty of identification or feature status through the use of appropriate icons and other portrayal parameters.</p>
+<p>A trajectory provides the location of a Moving Feature as a function of time. Prism Geometry represents the full geometry (location, orientaion, and shape) of the Feature as a function of time.</p>
 </div>
 <div class="paragraph">
-<p><strong>RotationAtTime():</strong> The operation "rotationAtTime" shall accept a time in the domain of the prism geometry and return the rotation matrix that embeds the local geometry into geographic space at a given time (TM_Coordinate). The vectors of the rotation matrix allow the feature to be aligned and scaled as appropriate to the vectors of the global "map" coordinate reference system. Because scale may change in complex ways as a feature moves with respect to a projected coordinate reference system, the rotation matrix may also contain scale factors.</p>
+<p>Like a Temporal Trajectory, a Prism is a subclass of MF_TemporalGeometry. Prisms and Trajectories work together to provide this representation</p>
 </div>
 <div class="paragraph">
-<p><strong>LocalCoordinateSystem():</strong> The operation "localCoordinateSystem" shall return a SC_CRS for the design coordinate reference system in which the moving feature&#8217;s shape is defined.</p>
+<p>The association role "originTrajectory" associates a Temporal Trajectory with a Prism. For any TM_Position, the associated Temporal Trajectory provides the location of the Moving Feature in the Global CRS. This point serves as the origin of the Local CRS.</p>
 </div>
 <div class="paragraph">
-<p><strong>BaseGeometry Attribute:</strong> The attribute "baseGeometry" is the geometry of the moving object in a local rectangular coordinate reference system based on the axis of the object. The object should have a natural up, front and right (cross product of up and front). If the representation to be used is not "centred" on its origin, the application should use an MF_LocalGeometry (7.3) subclass to create a local origin.</p>
+<p>The localCoordinateSystem() operation returns a SC_CRS for the design coordinate reference system in which the moving feature&#8217;s shape is defined.</p>
+</div>
+<div class="paragraph">
+<p>The rotationAtTime() operation accepts a time in the domain of the prism geometry and returns the rotation matrix that embeds the local geometry into geographic space at a given time (TM_Coordinate). The vectors of the rotation matrix allow the feature to be aligned and scaled as appropriate to the vectors of the global coordinate reference system.</p>
+</div>
+<div class="paragraph">
+<p>This one association and two operations provide us with the location, orientation, axis definition, and units of measure needed to define identify the local CRS and to transform geometries between the Local and Global CRS.</p>
+</div>
+<div class="paragraph">
+<p>Finally, the geometryAtTime() operation accepts a time in the domain of the prism geometry and returns the geometry of the moving feature, as it is at a given time in the global coordinate reference system. The return type is a GM_Object so this operation is not limited to points. It is fully capable of representing a 3D surface and volume.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_rigid_vs_plastic"><a class="anchor" href="#_rigid_vs_plastic"></a>5.2.7. Rigid vs. Plastic</h4>
+<h4 id="_non_rigid_bodies"><a class="anchor" href="#_non_rigid_bodies"></a>5.2.7. Non-rigid Bodies</h4>
 <div class="paragraph">
-<p>ISO 19141:2008 states that it "defines a method to describe the geometry of a feature that moves as a rigid body."</p>
-</div>
-<div class="paragraph">
-<p>That may not be a limitation in fact. If our object iS defined by a bounding surface, and that surface is made up of a number of shapes descended from MF_TemporalGeometry, then the surface geometry of our object can change over time. Hence it is not rigid. ISO 19141 can also define deforming (plastic) bodies.</p>
+<p>ISO 19141 only addresses rigid bodies. The shape returned by a geometryAtTime() operation will always be the same. However, it leaves open the opportunity to extend the Moving Feature model to support plastic (non-rigid) objects.</p>
 </div>
 <div class="paragraph">
-<p>ISO 19141 Section 5.1</p>
+<p>ISO 19141 postulates that trajectories can be used to represent non-rigid Features. This requires that each node on the geometry of the surface have its own trajectory. The shape of the Feature is defined by the bundle of trajectories for the surface points.</p>
 </div>
 <div class="paragraph">
-<p>A moving feature can be modelled as a combination of movements. The overall motion can be expressed as the temporal path or trajectory of some reference point on the object (the “origin”), such as its center of gravity. Once the origin’s trajectory has been established, the position along the trajectory can be described using a linear reference system (as defined in ISO 19133). The “parameterization by length” for curves (as defined in ISO 19107) can be used as a simple linear reference if no other is available. The relationship between time (t) and measure value (m) can be represented as the graph of the t→ m function in a plane with coordinates (t, m). This separation of the geometry of the path and the actual “time to position” function allows the moving feature to be tracked along existing geometry.</p>
+<p>An alternate approach is to take advantage of temporal geometry to capture changes in the shape of a Feature as a function of time.</p>
 </div>
 <div class="paragraph">
-<p>Figure 1 illustrates how the concepts of foliation, prism, trajectory, and leaf relate to one another. In this illustration, a 2D rectangle moves and rotates. Each representation of the rectangle at a given time is a leaf. The path traced by each corner point of the rectangle (and by each of its other points) is a trajectory. The set of points contained in all of the leaves, and in all of the trajectories, forms a prism. The set of leaves also forms a foliation.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Foliation.png" alt="Foliation">
-</div>
-</div>
-<div class="paragraph">
-<p>These two object representations, of the path and the position along that path, give the general position of the moving feature. The other variable in describing the position of the feature is the rotation about the chosen reference point. To describe this, a local engineering coordinate system is established using the object reference point as its origin. The geometry of the feature is described in the engineering coordinate system and the real-world orientation of the feature is given by mapping of the local coordinate axes to the global coordinate system (the CRS of the trajectory of the reference point). This can be given as a matrix that maps the unit vectors of the local coordinate system to vectors in the global CRS.</p>
-</div>
-<div class="paragraph">
-<p>If the global CRS and local CRS have the same dimension, then each point within the local CRS can be traced in time through the global CRS by combinations of these various mappings. The map would trace from time (t) to the measure (m) to a position on the reference point&#8217;s path using the LRS. Then using the rotation matrix, the calculated offset from this point gives a direct position in the global CRS.</p>
-</div>
-<div class="paragraph">
-<p>This means that the ‘prism’ of the moving feature (defined as all the points which part of the feature passes through) can be viewed (and calculated to whatever degree of accuracy needed) as a bundle of trajectories of points on the local engineering representation of the feature&#8217;s geometry. If viewed in a 4 dimensional spatiotemporal coordinate system, the points on the feature at different times are different points. Then the preimage of the prism (points on the trajectories augmented by a time coordinate) is a foliation, meaning that there is a complete and separate representation of the geometry of the feature for each specific time (called a “leaf”). These names come from a 3D metaphor of a book, where each page or leaf is a slice of time in the “folio”.</p>
-</div>
-<div class="paragraph">
-<p>This might form the basis for an extension of this standard to non-rigid, mutable objects. Each leaf in the 4D foliation is a separate representation of the object, and by creating methods to describe the change through time of the shape and form of the feature, the existing machinery in this International Standard can be used to place those representations in positions with respect to the global coordinate system.</p>
+<p>There are arguments for and against each approach. And an opportunity to do some valuable work.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_temporal_properties_2"><a class="anchor" href="#_temporal_properties_2"></a>5.3. Temporal Properties</h3>
-<div class="paragraph">
-<p>Proposition: Features can change in state as well at location</p>
-</div>
-<div class="paragraph">
-<p>ISO 19141 introduced the concept of a One Parameter Geometry.</p>
-</div>
-<div class="paragraph">
-<p>MF_OneParamGeometry:</p>
-</div>
-<div class="paragraph">
-<p>A one parameter set of geometries is a function f from an interval t Î [a, b] such that f(t) is a geometry and for each point P Î f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] ® P(t) such that P(t) Î f(t). A leaf of a one parameter set of geometries is the geometry f(t) at a particular value of the parameter. The set of geometries forms a prism that is the set of points in the union of the geometries (or the union of the trajectories).</p>
-</div>
-<div class="paragraph">
-<p>The type "MF_OneParamGeometry" acts as the root classifier for all geometric object classified as one parameter sets of geometric objects. As a one-paramter set, they have "leaf" projections ( for each parameter value.  As geometric objects they act as the infinite union of all their "leaf" (cross sections for each parameter value).</p>
-</div>
-<div class="paragraph">
-<p>According to the Feature Model, geometry is a property of a Feature. Since we have defined MF_OneParamGeometry, it stands to reason that there can be a MF_OneParamProperty. Likewise, there can be a subclass MF_TemporalProperty.</p>
-</div>
-<div class="paragraph">
-<p>Therefore, MF_TemporalProperty can represent any Feature Property which changes with time. The JSON encoding standard for Moving Features provides us whith this capability.</p>
-</div>
-<div class="sect3">
-<h4 id="_temporalproperties_object"><a class="anchor" href="#_temporalproperties_object"></a>5.3.1. TemporalProperties Object</h4>
-<div class="paragraph">
-<p>A TemporalProperties object is a JSON array of ParametricValues objects that groups a collection of dynamic non-spatial attributes and its parametric values with time.</p>
-</div>
-<div class="sect4">
-<h5 id="_parametricvalues_object"><a class="anchor" href="#_parametricvalues_object"></a>ParametricValues Object</h5>
-<div class="paragraph">
-<p>A ParametricValues object is a JSON object that represents a collection of parametric values of dynamic non-spatial attributes that are ascertained at the same times. A parametric value may be a time-varying measure, a sequence of texts, or a sequence of images. Even though the parametric value may depend on the spatiotemporal location, MF-JSON Prism only considers the temporal dependencies of their changes of value.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_articulated_geometries"><a class="anchor" href="#_articulated_geometries"></a>5.4. Articulated Geometries</h3>
+<h3 id="_articulated_geometries"><a class="anchor" href="#_articulated_geometries"></a>5.3. Articulated Geometries</h3>
 <div class="paragraph">
 <p>Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object.</p>
 </div>
@@ -1160,7 +1243,7 @@ A one parameter set of geometries is defined as "a function f from an interval t
 <p>The aggregate as a whole can also move, but that movement becomes more complex. typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature will change as the relative position of the elements change.</p>
 </div>
 <div class="sect3">
-<h4 id="_geopose"><a class="anchor" href="#_geopose"></a>5.4.1. GeoPOSE</h4>
+<h4 id="_geopose"><a class="anchor" href="#_geopose"></a>5.3.1. GeoPOSE</h4>
 <div class="paragraph">
 <p>The Frame Transform is a representation of the transformation taking an Outer Frame coordinate system to an Inner Frame coordinate system. This abstraction is constrained in GeoPose v 1.0 to only allow transformations involving translation and rotation. The intention is to match the usual concept of a pose as a position and orientation. The formalism that expresses a GeoPose Frame Transform is a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.</p>
 </div>
@@ -1184,7 +1267,7 @@ A one parameter set of geometries is defined as "a function f from an interval t
 </div>
 </div>
 <div class="sect3">
-<h4 id="_misb_staging_system"><a class="anchor" href="#_misb_staging_system"></a>5.4.2. MISB Staging System</h4>
+<h4 id="_misb_staging_system"><a class="anchor" href="#_misb_staging_system"></a>5.3.2. MISB Staging System</h4>
 <div class="paragraph">
 <p>MISB 1906 Motion Imagery Metadata (MIMD): Staging System</p>
 </div>
@@ -1295,7 +1378,7 @@ A one parameter set of geometries is defined as "a function f from an interval t
 </div>
 </div>
 <div class="sect3">
-<h4 id="_discussion"><a class="anchor" href="#_discussion"></a>5.4.3. Discussion</h4>
+<h4 id="_discussions"><a class="anchor" href="#_discussions"></a>5.3.3. Discussions</h4>
 <div class="paragraph">
 <p>Quaternions vs. Euler rotations</p>
 </div>
@@ -1319,8 +1402,59 @@ A one parameter set of geometries is defined as "a function f from an interval t
 </ol>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_mass_properties"><a class="anchor" href="#_mass_properties"></a>5.4. Mass Properties</h3>
+<div class="paragraph">
+<p>Consider an articulated vehicle in free-flight. As the components change position, they change the center of mass, priciple axis of rotation, and a number of other mass properties. These changes affect the dynamic behavior of the vehicle. Most designers take great care to assure that problems cannot occur. But that doesn&#8217;t mean we should ignore the issue.</p>
+</div>
+<div class="paragraph">
+<p>Comments?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_temporal_reference_systems"><a class="anchor" href="#_temporal_reference_systems"></a>5.5. Temporal Reference Systems</h3>
+<div class="paragraph">
+<p>Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.</p>
+</div>
+<div class="paragraph">
+<p>Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.</p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time.</p>
+</div>
+<div class="paragraph">
+<p>So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRS. A temporal equivalent to GeoPOSE.</p>
+</div>
+<div class="paragraph">
+<p>Introduce the Timer concept from MISB.</p>
+</div>
+<div class="paragraph">
+<p>Calendars and clocks</p>
+</div>
+<div class="paragraph">
+<p>Local vs "Global" clocks</p>
+</div>
+<div class="paragraph">
+<p>POSIX time is tied to a global datum, a calendar.</p>
+</div>
+<div class="paragraph">
+<p>Local time is tied to a local counter.</p>
+</div>
+<div class="paragraph">
+<p>Analogous to a Spatial Reference System vs. an Engineering CRS.</p>
+</div>
+<div class="paragraph">
+<p>Is there an analog in the temporal world for the CRS transormation model?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dynamic_features_at_relativistic_velocities"><a class="anchor" href="#_dynamic_features_at_relativistic_velocities"></a>5.6. Dynamic Features at Relativistic Velocities</h3>
+<div class="paragraph">
+<p>At very high velocities, measurements between moving features sufer from relativistic effects. The proposition is to build on Minkowski SpaceTime to address these cases.</p>
+</div>
 <div class="sect3">
-<h4 id="_lorentz_transformation"><a class="anchor" href="#_lorentz_transformation"></a>5.4.4. Lorentz Transformation</h4>
+<h4 id="_lorentz_transformation"><a class="anchor" href="#_lorentz_transformation"></a>5.6.1. Lorentz Transformation</h4>
 <div class="paragraph">
 <p>A transformation between two different coordinate frames that move at a constant velocity and are relative to each other.</p>
 </div>
@@ -1354,7 +1488,7 @@ z' = z</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_minkowski_space_time"><a class="anchor" href="#_minkowski_space_time"></a>5.4.5. Minkowski Space Time</h4>
+<h4 id="_minkowski_space_time"><a class="anchor" href="#_minkowski_space_time"></a>5.6.2. Minkowski Space Time</h4>
 <div class="paragraph">
 <p>It is basically a combination of 3-dimensional Euclidean Space and time into a 4-dimensional manifold, where the interval of spacetime that exists between any two events is not dependent on the inertial frame of reference.</p>
 </div>
@@ -1398,391 +1532,9 @@ z' = z</p>
 <div class="paragraph">
 <p>Where v is velocity, and x, y, and z are Cartesian coordinates in 3-dimensional space, and c is the constant representing the universal speed limit, and t is time, the four-dimensional vector v = (ct, x, y, z) = (ct, <strong>r</strong>) is classified according to the sign of (c^2 t^2) − r^2. A vector is <strong>timelike</strong> if (c^2 t^2) &gt; r^2, <strong>spacelike</strong> if (c^2 t^2) &lt; r^2, and <strong>null</strong> or <strong>lightlike</strong> if (c^2 t^2) = r^2. This can be expressed in terms of the sign of η(v, v) as well, which depends on the signature. The classification of any vector will be the same in all frames of reference that are related by a Lorentz transformation (but not by a general Poincaré transformation because the origin may then be displaced) because of the invariance of the interval.</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_complex_articulated_systems"><a class="anchor" href="#_complex_articulated_systems"></a>5.5. Complex Articulated Systems</h3>
-<div class="paragraph">
-<p>This may be a redundant section.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_mass_properties"><a class="anchor" href="#_mass_properties"></a>5.6. Mass Properties</h3>
-<div class="paragraph">
-<p>This may be a redundant section.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_the_problem_of_time"><a class="anchor" href="#_the_problem_of_time"></a>5.7. The Problem of Time</h3>
-<div class="paragraph">
-<p>Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.</p>
-</div>
-<div class="paragraph">
-<p>Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.</p>
-</div>
-<div class="paragraph">
-<p>It&#8217;s only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time.</p>
-</div>
-<div class="paragraph">
-<p>So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRS. A temporal equivalent to GeoPOSE.</p>
-</div>
-<div class="paragraph">
-<p>Introduce the Timer concept from MISB.</p>
-</div>
-<div class="paragraph">
-<p>GM_Object</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Operation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Parameters</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">boundary</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Boundary</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">buffer</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Distance</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">centroid</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">closure</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Complex</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">convexHull</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">coordinateDimension</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Integer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">dimension</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Integer</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">distance</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Distance</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">envelope</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Envelope</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">isCycle</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Boolean</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">isSimple</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Boolean</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">maximalComplex</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">set&lt;GM_Complex&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">mbRegion</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">represenativePoint</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">transform</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SC_CRS</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>MF_OneParamGeometry</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Operation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Parameters</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">leafGeometry</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">prism</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">trajectory</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition, Number</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MF_Trajectory</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>MF_TemporalGeometry</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Operation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Parameters</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">endTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">intersection</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object, TM_Period</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_TemporalGeometry</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">leafGeometry</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">nearestApproach</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object, TM_Period</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Distance, TM_GeometricPrimitive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">startTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">trajectory</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition, TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MF_TemporalTrajectory</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>MF_Trajectory</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Operation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Parameters</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">leaf</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">leafGeometry</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Point</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">parameterToMeasure</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">set&lt;MF_MeasureFunction&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">positionAtParameter</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Number</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MF_PositionExpression</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">prism</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Curve</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>MF_TemporalTrajectory</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Operation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Parameters</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">acceleration</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Vector</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">cumulativeDistanceAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Distance</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">measureAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Measure</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">nearestApproach</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Distance, TM_GeometricPrimitive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">offsetAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Measure</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">pointAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_GeometricPrimitive</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">positionAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">LR_PositionExpression</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">secondaryOffsetAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Vector</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">subTrajectory</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate, TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MF_TemporalTrajectory</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">timeAtCumulativeDistance</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Distance</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_GeometricPrimitive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">timeAtDistance</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Distance</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_GeometricPrimitive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">timeAtPoint</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">DirectPosition</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_GeometricPrimitive</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">timeToDistance</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Curve</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">timeToMeasure</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MF_MeasureFunction</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">velocity</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Vector</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>MF_PrismGeometry</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Operation</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Parameters</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Returns</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">geometryAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">GM_Object</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">localCoordinateSystem</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">SC_CRS</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">rotationAtTime</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">TM_Coordinate</p></td>
-<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">MF_RotationMatrix</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_temporal_reference_systems"><a class="anchor" href="#_temporal_reference_systems"></a>5.8. Temporal Reference Systems</h3>
-<div class="paragraph">
-<p>May be redundant</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_dynamic_features_at_relativistic_velocities"><a class="anchor" href="#_dynamic_features_at_relativistic_velocities"></a>5.9. Dynamic Features at Relativistic Velocities</h3>
-<div class="paragraph">
-<p>At very high velocities, measurements between moving features sufer from relativistic effects. The proposition is to build on Minkowski SpaceTime to address these cases.</p>
-</div>
-<div class="paragraph">
-<p>More to come.</p>
-</div>
 <div style="page-break-after: always;"></div>
 <div style="page-break-after: always;"></div>
+</div>
 </div>
 </div>
 </div>
@@ -1867,7 +1619,7 @@ z' = z</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-03-15 21:50:51 +0100
+Last updated 2022-03-19 01:01:27 +0100
 </div>
 </div>
 </body>

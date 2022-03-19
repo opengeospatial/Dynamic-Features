@@ -1,7 +1,95 @@
+[[terms_and_definitions_section]]
 == Terms and Definitions
 This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this Best Practice.
 
 For the purposes of this document, the following additional terms and definitions apply.
 
-=== *term name*
-text of the definition
+[[base_representation_definition]]
+=== *base representation*
+<moving features〉representation, using a local origin and local ordinate vectors, of a geometric object at a given reference time [ISO 19141:2008, definition 4.1.1]
+
+NOTE 1 A rigid geometric object may undergo translation or rotation, but remains congruent with its base representation.
+
+NOTE 2 The local origin and ordinate vectors establish an engineering coordinate reference system (ISO 19111), also called a local frame or a local Euclidean coordinate system.
+
+[[design_coordinate_reference_system_definition]]
+=== *design coordinate reference system*
+engineering coordinate reference system in which the base representation of a moving object is specified. [ISO 19141:2008, definition 4.1.3]
+
+[[direct_position_definition]]
+=== *direct position*
+DirectPosition object data types hold the coordinates for a position within some coordinate reference system.
+
+[[external_coordinate_reference_system_definition]]
+=== *external coordinate reference system*
+the coordinate reference system in which the geometry of the curve for a trajectory is defined. Usually an earth-fixed geographic CRS. [ISO 19141:2008, derived]
+
+[[feature_definition]]
+=== feature
+abstraction of real world phenomena [ISO 19101:2002, definition 4.11]
+
+NOTE A feature may occur as a type or an instance. Feature type or feature instance shall be used when only one is meant.
+
+[[foliation_definition]]
+=== *foliation*
+one parameter set of geometries such that each point in the prism of the set is in one and only one trajectory and in one and only one leaf [ISO 19141:2008, definition 4.1.8]
+
+[[geometric_object_definition]]
+=== *geometric object*
+spatial object representing a geometric set [ISO 19107:2003, definition 4.47]
+
+[[geometric_primitive_definition]]
+=== *geometric primitive*
+geometric object representing a single, connected, homogeneous element of space [ISO 19107:2003, definition 4.48]
+
+NOTE Geometric primitives are non-decomposed objects that present information about geometric configuration. They include points, curves, surfaces, and solids.
+
+[[global_coordinate_system_definition]]
+=== *global coordinate system* 
+the CRS of the trajectory of the reference point. 
+
+NOTE A global coordinate system is usually in terms of the moving frame of the curve (oriented on the local tangent) or in terms of the external CRS in which the geometry of the curve is defined. [ISO 19141:2008, derived]
+
+[[gm_point_definition]]
+=== *GM_Point*
+GM_Point is the basic data type for a geometric object consisting of one and only one point. That point is represented as a DirectPosition.
+
+[[instant_definition]]
+=== *instant*
+0-dimensional geometric primitive representing position in time [ISO 19108:2002, definition 4.1.17]
+
+[[leaf_definition]]
+=== *leaf*
+<one parameter set of geometries> geometry at a particular value of the parameter [ISO 19141:2008, definition 4.1.12]
+
+[[one_parameter_geometries_set_definition]]
+=== *one parameter set of geometries*
+function f from an interval t ∈ [a, b] such that f(t) is a geometry and for each point P ∈ f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] →P(t) such that P(t) ∈ f(t) [ISO 19141:2008, definition 4.1.15]
+
+EXAMPLE A curve C with constructive parameter t is a one parameter set of points c(t).
+
+[[prism_definition]]
+=== *prism*
+<one parameter set of geometries> set of points in the union of the geometries (or the union of the trajectories) of a one parameter set of geometries [ISO 19141:2008, definition 4.1.18]
+
+NOTE This is a generalization of the concept of a geometric prism that is the convex hull of two congruent polygons in 3D-space. Such polyhedrons can be viewed as a foliation of congruent polygons.
+
+[[temporal_coordinate_system_definition]]
+=== *temporal coordinate system*
+temporal reference system based on an interval scale on which distance is measured as a multiple of a single unit of time [ISO 19108:2002, definition 4.1.31]
+
+[[temporal_position_definition]]
+=== *temporal position*
+location relative to a temporal reference system [ISO 19108:2002, definition 4.1.34]
+
+[[temporal_reference_system_definition]]
+=== *temporal reference system*
+reference system against which time is measured [ISO 19108:2002, definition 4.1.35]
+
+[[trajectory_definition]]
+=== *trajectory*
+path of a moving point described by a one parameter set of points [ISO 19141:2008, definition 4.1.22]
+
+[[vector_definition]]
+=== *vector*
+quantity having direction as well as magnitude [ISO 19123:2005, definition 4.1.43]

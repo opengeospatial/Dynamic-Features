@@ -1,4 +1,26 @@
 === Temporal Reference Systems
 
-May be redundant
+Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.
 
+Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.  
+
+It's only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time. 
+
+So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRS. A temporal equivalent to GeoPOSE.
+
+Introduce the Timer concept from MISB. 
+
+
+
+
+Calendars and clocks
+
+Local vs "Global" clocks
+
+POSIX time is tied to a global datum, a calendar. 
+
+Local time is tied to a local counter. 
+
+Analogous to a Spatial Reference System vs. an Engineering CRS.
+
+Is there an analog in the temporal world for the CRS transormation model?
