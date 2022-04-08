@@ -1,26 +1,75 @@
 === Geometry in 3 Dimensions
 
-*Topic:* Is the OGC geometry model sufficient to support 3D?
+*Topic:* Is the OGC Geometry model sufficient to support 3D?
 
-First we need to define 3D. Our proposed definition is as
-follows:
+==== Feature Model
 
-*3D Feature:* A Feature whos’ geometry is defined by a volume
-enclosed by a boundary surface.
+Before we can discuss geometry, we must first have a conceptual model of the universe. The OGC and ISO TC211 provide that model in ISO 19109. This standard defines the General Feature Model (GFM). The GFM defines the concept of a Feature, its components, and behaviors.
 
-This definition is consistent with ISO 19107. This ISO standard defines both the GM_Object and GM_Boundary classes as root level geometry classes. The association between object and boundary is achieved through the “boundary()” operation on the GM_Object class.
+ISO TC211 defines a Feature as an "Abstraction of real world phenomena" (ISO 19101-1:2014)
+
+A Feature, then, is a high level abstraction for anything that does or could exist in the universe. 
+
+The General Feature Model further refines the concept of a Feature. The following principles are most relevant for this discussion:   
+
+. A Feature can be a FeatureType or an Instance of a FeatureType (AnyFeature).
+. FeatureTypes can form a taxonomy (inheritance)
+. Features possess characteristics (Properties)
+. A Property of a Feature can be an Operation, Attribute, or Association.
+
+image::images/General-Feature-Model-L1.png[]
+
+The resulting model is sufficient to describe a Feature's identity (IdentifiedType), what it is (FeatureType), what it can do (Operations), its observable characterisitics (Attributes), and any associations with other Feature instances.
+
+==== Feature Geometry
+
+The General Feature Model treats geometry as an attribute of the Feature. In addition, it defines three types of attribute which are useful for associating geometry with a Feature in a standard manner: 
+
+* SpatialAttributeType: Geometries (GM_Object) and Topologies (TP_Object)
+* LocationalAttributeType: Named locations, extents, and points.
+* TemporalAttributeType: Temporal objects (TM_Object)
+
+image::images/AttributeTypes.png[]
+
+image::images/SpatialAttributeType.png[]
+
+image::images/LocationalAttributeType.png[]
+
+image::images/TemporalAttributeType.png[]
+
+In our discussion of Dynamic Features, we must allow for Features which are moving through three dimensions and have non-trivial three dimensional shapes. We must also consider that the shape of these objects may change with time. From this we see that the movement of the Feature and the shape of the Feature are two separate properties. 
+
+A measurement of movement would capture changes in location and orientation. Movement is in the eyes of an external observer. Therefore, movement should be specified using a coordinate reference system which is external to the Feature.
+
+The shape of a Feature is independent of its location. A rigid body has the same shape reqardless of where it is or who is observing it. It's geometry should be self-contained. This requires use of an internal coordinate reference system.
+
+This leads up to two postulates:
+
+Postulate 1: The Locational Attribute of a 3D Feature is a GM_Point which locates the origin of the local CRS within an external CRS.
+
+Postulate 2: The Spatial Attribute of a 3D Feature is one or more GM_Objects which define the shape of the Feature in the local coordinate refrence system.
+
+One and two dimensional geometries are well understood. So the locational attribute poses few immediate problems. Three-dimensional shapes are another matter. Particularly if they are free from any bounding surface and capable of movement.
+
+==== 3D Geometry
+
+The applicable OGC/ISO standard for 3D geometries is ISO 19107:2003. While a new version was approved in 2019, it hasn't propagated through the rest of the ISO standards baseline. As a result, 19107:2003 is the most recent implemented version. 
+
+ISO 19107 defines both the GM_Object and GM_Boundary classes as root level geometry classes. The association between GM_Object and GM_Boundary is achieved through the “boundary()” operation on the GM_Object class.
 
 image::images/Geometry_3D.png[]
 
-GM_Object and GM_Boundary are dimensionless. Further refinement is needed to fully define a 3D geometry.
+Therefore, we can describe the shape of a Feature in terms of the space occupied by that Feature and the boundary which encloses that space.
 
-==== Volumetrics
+Postulate 3: A 3D Feature is a Feature whos’ geometry is defined by a volume enclosed by a boundary surface.
 
-Starting with volumetrics, GM_Object is subclassed into GM_Primitive then into GM_Solid.  The “volume()” operation on GM_Solid returns the volume (defined in ISO 19103) associated with a Feature. Thus, ISO 19107 supports the concept of a 3D volume.
+===== Volumetrics
+
+GM_Object is subclassed into GM_Primitive then into GM_Solid.  The “volume()” operation on GM_Solid returns the volume (defined in ISO 19103) associated with a Feature. Thus, ISO 19107 supports the concept of a 3D volume.
 
 Real 3D objects are often not solid. So the 3D model must also support voids, or even entire 3D Features within their interior. GM_Primitive addresses this need through the “interior to” association. The two roles on this association are the containingPrimitive (the GM_Primitive which contains another GM_Primitive) and the containedPrimitive (the GM_Primitive which is contained). This association has proven its worth in 2D space so there is little doubt that it will be just as effective in 3D.
 
-==== Boundaries
+===== Boundaries
 
 A 3D volume is delineated by a bounding surface.  GM_Boundary is the root class for boundaries. The subclass GM_PrimitiveBoundary provides the boundary for GM_Primitives. The GM_PrimitiveBoundary subclass GM_SolidBoundary is defined as the boundary for a GM_Solid.
 
@@ -38,7 +87,7 @@ GM_Polygons
 
 A surface constructed of polygons is an example of Boundary Representation (B-Rep) of a surface. This approach is fundamental to rendering 3D computer graphics. (ref Adam Powers 1981)
 
-==== Closure Surfaces
+====== Closure Surfaces
 
 Some structures, such as a tunnel or overpass, pose difficulties for this geometry model. The boundary surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. This is not always a desireable result. CityGML provides the concept of a "Closure Surface".
 
@@ -48,20 +97,13 @@ image::images/Closure_Surface.png[]
 
 As implemented in CityGML 3.0, the ClosureSurface class has quite an ancestory. We may want to generalize this concept for use outside of CityGML. However, the capabilties provided by the ancestor classes do provide value and may be worth incorporating into a general 3D model.
 
-==== B-Rep
+====== B-Rep
 
 The polyhedral surfaces which bound volumetric shapes are similar to the Boundary Representation (B-Rep) approach used in CAD and computer graphics. B-Rep defines a 3-dimensional surface which serves as the interface between the interior of the volumetric shape and the exterior. This surface is usually defined by a collection of shape elements (polygons) which together form a closed surface. 
 
 https://en.wikipedia.org/wiki/Boundary_representation
 
-==== Point Clouds
+====== Point Clouds
 
 "In addition to the spatial representations defined in the Core module, the geometry of physical spaces and of thematic surfaces can now also be provided by 3D point clouds using MultiPoint geometry. This allows, for example, spatially representing the building hull, a room within a building or a single wall surface just by a point cloud. All thematic feature types including transportation objects, vegetation, city furniture, etc. can also be spatially represented by point clouds. In this way, the ClearanceSpace of a road or railway could, for instance, be modelled directly from the result of a mobile laser scanning campaign. Point clouds can either be included in a CityGML dataset or just reference an external file of some common types such as LAS or LAZ."
-
-==== SPICE
-
-https://naif.jpl.nasa.gov/naif/toolkit.html
-
-This section will contain a discussion of SPICE and how well it aligns with the ISO/OGC concepts.
-
 

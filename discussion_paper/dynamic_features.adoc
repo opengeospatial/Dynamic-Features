@@ -17,7 +17,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   2022-03-18
+|Publication Date:   2022-04-08
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}
 |Internal reference number of this OGC(R) document:    22-005
 |Category: OGC(R) Discussion Paper
@@ -86,21 +86,6 @@ include::clause_5_conventions.adoc[]
 
 include::clause_6_dynamic_features.adoc[]
 
-<<<
-////
-add or remove annexes after "A" as necessary
-
-include::annex-a.adoc[]
-
-<<<
-include::annex-n.adoc[]
-////
-<<<
-////
-Revision History should be the last annex before the Bibliography
-Bibliography should be the last annex
-////
-include::annex-history.adoc[]
-
-<<<
 include::annex-bibliography.adoc[]
+
+include::annex-history.adoc[]
