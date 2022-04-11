@@ -17,7 +17,7 @@ The General Feature Model further refines the concept of a Feature. The followin
 . Features possess characteristics (Properties)
 . A Property of a Feature can be an Operation, Attribute, or Association.
 
-image::images/General-Feature-Model-L1.png[]
+image::./images/General-Feature-Model-L1.png[]
 
 The resulting model is sufficient to describe a Feature's identity (IdentifiedType), what it is (FeatureType), what it can do (Operations), its observable characterisitics (Attributes), and any associations with other Feature instances.
 
@@ -29,13 +29,13 @@ The General Feature Model treats geometry as an attribute of the Feature. In add
 * LocationalAttributeType: Named locations, extents, and points.
 * TemporalAttributeType: Temporal objects (TM_Object)
 
-image::images/AttributeTypes.png[]
+image::./images/AttributeTypes.png[]
 
-image::images/SpatialAttributeType.png[]
+image::./images/SpatialAttributeType.png[]
 
-image::images/LocationalAttributeType.png[]
+image::./images/LocationalAttributeType.png[]
 
-image::images/TemporalAttributeType.png[]
+image::./images/TemporalAttributeType.png[]
 
 In our discussion of Dynamic Features, we must allow for Features which are moving through three dimensions and have non-trivial three dimensional shapes. We must also consider that the shape of these objects may change with time. From this we see that the movement of the Feature and the shape of the Feature are two separate properties. 
 
@@ -57,7 +57,7 @@ The applicable OGC/ISO standard for 3D geometries is ISO 19107:2003. While a new
 
 ISO 19107 defines both the GM_Object and GM_Boundary classes as root level geometry classes. The association between GM_Object and GM_Boundary is achieved through the “boundary()” operation on the GM_Object class.
 
-image::images/Geometry_3D.png[]
+image::./images/Geometry_3D.png[]
 
 Therefore, we can describe the shape of a Feature in terms of the space occupied by that Feature and the boundary which encloses that space.
 
@@ -73,7 +73,7 @@ Real 3D objects are often not solid. So the 3D model must also support voids, or
 
 A 3D volume is delineated by a bounding surface.  GM_Boundary is the root class for boundaries. The subclass GM_PrimitiveBoundary provides the boundary for GM_Primitives. The GM_PrimitiveBoundary subclass GM_SolidBoundary is defined as the boundary for a GM_Solid.
 
-image::images/Boundary_3D.png[]
+image::./images/Boundary_3D.png[]
 
 ISO 19107 goes even farther. A GM_SolidBoundary is composed of both interior and exterior boundaries. These boundaries are defined by the GM_Shell class. Following the class associations we see:
 
@@ -93,7 +93,7 @@ Some structures, such as a tunnel or overpass, pose difficulties for this geomet
 
 A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a single three-dimension entity, even though there is a hole in the bounding surface. 
 
-image::images/Closure_Surface.png[]
+image::./images/Closure_Surface.png[]
 
 As implemented in CityGML 3.0, the ClosureSurface class has quite an ancestory. We may want to generalize this concept for use outside of CityGML. However, the capabilties provided by the ancestor classes do provide value and may be worth incorporating into a general 3D model.
 
