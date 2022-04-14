@@ -1,3 +1,4 @@
+[[moving_features_section]]
 === Moving Features
 
 *Topic:* Is the OGC geometry model sufficient to support 3D Moving Features?
@@ -18,11 +19,13 @@ When dealing with Moving Features, we frequently need to convert coordinates bet
 
 ===== External CRS
 
-The External coordinate system is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS.
+The External coordinate system is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS. For example, WGS 84.
 
 ===== Global CRS
 
 The Global coordinate system is a moving CRS which describes the area external to the Feature at a specific time. Typically the origin is the location of the Feature on the trajectory and the principal axis is the tangent to the trajectory at that point.
+
+Using an aircraft for an example, the origin would be the center of mass, positive X is the magnetic heading, the Z axis is perpendicular to the tangential plane, and the Y axis is on the tangential plane and completes a right-handed coordinate system.
 
 ===== Local CRS
 

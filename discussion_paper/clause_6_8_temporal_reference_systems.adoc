@@ -2,11 +2,49 @@
 
 Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.
 
-Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.  
+Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse (days, weeks, years) degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.  
 
 It's only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time. 
 
 So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRSs. A temporal equivalent to GeoPOSE.
+
+==== ISO 19108
+
+The ISO standard for Temporal Reference Systems is ISO 19108:2006 Geographic Schema - Temporal Schema.
+
+In our discussion of <<moving_features_section,Moving Features>>, we found that time-variant properties of Features were selected using a TM_Coordinate parameter. TM_Coordinate is defined in ISO 19108 and illustrated in Figure ---
+
+image::./images/TM_Coordinate.png[]
+
+From this fiqure we see that a TM_Coordinate is a type of TM_TemporalPosition. And that each TM_TemporalPosition is associated with the TM_ReferenceSystem within which it is measured. So to understand Temporal Reference Systems as defined in ISO 19108, we must explore the capabilites and limits of TM_ReferenceSystem. 
+
+image::./images/TM_ReferenceSystem.png[]
+
+We see from Figure -- that there are four types of TM_ReferenceSystems. Since our concern is with time, not date, the TM_CoordinateSystem and TM_Clock variants are of most interest.
+
+image::./images/TM_CoordinateSystem.png[]
+
+TM_CoordinateSystem is "A system for measuring time on a continuous interval scale using a single standard time interval". The standard time interval is provided through the `interval` attribute. In addition, the `origin` attribute provides a temporal "datum" from which time is measured. Since time is a one-dimensional quantity, the origin and interval are sufficient to define a basic Temporal Coordinate Reference System.
+
+However, TM_CoordinateSystem does have limitations. The transformation operations, for example, only convert to and from DateTime. DateTime is a primitive type defined in ISO 19103. These operations cannot be used to convert from one TM_CoordinateSystem to another. Furthermore. TM_CoordinateSystem does not provide sufficient information to perform these transformations trough an outside service.  
+
+The other alternative is TM_Clock illustrated in Figure --
+
+image::./images/TM_Clock.png[]
+
+TM_Clock is "A system for measuring temporal position within a day". It has an optional `dateBasis` association with a calendar (TM_Calendar).
+
+This combination of classes allows us support high precision local-clock TRS as well as full date-time TRS.
+
+*To be provided* - the main limitation is its close association with TM_Calendar.
+
+At this point it appears that transformations between clocks is not supported by 19108. But there is another avenue we can explore. TM_CoordinateSystem is a subclass of TM_ReferenceSystem. And TM_ReferenceSystem is a subclass of RS_ReferenceSystem. This takes us into ISO 19111: Referencing By Coordinates.
+
+image::images/CoordinateReferenceSystems.png[]
+
+In this figure, we see that a TM_ReferenceSystem is an RS_ReferenceSystem as defined in ISO 19111. But it is not an SC_CRS. As such, it does not inherit the additional properties defined in the subclasses of SC_CRS. But we do have a way out. TM_TemporalCRS (defined in 19111 of all places) is a subclass of both SC_SingleCRS (19111) and TM_ReferenceSystem (19108). So if we want to promote Time to a first-class dimension, then TM_TemporalCRS is a good place to start.
+
+The question is, what do we need from a temporal coordinate reference system?
 
 ==== MISB Timers
 
@@ -22,20 +60,7 @@ While timers T2 and T3 are sufficient for the operation of their associated sens
 
 image::images/MISB_Timer.png[]
 
-Discussion of Timers and how their attributes are used to build a mesh of TRS - similar to GeoPOSE.
+figure -- illustrates the Timer architecture. A Timer is a physical device which provides a time stamp with up to nanosecond precision. The timer is associated with a "Source". The Source specifies how the timer is initallized and any subsequent corrections are applied. Finally, the TimeTransfer pack defines the metadata avaiable to detect and apply any corrections. to the time stamp.
 
-==== Temporal Schema
+The MISB timer concept is specific to the platforms and collection techniques used for Motion Imagery. These can be extended to provide a more general solution.
 
-The ISO standard covering temporal reference sysems is ISO 19108:2002 Geographic Information - Temporal Schema.
-
-Discuss Calendars and clocks
-
-Local vs "Global" clocks
-
-POSIX time is tied to a global datum, a calendar. 
-
-Local time is tied to a local counter. 
-
-Analogous to a Spatial Reference System vs. an Engineering CRS.
-
-Extending TM_Clock and/or TM_coordinateSystem

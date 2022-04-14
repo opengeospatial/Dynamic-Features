@@ -17,7 +17,7 @@
 |[big]*Open Geospatial Consortium*
 |Submission Date: <yyyy-mm-dd>
 |Approval Date:   <yyyy-mm-dd>
-|Publication Date:   2022-04-11
+|Publication Date:   2022-04-13
 |External identifier of this OGC(R) document: http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}
 |Internal reference number of this OGC(R) document:    22-005
 |Category: OGC(R) Discussion Paper
