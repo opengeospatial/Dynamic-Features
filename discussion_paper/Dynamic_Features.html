@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-04-13</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-04-24</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}" class="bare">http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}</a></p></td>
@@ -1421,10 +1421,16 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object.</p>
 </div>
 <div class="paragraph">
-<p>An articulated geometry is such an aggregation where each element has less than 6 degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements.</p>
+<p>An articulated geometry is such an aggregation where each element has one or more but less than 6 degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements.</p>
 </div>
 <div class="paragraph">
-<p>The aggregate as a whole can also move, but that movement becomes more complex. typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature will change as the relative position of the elements change.</p>
+<p>The aggregate as a whole can also move, but that movement becomes more complex. Typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature may change as the relative position of the elements change.</p>
+</div>
+<div class="paragraph">
+<p>Two existing standards address the problem of Articulated Geometries. The MISB Staging System was developed for articulated Motion Imagery capture systems. GeoPOSE also addresses Motion Imagery, but it is more focused on Augmented and Virtual reality.</p>
+</div>
+<div class="paragraph">
+<p>It is not likely that either standard provides a complete solution. Their relative merits and deficiencies are discussed in the <code>Discussion</code> section as well as proposals for work to be done.</p>
 </div>
 <div class="sect3">
 <h4 id="_misb_staging_system"><a class="anchor" href="#_misb_staging_system"></a>5.3.1. MISB Staging System</h4>
@@ -1926,7 +1932,7 @@ z' = z</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-14 02:49:42 +0100
+Last updated 2022-04-24 17:49:47 +0100
 </div>
 </div>
 </body>

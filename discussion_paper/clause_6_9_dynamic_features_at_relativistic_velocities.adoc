@@ -1,28 +1,34 @@
 === Dynamic Features at Relativistic Velocities
 
-At very high velocities, measurements between moving features sufer from relativistic effects. The proposition is to build on Minkowski SpaceTime to address these cases. 
+Newtonian physics, the physics of everyday life, served us well for almost 200 years. By the late 1800's, however, it became clear that something more was needed. 
+
+* Inertial Frame: relative motion with constant velocity
+* Non-Inertial Frame: accelerating, moving in curved paths, rotational motion with constant angular velocity, etc.
 
 ==== Lorentz Transformation
 
-A transformation between two different coordinate frames that move at a constant velocity and are relative to each other.  
+The 1887 aether-wind experiment of Michelson and Morley demonstrated that the speed of light is independent of the reference frame. This ran counter to the contemporary belief in a luminiferous aether which permiates space. According to this theory, the speed of light should be higher for an object moving toward a light source and lower for one moving away.  The Lorentz transformations were the result of attempts by Lorentz and others to explain how the speed of light could be independent of the underlying reference frame without discarding the luminiferous aether. While the aether theory is long discarded, Lorentz Transforms are consistent with Special Relativity which makes them still useful today.
 
-ONly related to changes in inertial reference frames:
+Consider a reference frame 'A' which is moving in respect to an observer at 'B'. Lorentz asserts that 'A' and 'B' measure reality using two different reference frames. Transformation from reference frame 'A' (Fa) to Reference Frame 'B' (Fb) requires a transformation that accounts for the effect of velocity. Central to this transformation is the The Lorentz factor (g) which is defined as:
 
-* Inertial frames - motion with a constant velocity
-* Non-inertial frames - rotational motion with constant angular velocity, acceleration in curved paths.
+ g = 1 / (sqrt(1 - (v^2 / c^2)))
+ 
+In each reference frame, an observer can use a local coordinate system (usually Cartesian coordinates in this context) to measure lengths, and a clock to measure time intervals. An event is something that happens at a point in space at an instant of time, or more formally a point in spacetime. The transformations connect the space and time coordinates of an event as measured by an observer in each frame. 
 
 In the reference frame "F" which is stationary, the coordinate defined are x, y, z, and t.  In another reference frame F' which moves at a velocity v which is relative to F and the observer defines coordinate in the moving reverence frame as x', y', z', t'. In both the reference frames the coordinate axis are parallel and they remain mutually perpedicular.  The relative motion is along the xx' axes. At t = t' = 0, the origins in both reference frames are the same (x,y,z) = (x',y',z') = (0,0,0).
-
-The Lorentz factor g = 1 / (sqrt(1 - (v^2 / c^2)))
 
 x' = g(x-vt)
 t' = g(t-(vx/c^2))
 y' = y
 z' = z
 
+Show how a velocity of 1/2 c will generate space and time contraction.
+
 This is not a complete coordinate transformation since F' has to be rotated and translated so as to be co-linear with F. However, it does add the impact that relative velocity (v) has on the measurements of x and t. In most cases this impact is neglegible (v^2 / c^2 approaches 0).  However, when v is a significant percentage of c it should be applied.
 
 ==== Minkowski Space Time
+
+
 
 It is basically a combination of 3-dimensional Euclidean Space and time into a 4-dimensional manifold, where the interval of spacetime that exists between any two events is not dependent on the inertial frame of reference. 
 
