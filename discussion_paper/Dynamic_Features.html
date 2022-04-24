@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-04-11</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-04-13</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}" class="bare">http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}</a></p></td>
@@ -601,7 +601,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_3d_geometry">5.1.3. 3D Geometry</a></li>
 </ul>
 </li>
-<li><a href="#_moving_features">5.2. Moving Features</a>
+<li><a href="#moving_features_section">5.2. Moving Features</a>
 <ul class="sectlevel3">
 <li><a href="#_coordinate_systems">5.2.1. Coordinate systems</a></li>
 <li><a href="#_coordinate_representation">5.2.2. Coordinate Representation</a></li>
@@ -613,16 +613,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_articulated_geometries">5.3. Articulated Geometries</a>
 <ul class="sectlevel3">
-<li><a href="#_geopose">5.3.1. GeoPOSE</a></li>
-<li><a href="#_misb_staging_system">5.3.2. MISB Staging System</a></li>
+<li><a href="#_misb_staging_system">5.3.1. MISB Staging System</a></li>
+<li><a href="#_geopose">5.3.2. GeoPOSE</a></li>
 <li><a href="#_discussions">5.3.3. Discussions</a></li>
 </ul>
 </li>
 <li><a href="#_mass_properties">5.4. Mass Properties</a></li>
 <li><a href="#_temporal_reference_systems_2">5.5. Temporal Reference Systems</a>
 <ul class="sectlevel3">
-<li><a href="#_misb_timers">5.5.1. MISB Timers</a></li>
-<li><a href="#_temporal_schema">5.5.2. Temporal Schema</a></li>
+<li><a href="#_iso_19108">5.5.1. ISO 19108</a></li>
+<li><a href="#_misb_timers">5.5.2. MISB Timers</a></li>
 </ul>
 </li>
 <li><a href="#_dynamic_features_at_relativistic_velocities">5.6. Dynamic Features at Relativistic Velocities</a>
@@ -1099,7 +1099,7 @@ GM_Polygons</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_moving_features"><a class="anchor" href="#_moving_features"></a>5.2. Moving Features</h3>
+<h3 id="moving_features_section"><a class="anchor" href="#moving_features_section"></a>5.2. Moving Features</h3>
 <div class="paragraph">
 <p><strong>Topic:</strong> Is the OGC geometry model sufficient to support 3D Moving Features?</p>
 </div>
@@ -1130,13 +1130,16 @@ GM_Polygons</p>
 <div class="sect4">
 <h5 id="_external_crs"><a class="anchor" href="#_external_crs"></a>External CRS</h5>
 <div class="paragraph">
-<p>The External coordinate system is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS.</p>
+<p>The External coordinate system is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS. For example, WGS 84.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_global_crs"><a class="anchor" href="#_global_crs"></a>Global CRS</h5>
 <div class="paragraph">
 <p>The Global coordinate system is a moving CRS which describes the area external to the Feature at a specific time. Typically the origin is the location of the Feature on the trajectory and the principal axis is the tangent to the trajectory at that point.</p>
+</div>
+<div class="paragraph">
+<p>Using an aircraft for an example, the origin would be the center of mass, positive X is the magnetic heading, the Z axis is perpendicular to the tangential plane, and the Y axis is on the tangential plane and completes a right-handed coordinate system.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1424,39 +1427,45 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>The aggregate as a whole can also move, but that movement becomes more complex. typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature will change as the relative position of the elements change.</p>
 </div>
 <div class="sect3">
-<h4 id="_geopose"><a class="anchor" href="#_geopose"></a>5.3.1. GeoPOSE</h4>
+<h4 id="_misb_staging_system"><a class="anchor" href="#_misb_staging_system"></a>5.3.1. MISB Staging System</h4>
 <div class="paragraph">
-<p>The Frame Transform is a representation of the transformation taking an Outer Frame coordinate system to an Inner Frame coordinate system. This abstraction is constrained in GeoPose v 1.0 to only allow transformations involving translation and rotation. The intention is to match the usual concept of a pose as a position and orientation. The formalism that expresses a GeoPose Frame Transform is a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.</p>
+<p>The Motion Imagery Standards Board (MISB) develops standards for motion imagery, audio, associated metadata, and their related systems. Exploitation of MISB data requires its precise positioning in space and time. Therefore, a number of MISB standards deal with the derivation of ground coordinates from sensor coordinates.</p>
 </div>
 <div class="paragraph">
-<p>A pose has a valid time (GeoPose_instant)</p>
+<p>Motion Imagery systems are typically complex structures consisting of multiple components each capable of independent motion. Measurements of these motions are in a local coordinate reference system. Conversion of a sensor coordinate requires a series of transformations, starting from the detector and working back through the attached components to a core, geolocated component.</p>
 </div>
 <div class="paragraph">
-<p>Discuss outer frame vs Inner Frame</p>
+<p>Further complicating maters, each component is capable of movement. The transformations are not fixed. They must be calculated from the relative position of each component at the time that the detection was made. This leads to a requirement that for every observation, the relative position of each component of the collecting system must be captured as well.</p>
 </div>
 <div class="paragraph">
-<p>EPSg 4979 is basis for all frames?</p>
+<p>The MISB 1906 Motion Imagery Metadata (MIMD): Staging System standard addresses this requirement. This standard captures the locations, orientations, and kinemantics (velocity, acceleration, etc.) of platforms, gimbals, sensors, sensor elements, geospatial and other points. The locations and orientations are either absolute references to a well-known frame of reference (e.g., WGS84) or relative references to other locations and orientations. Each location and orientation pairing define a “stage” that has the potential to be the frame of reference for another location and orientation. Linking stages together forms the Staging System. The Staging System then defines an ability to describe, in metadata, the physical make-up and configuration of a system and the time varying physical relationships of the system and its sub-system components.</p>
 </div>
 <div class="paragraph">
-<p>insert figure 8</p>
+<p>A UML model for the MISB Staging System is provided in Figure --.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Staging_UML.png" alt="Staging UML">
+</div>
 </div>
 <div class="paragraph">
-<p>Sequence</p>
+<p>This model only addresses a single stage. Non-trivial systems will require multiple stages. These stanges are assembled using the <code>parentStage</code> association of the <code>Stage</code> class. The following three concepts guide the construction of multiple-stage models:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Stage:</strong> a single frame of reference located at a point. It defines the location, orientation, and kinemantics of a coordinate system located at that point. These properties can be defined in terms of absolute values, or as relative values measured from an "parent" reference system.</p>
+</li>
+<li>
+<p><strong>Constellation:</strong> A system of one or more stages where the parent-child relationships between the stages is sufficient to calculate the absolute values for every stage.</p>
+</li>
+<li>
+<p><strong>Root Stage:</strong> This is the starting point for a Constellation. This stage is expressed in absolute values (AbsGeocentric or AbsGeodetic).</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>The sequence logical model defines a method for packaging of GeoPose data, where multipleGeoPoses in a sequence share the same Outer Frame and there is a time-dependent changing Inner Frame.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_misb_staging_system"><a class="anchor" href="#_misb_staging_system"></a>5.3.2. MISB Staging System</h4>
-<div class="paragraph">
-<p>MISB 1906 Motion Imagery Metadata (MIMD): Staging System</p>
-</div>
-<div class="paragraph">
-<p>"The Motion Imagery Metadata (MIMD) Model includes locations, orientations, and kinematics (velocity, acceleration, etc.) of platforms, gimbals, sensors, sensor elements, geospatial and other points. The locations and orientations are either absolute references to a well-known frame of reference (e.g., WGS84) or relative references to other locations and orientations. Each location and orientation pairing define a “stage” that has the potential to be the frame of reference for another location and orientation. Linking stages together forms the Staging System. The Staging System then defines an ability to describe, in metadata, the physical make-up and configuration of a system and the time varying physical relationships of the system and its sub-system components."</p>
-</div>
-<div class="paragraph">
-<p>The MISB Staging System was designed to capture the instateneous configuration of an articulated sensor system.</p>
+<p>An example articulated motion imagery system is illustrated in Figure --. The stages which describe this system are described in Table ---.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1466,15 +1475,6 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <div class="paragraph">
 <p>Example Motion Imagery System with Multiple Sensors and Gimbals
 (Photo credit White Sands Missile Range)</p>
-</div>
-<div class="paragraph">
-<p>Stage: a single frame of reference located at a point. It defines the location, orientation, and kinemantics of a coordinate system located at that point. These properties can be defined in terms of absolute values, or as relative values measured from an "parent" reference system.</p>
-</div>
-<div class="paragraph">
-<p>Constellation: A system of one or more stages where the parent-child relationships between the stages is sufficient to calculate the absolute values for every stage.</p>
-</div>
-<div class="paragraph">
-<p>Root Stage: This is the starting point for a Constellation. This stage is expressed in absolute values.</p>
 </div>
 <table id="lp-resources-table" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 1. Stage System Example</caption>
@@ -1549,13 +1549,78 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <div class="paragraph">
 <p>The Staging System standardizes rotations to use a specific order of rotations. The Staging System uses Tait-Bryan angles with a Primary Rotation Order of Z-Y-X (see Appendix C); thereby the first rotation is around the Z-axis, the second rotation is around the new Y-axis (after rotation around the Z-axis), the final rotation is around the new X-axis (after rotation around the Z and then Y axes).</p>
 </div>
+<div class="paragraph">
+<p>The Staging system does not explicity address temporality. However, this information is passed in the MISB KLV metadata stream. As such, each update is associated with the precision time stamp of that packet.  In addition, an update can be associated with a Timer as described in section ----</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_geopose"><a class="anchor" href="#_geopose"></a>5.3.2. GeoPOSE</h4>
+<div class="paragraph">
+<p>GeoPOSE is a proposed OGC standard which provides a general purpose alternative to the MISB Staging System.</p>
+</div>
+<div class="paragraph">
+<p>This standard deals with the location and orientation of real or virtual geometric objects (Poses) an the aggregation of Poses into more complex structures.</p>
+</div>
+<div class="sect4">
+<h5 id="_core"><a class="anchor" href="#_core"></a>Core</h5>
+<div class="paragraph">
+<p>A UML model for the core GeoPOSE concepts is provided in figure ---</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Staging_UML.png" alt="Staging UML">
+<img src="./images/GeoPOSE_Core.png" alt="GeoPOSE Core">
 </div>
 </div>
 <div class="paragraph">
-<p>The Staging system does not explicity address temporality. However, this information is passed in the MISB KLV metadata stream. As such, each update is associated with the precision time stamp of that packet.  In addition, an update can be associated with a Timer as described in section ----</p>
+<p>The key element in this model is the <code>FrameTransformation</code> class. This class expresses a transform between a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.</p>
+</div>
+<div class="paragraph">
+<p>The Frame Transform is a representation of the transformation taking an Outer Frame coordinate system to an Inner Frame coordinate system. GeoPose v 1.0 supports transformations involving translation and rotation. The intention is to match the usual concept of a pose as a position and orientation.</p>
+</div>
+<div class="paragraph">
+<p>Outer and Inner Frames are subclasses of the Frame Class. Frame provides a standard means of describing transforms for several common coordinate reference systems as well as a generic model.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_time"><a class="anchor" href="#_time"></a>Time</h5>
+<div class="paragraph">
+<p>The GeoPOSE time model is rather simple. It does away with calendard and restricts time positions to milliseconds of UNIX Time.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/GeoPOSE_Time.png" alt="GeoPOSE Time">
+</div>
+</div>
+<div class="paragraph">
+<p>The most important classes are GeoPose_Instant (a single point in time) and GeoPose_Duration (a period of time).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sequence"><a class="anchor" href="#_sequence"></a>Sequence</h5>
+<div class="paragraph">
+<p>The sequence logical model defines a method for the packaging of GeoPose data, where multiple GeoPoses in a sequence share the same Outer Frame and there is a time-dependent changing Inner Frame.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/GeoPOSE_Sequence.png" alt="GeoPOSE Sequence">
+</div>
+</div>
+<div class="paragraph">
+<p>The GeoPOSE Standard provides three models for packaging a collection of Inner Frames.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Stream: the Inner Frame definition (Frame) and an associated time stamp are delivered sequentially.</p>
+</li>
+<li>
+<p>Reqular Series: the Inner Frame definitions are delivered as a sequence, separated by a fixed time interval.</p>
+</li>
+<li>
+<p>Irregular Series: the Inner Frame definitions and associated time stamps are delivered as a collection. There is no explicit spatial or temporal order to the frames.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1564,7 +1629,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>Quaternions vs. Euler rotations</p>
 </div>
 <div class="paragraph">
-<p>Temporal representation</p>
+<p>Temporal representation - Unix time vs the Timer model.</p>
 </div>
 <div class="paragraph">
 <p>Standarize on a right-handed Cartisian coorinate system for all stages/Poses?</p>
@@ -1599,7 +1664,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.</p>
 </div>
 <div class="paragraph">
-<p>Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.</p>
+<p>Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse (days, weeks, years) degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.</p>
 </div>
 <div class="paragraph">
 <p>It&#8217;s only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time.</p>
@@ -1608,7 +1673,74 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRSs. A temporal equivalent to GeoPOSE.</p>
 </div>
 <div class="sect3">
-<h4 id="_misb_timers"><a class="anchor" href="#_misb_timers"></a>5.5.1. MISB Timers</h4>
+<h4 id="_iso_19108"><a class="anchor" href="#_iso_19108"></a>5.5.1. ISO 19108</h4>
+<div class="paragraph">
+<p>The ISO standard for Temporal Reference Systems is ISO 19108:2006 Geographic Schema - Temporal Schema.</p>
+</div>
+<div class="paragraph">
+<p>In our discussion of <a href="#moving_features_section">Moving Features</a>, we found that time-variant properties of Features were selected using a TM_Coordinate parameter. TM_Coordinate is defined in ISO 19108 and illustrated in Figure ---</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/TM_Coordinate.png" alt="TM Coordinate">
+</div>
+</div>
+<div class="paragraph">
+<p>From this fiqure we see that a TM_Coordinate is a type of TM_TemporalPosition. And that each TM_TemporalPosition is associated with the TM_ReferenceSystem within which it is measured. So to understand Temporal Reference Systems as defined in ISO 19108, we must explore the capabilites and limits of TM_ReferenceSystem.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/TM_ReferenceSystem.png" alt="TM ReferenceSystem">
+</div>
+</div>
+<div class="paragraph">
+<p>We see from Figure&#8201;&#8212;&#8201;that there are four types of TM_ReferenceSystems. Since our concern is with time, not date, the TM_CoordinateSystem and TM_Clock variants are of most interest.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/TM_CoordinateSystem.png" alt="TM CoordinateSystem">
+</div>
+</div>
+<div class="paragraph">
+<p>TM_CoordinateSystem is "A system for measuring time on a continuous interval scale using a single standard time interval". The standard time interval is provided through the <code>interval</code> attribute. In addition, the <code>origin</code> attribute provides a temporal "datum" from which time is measured. Since time is a one-dimensional quantity, the origin and interval are sufficient to define a basic Temporal Coordinate Reference System.</p>
+</div>
+<div class="paragraph">
+<p>However, TM_CoordinateSystem does have limitations. The transformation operations, for example, only convert to and from DateTime. DateTime is a primitive type defined in ISO 19103. These operations cannot be used to convert from one TM_CoordinateSystem to another. Furthermore. TM_CoordinateSystem does not provide sufficient information to perform these transformations trough an outside service.</p>
+</div>
+<div class="paragraph">
+<p>The other alternative is TM_Clock illustrated in Figure&#8201;&#8212;&#8201;</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/TM_Clock.png" alt="TM Clock">
+</div>
+</div>
+<div class="paragraph">
+<p>TM_Clock is "A system for measuring temporal position within a day". It has an optional <code>dateBasis</code> association with a calendar (TM_Calendar).</p>
+</div>
+<div class="paragraph">
+<p>This combination of classes allows us support high precision local-clock TRS as well as full date-time TRS.</p>
+</div>
+<div class="paragraph">
+<p><strong>To be provided</strong> - the main limitation is its close association with TM_Calendar.</p>
+</div>
+<div class="paragraph">
+<p>At this point it appears that transformations between clocks is not supported by 19108. But there is another avenue we can explore. TM_CoordinateSystem is a subclass of TM_ReferenceSystem. And TM_ReferenceSystem is a subclass of RS_ReferenceSystem. This takes us into ISO 19111: Referencing By Coordinates.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CoordinateReferenceSystems.png" alt="CoordinateReferenceSystems">
+</div>
+</div>
+<div class="paragraph">
+<p>In this figure, we see that a TM_ReferenceSystem is an RS_ReferenceSystem as defined in ISO 19111. But it is not an SC_CRS. As such, it does not inherit the additional properties defined in the subclasses of SC_CRS. But we do have a way out. TM_TemporalCRS (defined in 19111 of all places) is a subclass of both SC_SingleCRS (19111) and TM_ReferenceSystem (19108). So if we want to promote Time to a first-class dimension, then TM_TemporalCRS is a good place to start.</p>
+</div>
+<div class="paragraph">
+<p>The question is, what do we need from a temporal coordinate reference system?</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_misb_timers"><a class="anchor" href="#_misb_timers"></a>5.5.2. MISB Timers</h4>
 <div class="paragraph">
 <p>Timing is critical for motion imagery. Not only are accurate time stamps essential for the smooth viewing of the images, they are even more critical for the accuracy of data derived from that imagery. Proper geolocation of a moving image, for example, requires nano-precision time stamps.</p>
 </div>
@@ -1632,31 +1764,10 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 </div>
 </div>
 <div class="paragraph">
-<p>Discussion of Timers and how their attributes are used to build a mesh of TRS - similar to GeoPOSE.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_temporal_schema"><a class="anchor" href="#_temporal_schema"></a>5.5.2. Temporal Schema</h4>
-<div class="paragraph">
-<p>The ISO standard covering temporal reference sysems is ISO 19108:2002 Geographic Information - Temporal Schema.</p>
+<p>figure&#8201;&#8212;&#8201;illustrates the Timer architecture. A Timer is a physical device which provides a time stamp with up to nanosecond precision. The timer is associated with a "Source". The Source specifies how the timer is initallized and any subsequent corrections are applied. Finally, the TimeTransfer pack defines the metadata avaiable to detect and apply any corrections. to the time stamp.</p>
 </div>
 <div class="paragraph">
-<p>Discuss Calendars and clocks</p>
-</div>
-<div class="paragraph">
-<p>Local vs "Global" clocks</p>
-</div>
-<div class="paragraph">
-<p>POSIX time is tied to a global datum, a calendar.</p>
-</div>
-<div class="paragraph">
-<p>Local time is tied to a local counter.</p>
-</div>
-<div class="paragraph">
-<p>Analogous to a Spatial Reference System vs. an Engineering CRS.</p>
-</div>
-<div class="paragraph">
-<p>Extending TM_Clock and/or TM_coordinateSystem</p>
+<p>The MISB timer concept is specific to the platforms and collection techniques used for Motion Imagery. These can be extended to provide a more general solution.</p>
 </div>
 </div>
 </div>
@@ -1815,7 +1926,7 @@ z' = z</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-11 20:17:15 +0100
+Last updated 2022-04-14 02:49:42 +0100
 </div>
 </div>
 </body>
