@@ -1,3 +1,7 @@
 == Scope
 
-Moving Feature standards and technologies have made considerable progress. It is time to evaluate the foundations of OGC standards to determine if they are sufficient to support current and future Moving Feature standards. This discussion paper examines ISO and OGC standards against current and anticipated future needs. It also examines other standards and conventions which may be useful for enhancing the OGC/ISO foundation.
+Moving Feature standards and technologies have made considerable progress in recent years. As they mature, implementations will move beyond our traditional Earth-centric framework. Extraterrestrial, deep space, and even virtual deployment environments must be considered.   
+
+This paper focuses on Features which have a full three-dimensional geometry and are capable of movement, potentially at very high velocities. In addition, these Features may be independent of the Earth. WGS-84 and the Gregorian Calender have little relevance to a Feature flying through the Oort Cloud. Even less so for Features in artificial virtual worlds. Features with this expanded scope challenge the assumptions underlying both the OGC and ISO TC211 standards. 
+
+This paper provides an analysis of the existing OGC Standards baseline, seeking to assess how well it supports these new deployments and identifies any future work required.

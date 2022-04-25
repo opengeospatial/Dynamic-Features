@@ -41,15 +41,17 @@ In our discussion of Dynamic Features, we must allow for Features which are movi
 
 A measurement of movement would capture changes in location and orientation. Movement is in the eyes of an external observer. Therefore, movement should be specified using a coordinate reference system which is external to the Feature.
 
-The shape of a Feature is independent of its location. A rigid body has the same shape reqardless of where it is or who is observing it. It's geometry should be self-contained. This requires use of an internal coordinate reference system.
+The shape of a Feature is independent of its location. A rigid body has the same shape regardless of where it is or who is observing it. It's geometry should be self-contained. This requires use of an internal coordinate reference system.
 
 This leads up to two postulates:
 
-Postulate 1: The Locational Attribute of a 3D Feature is a GM_Point which locates the origin of the local CRS within an external CRS.
+Postulate 1: The Locational Attribute of a 3D Feature is a GM_Point which locates the origin of the local CRS within an <<external_coordinate_reference_system_definition,external CRS>>.
 
-Postulate 2: The Spatial Attribute of a 3D Feature is one or more GM_Objects which define the shape of the Feature in the local coordinate refrence system.
+Postulate 2: The Spatial Attribute of a 3D Feature is one or more GM_Objects which define the shape of the Feature in the <<local_coordinate_reference_system_definition,local coordinate refrence system>>.
 
 One and two dimensional geometries are well understood. So the locational attribute poses few immediate problems. Three-dimensional shapes are another matter. Particularly if they are free from any bounding surface and capable of movement.
+
+NOTE: The Locational attribute only specifies the location of the Local CRS. It does not address the orientation of that CRS.
 
 ==== 3D Geometry
 
@@ -61,7 +63,9 @@ image::./images/Geometry_3D.png[]
 
 Therefore, we can describe the shape of a Feature in terms of the space occupied by that Feature and the boundary which encloses that space.
 
-Postulate 3: A 3D Feature is a Feature whos’ geometry is defined by a volume enclosed by a boundary surface.
+Postulate 3: A 3D Feature is a Feature who's geometry is defined by a volume enclosed by a boundary surface.
+
+NOTE: CityGML 3.0 is a good example of the use of 3D geometries.
 
 ===== Volumetrics
 
@@ -91,7 +95,7 @@ A surface constructed of polygons is an example of Boundary Representation (B-Re
 
 Some structures, such as a tunnel or overpass, pose difficulties for this geometry model. The boundary surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. This is not always a desireable result. CityGML provides the concept of a "Closure Surface".
 
-A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a single three-dimension entity, even though there is a hole in the bounding surface. 
+A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a three-dimension solid, even though there is a hole in the bounding surface. 
 
 image::./images/Closure_Surface.png[]
 
@@ -105,5 +109,5 @@ https://en.wikipedia.org/wiki/Boundary_representation
 
 ====== Point Clouds
 
-"In addition to the spatial representations defined in the Core module, the geometry of physical spaces and of thematic surfaces can now also be provided by 3D point clouds using MultiPoint geometry. This allows, for example, spatially representing the building hull, a room within a building or a single wall surface just by a point cloud. All thematic feature types including transportation objects, vegetation, city furniture, etc. can also be spatially represented by point clouds. In this way, the ClearanceSpace of a road or railway could, for instance, be modelled directly from the result of a mobile laser scanning campaign. Point clouds can either be included in a CityGML dataset or just reference an external file of some common types such as LAS or LAZ."
+Boundary surfaces can also be defined using 3D point clouds. This allows the spatial represention a bounding surface by a set of points located on that surface. In this way, the geometry of a Feature could, for instance, be modelled directly from the result of a mobile laser scanning campaign. 
 

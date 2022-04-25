@@ -1,0 +1,11 @@
+[[recommendations_section]]
+=== Discussions and Recommendations
+
+TBD
+
+Quaternions vs. Euler rotations
+
+Temporal representation - Unix time vs the Timer model.
+
+Standarize on a right-handed Cartisian coorinate system for all stages/Poses?
+

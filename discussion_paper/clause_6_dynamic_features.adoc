@@ -13,4 +13,3 @@ include::clause_6_6_mass_properties.adoc[]
 include::clause_6_8_temporal_reference_systems.adoc[]
 
 include::clause_6_9_dynamic_features_at_relativistic_velocities.adoc[]
-

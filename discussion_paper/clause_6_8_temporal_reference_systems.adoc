@@ -4,7 +4,7 @@ Proposition: Time is in the eye of the beholder.  So all measurements of time mu
 
 Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse (days, weeks, years) degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.  
 
-It's only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time. 
+It's only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another than to convert to an absolute time. 
 
 So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRSs. A temporal equivalent to GeoPOSE.
 
@@ -32,11 +32,21 @@ The other alternative is TM_Clock illustrated in Figure --
 
 image::./images/TM_Clock.png[]
 
-TM_Clock is "A system for measuring temporal position within a day". It has an optional `dateBasis` association with a calendar (TM_Calendar).
+TM_Clock is "A system for measuring temporal position within a day". It has an optional `dateBasis` association with a calendar (TM_Calendar) class. This allows a TM_Clock to be associated with a TM_Calendar to create a full date-time reference system.
 
-This combination of classes allows us support high precision local-clock TRS as well as full date-time TRS.
+TM_Clock posesses the following attributes and operations:
 
-*To be provided* - the main limitation is its close association with TM_Calendar.
+* referenceEvent - The name or description of an event, such as solar noon or sunrise, which fixes the position of the base scale of the clock.
+* referenceTime - The time of day associated with the referenceEvent, expressed as time on this TM_Clock.
+* utcReference - The time of day associated with the referenceEvent expressed as a time in UTC or a related standard time.
+* clkTrans() - This operation accepts a time expressed in UTC and returns a time expressed in this TM_Clock.
+* utcTrans() - This operation accepts a time of day on TM_Clock and returns a time expressed as UTC or a related standard time.
+
+The referenceEvent and referenceTime attributes are particularly interesting. Since these are not restricted in scope, they can be used to define a temporal reference system with an arbitrary origin. For example, an airborn Motion Imagery collection mission can set the referenceEvent value to "takeoff" and the referenceTime to the value of the internal clock when the wheels left the runway.
+
+Furthermore, the attributes and operation parameters for TM_Clock are almost exclusively TM_ClockTime classes. A TM_ClockTime is the "time of day measured in a time keeping system other than UTC." Its sole attribute, clkTime, is a sequence of numbers. A suitable representation for a local nanosecond clock.
+
+This combination of classes allows us support high precision local-clock TRS as well as full date-time TRS. The only issue is that support for UTC time is required, even for non-terrestrial clocks.
 
 At this point it appears that transformations between clocks is not supported by 19108. But there is another avenue we can explore. TM_CoordinateSystem is a subclass of TM_ReferenceSystem. And TM_ReferenceSystem is a subclass of RS_ReferenceSystem. This takes us into ISO 19111: Referencing By Coordinates.
 
@@ -60,7 +70,7 @@ While timers T2 and T3 are sufficient for the operation of their associated sens
 
 image::images/MISB_Timer.png[]
 
-figure -- illustrates the Timer architecture. A Timer is a physical device which provides a time stamp with up to nanosecond precision. The timer is associated with a "Source". The Source specifies how the timer is initallized and any subsequent corrections are applied. Finally, the TimeTransfer pack defines the metadata avaiable to detect and apply any corrections. to the time stamp.
+figure -- illustrates the Timer architecture. A Timer is a physical device which provides a time stamp with up to nanosecond precision. The timer is associated with a "Source". The Source specifies how the timer is initallized and how any subsequent corrections are applied. Finally, the TimeTransfer pack defines the metadata available to detect and apply any corrections to the time stamp.
 
 The MISB timer concept is specific to the platforms and collection techniques used for Motion Imagery. These can be extended to provide a more general solution.
 

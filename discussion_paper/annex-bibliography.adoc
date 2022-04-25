@@ -1,6 +1,6 @@
 [appendix]
 :appendix-caption: Annex
-[[Bibliography_section]]
+[[bibliography_section]]
 = Bibliography
 
 Hughes, P. :Spacecraft Attitude Dynamics, Dover Publications Inc. 2024

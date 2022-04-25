@@ -2,7 +2,7 @@
 
 Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object. 
 
-An articulated geometry is such an aggregation where each element has one or more but less than 6 degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements. 
+An articulated geometry is such an aggregation where each element has one (1) to six (6) degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements. 
 
 The aggregate as a whole can also move, but that movement becomes more complex. Typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature may change as the relative position of the elements change. 
 
@@ -16,7 +16,7 @@ The Motion Imagery Standards Board (MISB) develops standards for motion imagery,
 
 Motion Imagery systems are typically complex structures consisting of multiple components each capable of independent motion. Measurements of these motions are in a local coordinate reference system. Conversion of a sensor coordinate requires a series of transformations, starting from the detector and working back through the attached components to a core, geolocated component.
 
-Further complicating maters, each component is capable of movement. The transformations are not fixed. They must be calculated from the relative position of each component at the time that the detection was made. This leads to a requirement that for every observation, the relative position of each component of the collecting system must be captured as well. 
+Further complicating maters, each component is capable of movement. The transformations are not fixed. They must be calculated from the relative position of each component at the time that the detection was made. This leads to a requirement that for every observation, the relative position and orientation of each component of the collecting system must be captured as well. 
 
 The MISB 1906 Motion Imagery Metadata (MIMD): Staging System standard addresses this requirement. This standard captures the locations, orientations, and kinemantics (velocity, acceleration, etc.) of platforms, gimbals, sensors, sensor elements, geospatial and other points. The locations and orientations are either absolute references to a well-known frame of reference (e.g., WGS84) or relative references to other locations and orientations. Each location and orientation pairing define a “stage” that has the potential to be the frame of reference for another location and orientation. Linking stages together forms the Staging System. The Staging System then defines an ability to describe, in metadata, the physical make-up and configuration of a system and the time varying physical relationships of the system and its sub-system components. 
 
@@ -57,17 +57,15 @@ The Staging System’s absolute positions use either WGS84 Ellipsoid angular coo
 
 The Staging System’s relative positions use Cartesian coordinates (i.e., x, y, z) measured in meters from the parent stage frame of reference.
 
-The Staging System’s orientations use Euler rotations, measured in radians, around three axes (X, Y, and Z) of a righthanded coordinate system. The Staging System’s absolute orientation has the X, Y, and Z axes aligned with the East, North, and Up (ENU) respectively.
+The Staging System’s orientations use Euler rotations, measured in radians, around three axes (X, Y, and Z) of a righthanded coordinate system. The Staging System’s absolute orientation has the X, Y, and Z axes aligned with the East, North, and Up (ENU) axis respectively.
 
-The Staging System standardizes rotations to use a specific order of rotations. The Staging System uses Tait-Bryan angles with a Primary Rotation Order of Z-Y-X (see Appendix C); thereby the first rotation is around the Z-axis, the second rotation is around the new Y-axis (after rotation around the Z-axis), the final rotation is around the new X-axis (after rotation around the Z and then Y axes).
+The Staging System standardizes rotations to use a specific order of rotations. The Staging System uses Tait-Bryan angles with a Primary Rotation Order of Z-Y-X. The first rotation is around the Z-axis, the second rotation is around the new Y-axis (after rotation around the Z-axis), the final rotation is around the new X-axis (after rotation around the Z and then Y axes).
 
 The Staging system does not explicity address temporality. However, this information is passed in the MISB KLV metadata stream. As such, each update is associated with the precision time stamp of that packet.  In addition, an update can be associated with a Timer as described in section ----
 
 ==== GeoPOSE
 
-GeoPOSE is a proposed OGC standard which provides a general purpose alternative to the MISB Staging System.
-
-This standard deals with the location and orientation of real or virtual geometric objects (Poses) an the aggregation of Poses into more complex structures.
+GeoPOSE is a proposed OGC standard which provides a general purpose alternative to the MISB Staging System. This standard deals with the location and orientation of real or virtual geometric objects (Poses) and the aggregation of Poses into more complex structures.
 
 ===== Core
 
@@ -75,15 +73,15 @@ A UML model for the core GeoPOSE concepts is provided in figure ---
 
 image::./images/GeoPOSE_Core.png[]
 
-The key element in this model is the `FrameTransformation` class. This class expresses a transform between a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.
+The key element in this model is the `FrameTransform` class. This class expresses a transform between a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.
  
 The Frame Transform is a representation of the transformation taking an Outer Frame coordinate system to an Inner Frame coordinate system. GeoPose v 1.0 supports transformations involving translation and rotation. The intention is to match the usual concept of a pose as a position and orientation. 
 
-Outer and Inner Frames are subclasses of the Frame Class. Frame provides a standard means of describing transforms for several common coordinate reference systems as well as a generic model.  
+Outer and Inner Frames are subclasses of the the Frame Class. The Frame class provides a standard means of describing transforms for several common coordinate reference systems. Subclasses of the Frame class also include a model for generic reference frames.  
 
 ===== Time
 
-The GeoPOSE time model is rather simple. It does away with calendard and restricts time positions to milliseconds of UNIX Time. 
+The GeoPOSE time model is rather simple. It does away with calender and restricts time positions to milliseconds of UNIX Time. 
 
 image::./images/GeoPOSE_Time.png[]
 
@@ -91,11 +89,11 @@ The most important classes are GeoPose_Instant (a single point in time) and GeoP
 
 ===== Sequence
 
-The sequence logical model defines a method for the packaging of GeoPose data, where multiple GeoPoses in a sequence share the same Outer Frame and there is a time-dependent changing Inner Frame.
+The sequence logical model defines methods for packaging GeoPose transformations. It addresses the need to integrate multiple GeoPoses which share the same Outer Frame and posess a time-dependent changing Inner Frame.
 
 image::./images/GeoPOSE_Sequence.png[]
 
-The GeoPOSE Standard provides three models for packaging a collection of Inner Frames.
+The GeoPOSE Standard provides three models for organizing a collection of Inner Frames.
 
 * Stream: the Inner Frame definition (Frame) and an associated time stamp are delivered sequentially.
 
@@ -105,14 +103,11 @@ The GeoPOSE Standard provides three models for packaging a collection of Inner F
 
 ==== Discussions
 
-Quaternions vs. Euler rotations
+Both models express some common concepts:
 
-Temporal representation - Unix time vs the Timer model.
+. There is an "anchor" node which ties the local coordinates to an absolute (external) CRS.
+. Coordinates in one Local coordinate system can be transformed to another through standardized transformations.
+. Local coordinate reference systems are not pre-defined. Sufficient information is defined to describe the transformation between any two arbitrary local coordinate systems.
 
-Standarize on a right-handed Cartisian coorinate system for all stages/Poses?
 
-Common concepts:
-
-. An "anchor" node which ties the relative coordinates to an absolute CRS
-. Local coordinate systems associated with each other through standardized transformations
 

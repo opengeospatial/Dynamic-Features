@@ -19,17 +19,17 @@ When dealing with Moving Features, we frequently need to convert coordinates bet
 
 ===== External CRS
 
-The External coordinate system is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS. For example, WGS 84.
+The <<external_coordinate_reference_system_definition,External coordinate system>> is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS. For example, WGS 84.
 
 ===== Global CRS
 
-The Global coordinate system is a moving CRS which describes the area external to the Feature at a specific time. Typically the origin is the location of the Feature on the trajectory and the principal axis is the tangent to the trajectory at that point.
+The <<global_coordinate_reference_system_definition,Global coordinate system>> is a moving CRS which describes the area external to the Feature at a specific time. Typically the origin is the location of the Feature on the trajectory and the principal axis is the tangent to the trajectory at that point.
 
 Using an aircraft for an example, the origin would be the center of mass, positive X is the magnetic heading, the Z axis is perpendicular to the tangential plane, and the Y axis is on the tangential plane and completes a right-handed coordinate system.
 
 ===== Local CRS
 
-The local coordinate system is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where the location and orientation of the Feature is measured.
+The <<local_coordinate_reference_system_definition,local coordinate system>> is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where the location and orientation of the Feature is measured.
 
 ===== Temporal Reference Systems
 
@@ -47,7 +47,7 @@ This combination of classes allows us support high precision local-clock TRS as 
 
 ==== Coordinate Representation
 
-The coordinates used to define a 3D moving geometry (MG) face requirements specific to their use. These requirements are derived from two characteristics of moving geometries. Unlike static spatial geometries, time and location in moving geometries are tightly coupled. They must act as a single, four dimension location. In addition, there will be a large number of coordinate measurements. This is a result of the need to accuratly track movement over time.  
+The coordinates used to define a 3D moving geometry (MG) face requirements specific to their use. These requirements are derived from two characteristics of moving geometries. Unlike static spatial geometries, time and location in moving geometries are tightly coupled. They must act as a single, four dimension location. In addition, there will be a large number of coordinate measurements. This is a result of the need to accurately track movement over time.  
 
 . A MF coordinate must represent a discrete location in space and time.
 . A MF coordinate must include values for all three spatial axis (X,Y,Z) as well as the temporal axis (t).
@@ -60,18 +60,18 @@ Of the Moving Feature encoding standards, the JSON encoding comes closest to mee
 The spatial locations are captured using the GeoJSON "geometry" property. This property is restricted as follows:
 
 * The value of the "geometry" member SHALL be a LineString Geometry object, having "type" = "LineString".
-* The number of elements in the array of the "coordinates" value in the Geometry object SHALL more than two positions.
+* The number of elements in the array of the "coordinates" value in the Geometry object SHALL be more than two positions.
 
 So the spatial geometry is a linestring of more than two points.
 
-GeoJSON does no support temporal coordinates directly. So the "properties" property is adapted for this purpose. Since "properties" is not limited to temporal coordinates, these requirements are more complex. 
+GeoJSON does not support temporal coordinates directly. So the "properties" property is adapted for this purpose. Since "properties" is not limited to temporal coordinates, these requirements are more complex. 
 
-* The value of the "properties" member SHALL be a GeoJSON object that has at least a member with the named "datetimes".
+* The value of the "properties" member SHALL be a GeoJSON object that has at least one member with the name "datetimes".
 * The value of the "datetimes" member is a JSON array. 
-* Each element in the array of the "datetimes" value SHALL be an instant object.
-* An instant object SHALL be only a JSON string to represent a timestamp encoded by the IETF RFC 3339 format using ``Z`` or
+* Each element in the "datetimes" array SHALL be an instant object.
+* An instant object SHALL be a JSON string that represents a timestamp encoded in the IETF RFC 3339 format using ``Z`` or
 the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970, in UTC.
-* The array of the ``"datetimes"`` value SHALL be a monotonic increasing sequence.
+* The members of the ``"datetimes"`` array SHALL be a monotonic increasing sequence.
 * There SHALL be no instant object that has the same value as any other element.
 
 The consequence of these requirements is that the "properties" property can carry the temporal equivalent to a line string. There is one final requirement. 
@@ -100,7 +100,9 @@ An example of this encoding is provided ---
 
 ===== MF_OneParameterGeometry
 
-We start our discussion with the class MF_OneParameterGeometry. MF_OneParameterGeometry is a subclass of GM_Object. So moving features have the 3D geometric properties of any other GM_Object. What is different is that this geometry can change as a function of a parameter.
+We start our discussion of Moving Feature geometries with the class MF_OneParameterGeometry. MF_OneParameterGeometry is a subclass of GM_Object. So moving features have the 3D geometric properties of any other GM_Object. What is different is that this geometry can change as a function of a parameter.
+
+NOTE: verify the following definition and clarify the symbology. It does not appear to render correctly.
 
 A one parameter set of geometries is defined as "a function f from an interval t Î [a, b] such that f(t) is a geometry and for each point P Î f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] ® P(t) such that P(t) Î f(t). A leaf of a one parameter set of geometries is the geometry f(t) at a particular value of the parameter". 
 
@@ -108,7 +110,7 @@ A one parameter geometry instance includes a "leafgeometry()" operation. This op
 
 ===== MF_TemporalGeometry
 
-An MF_TemporalGeometry is a MF_OneParameterGeometry where the parameter is Time expressed as a TM_Coordinate. TM_Coordinate is specified in ISO 19108; it expresses time as a multiple of a single unit of measure such as year, day, or second. The "leafgeometry()" operation of an instance of MF_TemporalGeometry would take a TM_Coordinate in as input and return a GM_Object instance representing the geometry of the Feature at the specified point in time.
+An MF_TemporalGeometry is a MF_OneParameterGeometry where the parameter is Time expressed as a TM_Coordinate. TM_Coordinate is specified in ISO 19108. It expresses time as a multiple of a single unit of measure such as year, day, or second. The "leafgeometry()" operation of an instance of MF_TemporalGeometry would take a TM_Coordinate in as input and return a GM_Object instance representing the geometry of the Feature at the specified point in time.
 
 ===== Temporal Properties
 
@@ -116,7 +118,7 @@ The JSON encoding of the OGC Moving Features standard introduces the concept of 
 
 "A TemporalProperties object is a JSON array of ParametricValues objects that groups a collection of dynamic non-spatial attributes and its parametric values with time."
 
-Logically TemporalProperties should be a subclass of OneParamProperties. Since Geometry is a property, then MF_TemporalGeometry should be a subclass of TemporalProperties. Which gives us the following UML.
+Logically TemporalProperties should be a subclass of MF_OneParamProperties. Since Geometry is a property, then MF_TemporalGeometry should be a subclass of TemporalProperties. Which gives us the following UML.
 
 image::./images/Temporal_Properties.png[]
 
@@ -136,7 +138,7 @@ A Temporal Trajectory has two operations of particular interest; leaf() and leaf
 
 The leaf() operation returns the spatial location (Direct_Position) that the Moving Feature passes at the time (TM_Coordinate) specified by the input parameter. This is a point on the trajectory GM_Curve geometry. It also serves as the origin of the Global CRS at that location on the trajectory.   
 
-The LeafGeometry() operation returns the spatial geometry (GM_Point) that is Moving Feature passes at the time (TM_Coordinate) specified by the input parameter. This is the geometry of the Moving Feature expressed in the Local CRS. Since Trajectories only convey location, only GM_Point geometries are supported.
+The LeafGeometry() operation returns the spatial geometry (GM_Point) that this Moving Feature possesses at the time (TM_Coordinate) specified by the input parameter. This is the shape of the Moving Feature expressed in the Local CRS. Since Trajectories only convey location, only GM_Point geometries are supported.
 
 ==== Orientation
 
@@ -164,9 +166,13 @@ image::./images/Prism_Context.png[]
 
 A MF_PrismGeometry class has the following characteristics.
 
-The association role "originTrajectory" associates a Temporal Trajectory with a Prism. For any TM_Position, the associated Temporal Trajectory provides the location of the Moving Feature in the Global CRS. This point serves as the origin of the Local CRS.
+The association role "originTrajectory" associates a Temporal Trajectory with a Prism geometry. For any TM_Position:
 
-The localCoordinateSystem() operation returns a SC_CRS for the design coordinate reference system in which the moving feature's shape is defined.
+. the associated Temporal Trajectory provides the location of the Moving Feature in the Global CRS. 
+. this location serves as the origin of the Local CRS.
+. the prism geometry is defined in that Local CRS.
+
+The localCoordinateSystem() operation returns a SC_CRS for the <<design_coordinate_reference_system_definition,design coordinate reference system>> in which the moving feature's shape is defined. This is usually the same as the <<local_coordinate_reference_system_definition,local coordinate system>>. 
 
 The rotationAtTime() operation accepts a time in the domain of the prism geometry and returns the rotation matrix that embeds the local geometry into geographic space at a given time (TM_Coordinate). The vectors of the rotation matrix allow the feature to be aligned and scaled as appropriate to the vectors of the global coordinate reference system.
 

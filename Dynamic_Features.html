@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-04-24</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-04-25</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}" class="bare">http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}</a></p></td>
@@ -564,32 +564,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_scope">1. Scope</a></li>
 <li><a href="#_references">2. References</a></li>
-<li><a href="#terms_and_definitions_section">3. Terms and Definitions</a>
-<ul class="sectlevel2">
-<li><a href="#base_representation_definition">3.1. <strong>base representation</strong></a></li>
-<li><a href="#design_coordinate_reference_system_definition">3.2. <strong>design coordinate reference system</strong></a></li>
-<li><a href="#direct_position_definition">3.3. <strong>direct position</strong></a></li>
-<li><a href="#external_coordinate_reference_system_definition">3.4. <strong>external coordinate reference system</strong></a></li>
-<li><a href="#feature_definition">3.5. feature</a></li>
-<li><a href="#foliation_definition">3.6. <strong>foliation</strong></a></li>
-<li><a href="#geometric_object_definition">3.7. <strong>geometric object</strong></a></li>
-<li><a href="#geometric_primitive_definition">3.8. <strong>geometric primitive</strong></a></li>
-<li><a href="#global_coordinate_system_definition">3.9. <strong>global coordinate system</strong></a></li>
-<li><a href="#gm_point_definition">3.10. <strong>GM_Point</strong></a></li>
-<li><a href="#instant_definition">3.11. <strong>instant</strong></a></li>
-<li><a href="#leaf_definition">3.12. <strong>leaf</strong></a></li>
-<li><a href="#one_parameter_geometries_set_definition">3.13. <strong>one parameter set of geometries</strong></a></li>
-<li><a href="#prism_definition">3.14. <strong>prism</strong></a></li>
-<li><a href="#temporal_coordinate_system_definition">3.15. <strong>temporal coordinate system</strong></a></li>
-<li><a href="#temporal_position_definition">3.16. <strong>temporal position</strong></a></li>
-<li><a href="#temporal_reference_system_definition">3.17. <strong>temporal reference system</strong></a></li>
-<li><a href="#trajectory_definition">3.18. <strong>trajectory</strong></a></li>
-<li><a href="#vector_definition">3.19. <strong>vector</strong></a></li>
-</ul>
-</li>
+<li><a href="#terms_and_definitions_section">3. Terms and Definitions</a></li>
 <li><a href="#_conventions">4. Conventions</a>
 <ul class="sectlevel2">
 <li><a href="#_identifiers">4.1. Identifiers</a></li>
+<li><a href="#uml_notation_section">4.2. UML Notation</a></li>
 </ul>
 </li>
 <li><a href="#_dynamic_features">5. Dynamic Features</a>
@@ -631,10 +610,35 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_minkowski_space_time">5.6.2. Minkowski Space Time</a></li>
 </ul>
 </li>
+<li><a href="#recommendations_section">5.7. Discussions and Recommendations</a></li>
 </ul>
 </li>
-<li><a href="#Bibliography_section">Annex A: Bibliography</a></li>
-<li><a href="#_revision_history">Annex B: Revision History</a></li>
+<li><a href="#bibliography_section">Annex A: Bibliography</a></li>
+<li><a href="#glossary_section">Annex B: Glossary</a>
+<ul class="sectlevel2">
+<li><a href="#base_representation_definition">B.1. <strong>base representation</strong></a></li>
+<li><a href="#design_coordinate_reference_system_definition">B.2. <strong>design coordinate reference system</strong></a></li>
+<li><a href="#direct_position_definition">B.3. <strong>direct position</strong></a></li>
+<li><a href="#external_coordinate_reference_system_definition">B.4. <strong>external coordinate reference system</strong></a></li>
+<li><a href="#feature_definition">B.5. feature</a></li>
+<li><a href="#foliation_definition">B.6. <strong>foliation</strong></a></li>
+<li><a href="#geometric_object_definition">B.7. <strong>geometric object</strong></a></li>
+<li><a href="#geometric_primitive_definition">B.8. <strong>geometric primitive</strong></a></li>
+<li><a href="#global_coordinate_reference_system_definition">B.9. <strong>global coordinate system</strong></a></li>
+<li><a href="#gm_point_definition">B.10. <strong>GM_Point</strong></a></li>
+<li><a href="#instant_definition">B.11. <strong>instant</strong></a></li>
+<li><a href="#leaf_definition">B.12. <strong>leaf</strong></a></li>
+<li><a href="#local_coordinate_reference_system_definition">B.13. <strong>local coordinate system</strong></a></li>
+<li><a href="#one_parameter_geometries_set_definition">B.14. <strong>one parameter set of geometries</strong></a></li>
+<li><a href="#prism_definition">B.15. <strong>prism</strong></a></li>
+<li><a href="#temporal_coordinate_system_definition">B.16. <strong>temporal coordinate system</strong></a></li>
+<li><a href="#temporal_position_definition">B.17. <strong>temporal position</strong></a></li>
+<li><a href="#temporal_reference_system_definition">B.18. <strong>temporal reference system</strong></a></li>
+<li><a href="#trajectory_definition">B.19. <strong>trajectory</strong></a></li>
+<li><a href="#vector_definition">B.20. <strong>vector</strong></a></li>
+</ul>
+</li>
+<li><a href="#_revision_history">Annex C: Revision History</a></li>
 </ul>
 </div>
 <div style="page-break-after: always;"></div>
@@ -642,7 +646,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong class="big">i.     Abstract</strong></p>
 </div>
 <div class="paragraph">
-<p>Moving Feature standards and technologies have made considerable progress. It is time to evaluate the foundations of OGC standards to determine if they are sufficient to support current and future Moving Feature standards. This discussion paper examines ISO and OGC standards against current and anticipated future needs. It also examines other standards and conventions which may be useful for enhancing the OGC/ISO foundation.&gt;</p>
+<p>Moving Feature standards and technologies have made considerable progress. It is time to re-evaluate the foundations of OGC standards to determine if they are sufficient to support current and future Moving Feature standards. This discussion paper examines ISO and OGC standards against current and anticipated future needs. It also examines other standards and conventions which may be useful for enhancing the OGC/ISO foundation.</p>
 </div>
 <div class="paragraph">
 <p><strong class="big">ii.    Keywords</strong></p>
@@ -698,7 +702,13 @@ Attention is drawn to the possibility that some of the elements of this document
 <h2 id="_scope"><a class="anchor" href="#_scope"></a>1. Scope</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Moving Feature standards and technologies have made considerable progress. It is time to evaluate the foundations of OGC standards to determine if they are sufficient to support current and future Moving Feature standards. This discussion paper examines ISO and OGC standards against current and anticipated future needs. It also examines other standards and conventions which may be useful for enhancing the OGC/ISO foundation.</p>
+<p>Moving Feature standards and technologies have made considerable progress in recent years. As they mature, implementations will move beyond our traditional Earth-centric framework. Extraterrestrial, deep space, and even virtual deployment environments must be considered.</p>
+</div>
+<div class="paragraph">
+<p>This paper focuses on Features which have a full three-dimensional geometry and are capable of movement, potentially at very high velocities. In addition, these Features may be independent of the Earth. WGS-84 and the Gregorian Calender have little relevance to a Feature flying through the Oort Cloud. Even less so for Features in artificial virtual worlds. Features with this expanded scope challenge the assumptions underlying both the OGC and ISO TC211 standards.</p>
+</div>
+<div class="paragraph">
+<p>This paper provides an analysis of the existing OGC Standards baseline, seeking to assess how well it supports these new deployments and identifies any future work required.</p>
 </div>
 </div>
 </div>
@@ -706,7 +716,7 @@ Attention is drawn to the possibility that some of the elements of this document
 <h2 id="_references"><a class="anchor" href="#_references"></a>2. References</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As a Discussion Paper, this document contains no normative references. Citations for resources referenced in this document are listed in the <a href="#Bibliography_section">Bibliography</a> (Annex B).</p>
+<p>As a Discussion Paper, this document contains no normative references. Citations for resources referenced in this document are listed in the <a href="#bibliography_section">Bibliography</a> (Annex B).</p>
 </div>
 </div>
 </div>
@@ -714,145 +724,7 @@ Attention is drawn to the possibility that some of the elements of this document
 <h2 id="terms_and_definitions_section"><a class="anchor" href="#terms_and_definitions_section"></a>3. Terms and Definitions</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document uses the terms defined in Sub-clause 5.3 of [OGC 06-121r8], which is based on the ISO/IEC Directives, Part 2, Rules for the structure and drafting of International Standards. In particular, the word “shall” (not “must”) is the verb form used to indicate a requirement to be strictly followed to conform to this Best Practice.</p>
-</div>
-<div class="paragraph">
-<p>For the purposes of this document, the following additional terms and definitions apply.</p>
-</div>
-<div class="sect2">
-<h3 id="base_representation_definition"><a class="anchor" href="#base_representation_definition"></a>3.1. <strong>base representation</strong></h3>
-<div class="paragraph">
-<p>&lt;moving features〉representation, using a local origin and local ordinate vectors, of a geometric object at a given reference time [ISO 19141:2008, definition 4.1.1]</p>
-</div>
-<div class="paragraph">
-<p>NOTE 1 A rigid geometric object may undergo translation or rotation, but remains congruent with its base representation.</p>
-</div>
-<div class="paragraph">
-<p>NOTE 2 The local origin and ordinate vectors establish an engineering coordinate reference system (ISO 19111), also called a local frame or a local Euclidean coordinate system.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="design_coordinate_reference_system_definition"><a class="anchor" href="#design_coordinate_reference_system_definition"></a>3.2. <strong>design coordinate reference system</strong></h3>
-<div class="paragraph">
-<p>engineering coordinate reference system in which the base representation of a moving object is specified. [ISO 19141:2008, definition 4.1.3]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="direct_position_definition"><a class="anchor" href="#direct_position_definition"></a>3.3. <strong>direct position</strong></h3>
-<div class="paragraph">
-<p>DirectPosition object data types hold the coordinates for a position within some coordinate reference system.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="external_coordinate_reference_system_definition"><a class="anchor" href="#external_coordinate_reference_system_definition"></a>3.4. <strong>external coordinate reference system</strong></h3>
-<div class="paragraph">
-<p>the coordinate reference system in which the geometry of the curve for a trajectory is defined. Usually an earth-fixed geographic CRS. [ISO 19141:2008, derived]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="feature_definition"><a class="anchor" href="#feature_definition"></a>3.5. feature</h3>
-<div class="paragraph">
-<p>abstraction of real world phenomena [ISO 19101:2002, definition 4.11]</p>
-</div>
-<div class="paragraph">
-<p>NOTE A feature may occur as a type or an instance. Feature type or feature instance shall be used when only one is meant.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="foliation_definition"><a class="anchor" href="#foliation_definition"></a>3.6. <strong>foliation</strong></h3>
-<div class="paragraph">
-<p>one parameter set of geometries such that each point in the prism of the set is in one and only one trajectory and in one and only one leaf [ISO 19141:2008, definition 4.1.8]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="geometric_object_definition"><a class="anchor" href="#geometric_object_definition"></a>3.7. <strong>geometric object</strong></h3>
-<div class="paragraph">
-<p>spatial object representing a geometric set [ISO 19107:2003, definition 4.47]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="geometric_primitive_definition"><a class="anchor" href="#geometric_primitive_definition"></a>3.8. <strong>geometric primitive</strong></h3>
-<div class="paragraph">
-<p>geometric object representing a single, connected, homogeneous element of space [ISO 19107:2003, definition 4.48]</p>
-</div>
-<div class="paragraph">
-<p>NOTE Geometric primitives are non-decomposed objects that present information about geometric configuration. They include points, curves, surfaces, and solids.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="global_coordinate_system_definition"><a class="anchor" href="#global_coordinate_system_definition"></a>3.9. <strong>global coordinate system</strong></h3>
-<div class="paragraph">
-<p>the CRS of the trajectory of the reference point.</p>
-</div>
-<div class="paragraph">
-<p>NOTE A global coordinate system is usually in terms of the moving frame of the curve (oriented on the local tangent) or in terms of the external CRS in which the geometry of the curve is defined. [ISO 19141:2008, derived]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="gm_point_definition"><a class="anchor" href="#gm_point_definition"></a>3.10. <strong>GM_Point</strong></h3>
-<div class="paragraph">
-<p>GM_Point is the basic data type for a geometric object consisting of one and only one point. That point is represented as a DirectPosition.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="instant_definition"><a class="anchor" href="#instant_definition"></a>3.11. <strong>instant</strong></h3>
-<div class="paragraph">
-<p>0-dimensional geometric primitive representing position in time [ISO 19108:2002, definition 4.1.17]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="leaf_definition"><a class="anchor" href="#leaf_definition"></a>3.12. <strong>leaf</strong></h3>
-<div class="paragraph">
-<p>&lt;one parameter set of geometries&gt; geometry at a particular value of the parameter [ISO 19141:2008, definition 4.1.12]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="one_parameter_geometries_set_definition"><a class="anchor" href="#one_parameter_geometries_set_definition"></a>3.13. <strong>one parameter set of geometries</strong></h3>
-<div class="paragraph">
-<p>function f from an interval t ∈ [a, b] such that f(t) is a geometry and for each point P ∈ f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] →P(t) such that P(t) ∈ f(t) [ISO 19141:2008, definition 4.1.15]</p>
-</div>
-<div class="paragraph">
-<p>EXAMPLE A curve C with constructive parameter t is a one parameter set of points c(t).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="prism_definition"><a class="anchor" href="#prism_definition"></a>3.14. <strong>prism</strong></h3>
-<div class="paragraph">
-<p>&lt;one parameter set of geometries&gt; set of points in the union of the geometries (or the union of the trajectories) of a one parameter set of geometries [ISO 19141:2008, definition 4.1.18]</p>
-</div>
-<div class="paragraph">
-<p>NOTE This is a generalization of the concept of a geometric prism that is the convex hull of two congruent polygons in 3D-space. Such polyhedrons can be viewed as a foliation of congruent polygons.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="temporal_coordinate_system_definition"><a class="anchor" href="#temporal_coordinate_system_definition"></a>3.15. <strong>temporal coordinate system</strong></h3>
-<div class="paragraph">
-<p>temporal reference system based on an interval scale on which distance is measured as a multiple of a single unit of time [ISO 19108:2002, definition 4.1.31]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="temporal_position_definition"><a class="anchor" href="#temporal_position_definition"></a>3.16. <strong>temporal position</strong></h3>
-<div class="paragraph">
-<p>location relative to a temporal reference system [ISO 19108:2002, definition 4.1.34]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="temporal_reference_system_definition"><a class="anchor" href="#temporal_reference_system_definition"></a>3.17. <strong>temporal reference system</strong></h3>
-<div class="paragraph">
-<p>reference system against which time is measured [ISO 19108:2002, definition 4.1.35]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="trajectory_definition"><a class="anchor" href="#trajectory_definition"></a>3.18. <strong>trajectory</strong></h3>
-<div class="paragraph">
-<p>path of a moving point described by a one parameter set of points [ISO 19141:2008, definition 4.1.22]</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="vector_definition"><a class="anchor" href="#vector_definition"></a>3.19. <strong>vector</strong></h3>
-<div class="paragraph">
-<p>quantity having direction as well as magnitude [ISO 19123:2005, definition 4.1.43]</p>
-</div>
+<p>As a Discussion Paper, this document contains no normative definitions. The terms and definitions used in this discussion paper are documented in the <a href="#glossary_section">Glossary</a> (Annex C).</p>
 </div>
 </div>
 </div>
@@ -873,17 +745,20 @@ Attention is drawn to the possibility that some of the elements of this document
 <div class="paragraph">
 <p>All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-A description of UML and how it is used in ISO and OGC standards will be included here.
-</td>
-</tr>
-</table>
+</div>
+<div class="sect2">
+<h3 id="uml_notation_section"><a class="anchor" href="#uml_notation_section"></a>4.2. UML Notation</h3>
+<div class="paragraph">
+<p>The logical structure of the elements used in this Discussion Paper is presented using the Unified Modeling Language (UML) static structure diagram (see Booch et al. 1997). The UML notations used in this paper are described in the diagram in <a href="#figure-1">UML notation</a>.</p>
+</div>
+<div class="paragraph">
+<p>Most of these UML diagrams have been extracted from the ISO/TC211 Harmonized Model maintained by the Harmonized Model Maintenance Group on their <a href="https://github.com/ISO-TC211/HMMG">GitHub Repository</a>. Some modifications may have been made to better present issues relevant to this discussion. None of these modifications change the underlying UML model.</p>
+</div>
+<div id="figure-1" class="imageblock text-center">
+<div class="content">
+<img src="./images/UML_Notation.png" alt="UML Notation">
+</div>
+<div class="title">Figure 1. UML notation</div>
 </div>
 </div>
 </div>
@@ -983,19 +858,31 @@ A description of UML and how it is used in ISO and OGC standards will be include
 <p>A measurement of movement would capture changes in location and orientation. Movement is in the eyes of an external observer. Therefore, movement should be specified using a coordinate reference system which is external to the Feature.</p>
 </div>
 <div class="paragraph">
-<p>The shape of a Feature is independent of its location. A rigid body has the same shape reqardless of where it is or who is observing it. It&#8217;s geometry should be self-contained. This requires use of an internal coordinate reference system.</p>
+<p>The shape of a Feature is independent of its location. A rigid body has the same shape regardless of where it is or who is observing it. It&#8217;s geometry should be self-contained. This requires use of an internal coordinate reference system.</p>
 </div>
 <div class="paragraph">
 <p>This leads up to two postulates:</p>
 </div>
 <div class="paragraph">
-<p>Postulate 1: The Locational Attribute of a 3D Feature is a GM_Point which locates the origin of the local CRS within an external CRS.</p>
+<p>Postulate 1: The Locational Attribute of a 3D Feature is a GM_Point which locates the origin of the local CRS within an <a href="#external_coordinate_reference_system_definition">external CRS</a>.</p>
 </div>
 <div class="paragraph">
-<p>Postulate 2: The Spatial Attribute of a 3D Feature is one or more GM_Objects which define the shape of the Feature in the local coordinate refrence system.</p>
+<p>Postulate 2: The Spatial Attribute of a 3D Feature is one or more GM_Objects which define the shape of the Feature in the <a href="#local_coordinate_reference_system_definition">local coordinate refrence system</a>.</p>
 </div>
 <div class="paragraph">
 <p>One and two dimensional geometries are well understood. So the locational attribute poses few immediate problems. Three-dimensional shapes are another matter. Particularly if they are free from any bounding surface and capable of movement.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+The Locational attribute only specifies the location of the Local CRS. It does not address the orientation of that CRS.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -1015,7 +902,19 @@ A description of UML and how it is used in ISO and OGC standards will be include
 <p>Therefore, we can describe the shape of a Feature in terms of the space occupied by that Feature and the boundary which encloses that space.</p>
 </div>
 <div class="paragraph">
-<p>Postulate 3: A 3D Feature is a Feature whos’ geometry is defined by a volume enclosed by a boundary surface.</p>
+<p>Postulate 3: A 3D Feature is a Feature who&#8217;s geometry is defined by a volume enclosed by a boundary surface.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+CityGML 3.0 is a good example of the use of 3D geometries.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect4">
 <h5 id="_volumetrics"><a class="anchor" href="#_volumetrics"></a>Volumetrics</h5>
@@ -1069,7 +968,7 @@ GM_Polygons</p>
 <p>Some structures, such as a tunnel or overpass, pose difficulties for this geometry model. The boundary surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. This is not always a desireable result. CityGML provides the concept of a "Closure Surface".</p>
 </div>
 <div class="paragraph">
-<p>A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a single three-dimension entity, even though there is a hole in the bounding surface.</p>
+<p>A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a three-dimension solid, even though there is a hole in the bounding surface.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1092,7 +991,7 @@ GM_Polygons</p>
 <div class="sect5">
 <h6 id="_point_clouds"><a class="anchor" href="#_point_clouds"></a>Point Clouds</h6>
 <div class="paragraph">
-<p>"In addition to the spatial representations defined in the Core module, the geometry of physical spaces and of thematic surfaces can now also be provided by 3D point clouds using MultiPoint geometry. This allows, for example, spatially representing the building hull, a room within a building or a single wall surface just by a point cloud. All thematic feature types including transportation objects, vegetation, city furniture, etc. can also be spatially represented by point clouds. In this way, the ClearanceSpace of a road or railway could, for instance, be modelled directly from the result of a mobile laser scanning campaign. Point clouds can either be included in a CityGML dataset or just reference an external file of some common types such as LAS or LAZ."</p>
+<p>Boundary surfaces can also be defined using 3D point clouds. This allows the spatial represention a bounding surface by a set of points located on that surface. In this way, the geometry of a Feature could, for instance, be modelled directly from the result of a mobile laser scanning campaign.</p>
 </div>
 </div>
 </div>
@@ -1130,13 +1029,13 @@ GM_Polygons</p>
 <div class="sect4">
 <h5 id="_external_crs"><a class="anchor" href="#_external_crs"></a>External CRS</h5>
 <div class="paragraph">
-<p>The External coordinate system is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS. For example, WGS 84.</p>
+<p>The <a href="#external_coordinate_reference_system_definition">External coordinate system</a> is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS. For example, WGS 84.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_global_crs"><a class="anchor" href="#_global_crs"></a>Global CRS</h5>
 <div class="paragraph">
-<p>The Global coordinate system is a moving CRS which describes the area external to the Feature at a specific time. Typically the origin is the location of the Feature on the trajectory and the principal axis is the tangent to the trajectory at that point.</p>
+<p>The <a href="#global_coordinate_reference_system_definition">Global coordinate system</a> is a moving CRS which describes the area external to the Feature at a specific time. Typically the origin is the location of the Feature on the trajectory and the principal axis is the tangent to the trajectory at that point.</p>
 </div>
 <div class="paragraph">
 <p>Using an aircraft for an example, the origin would be the center of mass, positive X is the magnetic heading, the Z axis is perpendicular to the tangential plane, and the Y axis is on the tangential plane and completes a right-handed coordinate system.</p>
@@ -1145,7 +1044,7 @@ GM_Polygons</p>
 <div class="sect4">
 <h5 id="_local_crs"><a class="anchor" href="#_local_crs"></a>Local CRS</h5>
 <div class="paragraph">
-<p>The local coordinate system is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where the location and orientation of the Feature is measured.</p>
+<p>The <a href="#local_coordinate_reference_system_definition">local coordinate system</a> is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where the location and orientation of the Feature is measured.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1173,7 +1072,7 @@ GM_Polygons</p>
 <div class="sect3">
 <h4 id="_coordinate_representation"><a class="anchor" href="#_coordinate_representation"></a>5.2.2. Coordinate Representation</h4>
 <div class="paragraph">
-<p>The coordinates used to define a 3D moving geometry (MG) face requirements specific to their use. These requirements are derived from two characteristics of moving geometries. Unlike static spatial geometries, time and location in moving geometries are tightly coupled. They must act as a single, four dimension location. In addition, there will be a large number of coordinate measurements. This is a result of the need to accuratly track movement over time.</p>
+<p>The coordinates used to define a 3D moving geometry (MG) face requirements specific to their use. These requirements are derived from two characteristics of moving geometries. Unlike static spatial geometries, time and location in moving geometries are tightly coupled. They must act as a single, four dimension location. In addition, there will be a large number of coordinate measurements. This is a result of the need to accurately track movement over time.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1207,7 +1106,7 @@ GM_Polygons</p>
 <p>The value of the "geometry" member SHALL be a LineString Geometry object, having "type" = "LineString".</p>
 </li>
 <li>
-<p>The number of elements in the array of the "coordinates" value in the Geometry object SHALL more than two positions.</p>
+<p>The number of elements in the array of the "coordinates" value in the Geometry object SHALL be more than two positions.</p>
 </li>
 </ul>
 </div>
@@ -1215,25 +1114,25 @@ GM_Polygons</p>
 <p>So the spatial geometry is a linestring of more than two points.</p>
 </div>
 <div class="paragraph">
-<p>GeoJSON does no support temporal coordinates directly. So the "properties" property is adapted for this purpose. Since "properties" is not limited to temporal coordinates, these requirements are more complex.</p>
+<p>GeoJSON does not support temporal coordinates directly. So the "properties" property is adapted for this purpose. Since "properties" is not limited to temporal coordinates, these requirements are more complex.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The value of the "properties" member SHALL be a GeoJSON object that has at least a member with the named "datetimes".</p>
+<p>The value of the "properties" member SHALL be a GeoJSON object that has at least one member with the name "datetimes".</p>
 </li>
 <li>
 <p>The value of the "datetimes" member is a JSON array.</p>
 </li>
 <li>
-<p>Each element in the array of the "datetimes" value SHALL be an instant object.</p>
+<p>Each element in the "datetimes" array SHALL be an instant object.</p>
 </li>
 <li>
-<p>An instant object SHALL be only a JSON string to represent a timestamp encoded by the IETF RFC 3339 format using <code>Z</code> or
+<p>An instant object SHALL be a JSON string that represents a timestamp encoded in the IETF RFC 3339 format using <code>Z</code> or
 the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970, in UTC.</p>
 </li>
 <li>
-<p>The array of the <code>"datetimes"</code> value SHALL be a monotonic increasing sequence.</p>
+<p>The members of the <code>"datetimes"</code> array SHALL be a monotonic increasing sequence.</p>
 </li>
 <li>
 <p>There SHALL be no instant object that has the same value as any other element.</p>
@@ -1279,7 +1178,19 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <div class="sect4">
 <h5 id="_mf_oneparametergeometry"><a class="anchor" href="#_mf_oneparametergeometry"></a>MF_OneParameterGeometry</h5>
 <div class="paragraph">
-<p>We start our discussion with the class MF_OneParameterGeometry. MF_OneParameterGeometry is a subclass of GM_Object. So moving features have the 3D geometric properties of any other GM_Object. What is different is that this geometry can change as a function of a parameter.</p>
+<p>We start our discussion of Moving Feature geometries with the class MF_OneParameterGeometry. MF_OneParameterGeometry is a subclass of GM_Object. So moving features have the 3D geometric properties of any other GM_Object. What is different is that this geometry can change as a function of a parameter.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+verify the following definition and clarify the symbology. It does not appear to render correctly.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>A one parameter set of geometries is defined as "a function f from an interval t Î [a, b] such that f(t) is a geometry and for each point P Î f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] ® P(t) such that P(t) Î f(t). A leaf of a one parameter set of geometries is the geometry f(t) at a particular value of the parameter".</p>
@@ -1291,7 +1202,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <div class="sect4">
 <h5 id="_mf_temporalgeometry"><a class="anchor" href="#_mf_temporalgeometry"></a>MF_TemporalGeometry</h5>
 <div class="paragraph">
-<p>An MF_TemporalGeometry is a MF_OneParameterGeometry where the parameter is Time expressed as a TM_Coordinate. TM_Coordinate is specified in ISO 19108; it expresses time as a multiple of a single unit of measure such as year, day, or second. The "leafgeometry()" operation of an instance of MF_TemporalGeometry would take a TM_Coordinate in as input and return a GM_Object instance representing the geometry of the Feature at the specified point in time.</p>
+<p>An MF_TemporalGeometry is a MF_OneParameterGeometry where the parameter is Time expressed as a TM_Coordinate. TM_Coordinate is specified in ISO 19108. It expresses time as a multiple of a single unit of measure such as year, day, or second. The "leafgeometry()" operation of an instance of MF_TemporalGeometry would take a TM_Coordinate in as input and return a GM_Object instance representing the geometry of the Feature at the specified point in time.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1303,7 +1214,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>"A TemporalProperties object is a JSON array of ParametricValues objects that groups a collection of dynamic non-spatial attributes and its parametric values with time."</p>
 </div>
 <div class="paragraph">
-<p>Logically TemporalProperties should be a subclass of OneParamProperties. Since Geometry is a property, then MF_TemporalGeometry should be a subclass of TemporalProperties. Which gives us the following UML.</p>
+<p>Logically TemporalProperties should be a subclass of MF_OneParamProperties. Since Geometry is a property, then MF_TemporalGeometry should be a subclass of TemporalProperties. Which gives us the following UML.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1338,7 +1249,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>The leaf() operation returns the spatial location (Direct_Position) that the Moving Feature passes at the time (TM_Coordinate) specified by the input parameter. This is a point on the trajectory GM_Curve geometry. It also serves as the origin of the Global CRS at that location on the trajectory.</p>
 </div>
 <div class="paragraph">
-<p>The LeafGeometry() operation returns the spatial geometry (GM_Point) that is Moving Feature passes at the time (TM_Coordinate) specified by the input parameter. This is the geometry of the Moving Feature expressed in the Local CRS. Since Trajectories only convey location, only GM_Point geometries are supported.</p>
+<p>The LeafGeometry() operation returns the spatial geometry (GM_Point) that this Moving Feature possesses at the time (TM_Coordinate) specified by the input parameter. This is the shape of the Moving Feature expressed in the Local CRS. Since Trajectories only convey location, only GM_Point geometries are supported.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1383,10 +1294,23 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>A MF_PrismGeometry class has the following characteristics.</p>
 </div>
 <div class="paragraph">
-<p>The association role "originTrajectory" associates a Temporal Trajectory with a Prism. For any TM_Position, the associated Temporal Trajectory provides the location of the Moving Feature in the Global CRS. This point serves as the origin of the Local CRS.</p>
+<p>The association role "originTrajectory" associates a Temporal Trajectory with a Prism geometry. For any TM_Position:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the associated Temporal Trajectory provides the location of the Moving Feature in the Global CRS.</p>
+</li>
+<li>
+<p>this location serves as the origin of the Local CRS.</p>
+</li>
+<li>
+<p>the prism geometry is defined in that Local CRS.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>The localCoordinateSystem() operation returns a SC_CRS for the design coordinate reference system in which the moving feature&#8217;s shape is defined.</p>
+<p>The localCoordinateSystem() operation returns a SC_CRS for the <a href="#design_coordinate_reference_system_definition">design coordinate reference system</a> in which the moving feature&#8217;s shape is defined. This is usually the same as the <a href="#local_coordinate_reference_system_definition">local coordinate system</a>.</p>
 </div>
 <div class="paragraph">
 <p>The rotationAtTime() operation accepts a time in the domain of the prism geometry and returns the rotation matrix that embeds the local geometry into geographic space at a given time (TM_Coordinate). The vectors of the rotation matrix allow the feature to be aligned and scaled as appropriate to the vectors of the global coordinate reference system.</p>
@@ -1421,7 +1345,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object.</p>
 </div>
 <div class="paragraph">
-<p>An articulated geometry is such an aggregation where each element has one or more but less than 6 degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements.</p>
+<p>An articulated geometry is such an aggregation where each element has one (1) to six (6) degrees of freedom. Each element can move, but its movement is constrained by attachment to one or more additional elements.</p>
 </div>
 <div class="paragraph">
 <p>The aggregate as a whole can also move, but that movement becomes more complex. Typically we would model movement of the whole as a trajectory of the center of mass. However, the center of mass of an articulating Feature may change as the relative position of the elements change.</p>
@@ -1441,7 +1365,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>Motion Imagery systems are typically complex structures consisting of multiple components each capable of independent motion. Measurements of these motions are in a local coordinate reference system. Conversion of a sensor coordinate requires a series of transformations, starting from the detector and working back through the attached components to a core, geolocated component.</p>
 </div>
 <div class="paragraph">
-<p>Further complicating maters, each component is capable of movement. The transformations are not fixed. They must be calculated from the relative position of each component at the time that the detection was made. This leads to a requirement that for every observation, the relative position of each component of the collecting system must be captured as well.</p>
+<p>Further complicating maters, each component is capable of movement. The transformations are not fixed. They must be calculated from the relative position of each component at the time that the detection was made. This leads to a requirement that for every observation, the relative position and orientation of each component of the collecting system must be captured as well.</p>
 </div>
 <div class="paragraph">
 <p>The MISB 1906 Motion Imagery Metadata (MIMD): Staging System standard addresses this requirement. This standard captures the locations, orientations, and kinemantics (velocity, acceleration, etc.) of platforms, gimbals, sensors, sensor elements, geospatial and other points. The locations and orientations are either absolute references to a well-known frame of reference (e.g., WGS84) or relative references to other locations and orientations. Each location and orientation pairing define a “stage” that has the potential to be the frame of reference for another location and orientation. Linking stages together forms the Staging System. The Staging System then defines an ability to describe, in metadata, the physical make-up and configuration of a system and the time varying physical relationships of the system and its sub-system components.</p>
@@ -1550,10 +1474,10 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>The Staging System’s relative positions use Cartesian coordinates (i.e., x, y, z) measured in meters from the parent stage frame of reference.</p>
 </div>
 <div class="paragraph">
-<p>The Staging System’s orientations use Euler rotations, measured in radians, around three axes (X, Y, and Z) of a righthanded coordinate system. The Staging System’s absolute orientation has the X, Y, and Z axes aligned with the East, North, and Up (ENU) respectively.</p>
+<p>The Staging System’s orientations use Euler rotations, measured in radians, around three axes (X, Y, and Z) of a righthanded coordinate system. The Staging System’s absolute orientation has the X, Y, and Z axes aligned with the East, North, and Up (ENU) axis respectively.</p>
 </div>
 <div class="paragraph">
-<p>The Staging System standardizes rotations to use a specific order of rotations. The Staging System uses Tait-Bryan angles with a Primary Rotation Order of Z-Y-X (see Appendix C); thereby the first rotation is around the Z-axis, the second rotation is around the new Y-axis (after rotation around the Z-axis), the final rotation is around the new X-axis (after rotation around the Z and then Y axes).</p>
+<p>The Staging System standardizes rotations to use a specific order of rotations. The Staging System uses Tait-Bryan angles with a Primary Rotation Order of Z-Y-X. The first rotation is around the Z-axis, the second rotation is around the new Y-axis (after rotation around the Z-axis), the final rotation is around the new X-axis (after rotation around the Z and then Y axes).</p>
 </div>
 <div class="paragraph">
 <p>The Staging system does not explicity address temporality. However, this information is passed in the MISB KLV metadata stream. As such, each update is associated with the precision time stamp of that packet.  In addition, an update can be associated with a Timer as described in section ----</p>
@@ -1562,10 +1486,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <div class="sect3">
 <h4 id="_geopose"><a class="anchor" href="#_geopose"></a>5.3.2. GeoPOSE</h4>
 <div class="paragraph">
-<p>GeoPOSE is a proposed OGC standard which provides a general purpose alternative to the MISB Staging System.</p>
-</div>
-<div class="paragraph">
-<p>This standard deals with the location and orientation of real or virtual geometric objects (Poses) an the aggregation of Poses into more complex structures.</p>
+<p>GeoPOSE is a proposed OGC standard which provides a general purpose alternative to the MISB Staging System. This standard deals with the location and orientation of real or virtual geometric objects (Poses) and the aggregation of Poses into more complex structures.</p>
 </div>
 <div class="sect4">
 <h5 id="_core"><a class="anchor" href="#_core"></a>Core</h5>
@@ -1578,19 +1499,19 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 </div>
 </div>
 <div class="paragraph">
-<p>The key element in this model is the <code>FrameTransformation</code> class. This class expresses a transform between a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.</p>
+<p>The key element in this model is the <code>FrameTransform</code> class. This class expresses a transform between a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.</p>
 </div>
 <div class="paragraph">
 <p>The Frame Transform is a representation of the transformation taking an Outer Frame coordinate system to an Inner Frame coordinate system. GeoPose v 1.0 supports transformations involving translation and rotation. The intention is to match the usual concept of a pose as a position and orientation.</p>
 </div>
 <div class="paragraph">
-<p>Outer and Inner Frames are subclasses of the Frame Class. Frame provides a standard means of describing transforms for several common coordinate reference systems as well as a generic model.</p>
+<p>Outer and Inner Frames are subclasses of the the Frame Class. The Frame class provides a standard means of describing transforms for several common coordinate reference systems. Subclasses of the Frame class also include a model for generic reference frames.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_time"><a class="anchor" href="#_time"></a>Time</h5>
 <div class="paragraph">
-<p>The GeoPOSE time model is rather simple. It does away with calendard and restricts time positions to milliseconds of UNIX Time.</p>
+<p>The GeoPOSE time model is rather simple. It does away with calender and restricts time positions to milliseconds of UNIX Time.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1604,7 +1525,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <div class="sect4">
 <h5 id="_sequence"><a class="anchor" href="#_sequence"></a>Sequence</h5>
 <div class="paragraph">
-<p>The sequence logical model defines a method for the packaging of GeoPose data, where multiple GeoPoses in a sequence share the same Outer Frame and there is a time-dependent changing Inner Frame.</p>
+<p>The sequence logical model defines methods for packaging GeoPose transformations. It addresses the need to integrate multiple GeoPoses which share the same Outer Frame and posess a time-dependent changing Inner Frame.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1612,7 +1533,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 </div>
 </div>
 <div class="paragraph">
-<p>The GeoPOSE Standard provides three models for packaging a collection of Inner Frames.</p>
+<p>The GeoPOSE Standard provides three models for organizing a collection of Inner Frames.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1632,24 +1553,18 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <div class="sect3">
 <h4 id="_discussions"><a class="anchor" href="#_discussions"></a>5.3.3. Discussions</h4>
 <div class="paragraph">
-<p>Quaternions vs. Euler rotations</p>
-</div>
-<div class="paragraph">
-<p>Temporal representation - Unix time vs the Timer model.</p>
-</div>
-<div class="paragraph">
-<p>Standarize on a right-handed Cartisian coorinate system for all stages/Poses?</p>
-</div>
-<div class="paragraph">
-<p>Common concepts:</p>
+<p>Both models express some common concepts:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>An "anchor" node which ties the relative coordinates to an absolute CRS</p>
+<p>There is an "anchor" node which ties the local coordinates to an absolute (external) CRS.</p>
 </li>
 <li>
-<p>Local coordinate systems associated with each other through standardized transformations</p>
+<p>Coordinates in one Local coordinate system can be transformed to another through standardized transformations.</p>
+</li>
+<li>
+<p>Local coordinate reference systems are not pre-defined. Sufficient information is defined to describe the transformation between any two arbitrary local coordinate systems.</p>
 </li>
 </ol>
 </div>
@@ -1673,7 +1588,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 <p>Dynamic Features are not tied to an Earth-centered static existance. Yet the concepts of time used in the geospatial community are almost exclusivly based on Earth-centric astronomical phenomena. They also assume a rather coarse (days, weeks, years) degree of granularity. For dynamic features we need to use local clocks with precision down to the nanosecond. We are less concerned with absolute time than with relative time. State B was achieved 37 nanoseconds after State A.</p>
 </div>
 <div class="paragraph">
-<p>It&#8217;s only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another then to convert to an absolute time.</p>
+<p>It&#8217;s only when we begin aggregating these dynamic elements that we begin to worry about "absolute" time. Even then, we are more likely to convert from one local clock to another than to convert to an absolute time.</p>
 </div>
 <div class="paragraph">
 <p>So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRSs. A temporal equivalent to GeoPOSE.</p>
@@ -1722,13 +1637,38 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 </div>
 </div>
 <div class="paragraph">
-<p>TM_Clock is "A system for measuring temporal position within a day". It has an optional <code>dateBasis</code> association with a calendar (TM_Calendar).</p>
+<p>TM_Clock is "A system for measuring temporal position within a day". It has an optional <code>dateBasis</code> association with a calendar (TM_Calendar) class. This allows a TM_Clock to be associated with a TM_Calendar to create a full date-time reference system.</p>
 </div>
 <div class="paragraph">
-<p>This combination of classes allows us support high precision local-clock TRS as well as full date-time TRS.</p>
+<p>TM_Clock posesses the following attributes and operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>referenceEvent - The name or description of an event, such as solar noon or sunrise, which fixes the position of the base scale of the clock.</p>
+</li>
+<li>
+<p>referenceTime - The time of day associated with the referenceEvent, expressed as time on this TM_Clock.</p>
+</li>
+<li>
+<p>utcReference - The time of day associated with the referenceEvent expressed as a time in UTC or a related standard time.</p>
+</li>
+<li>
+<p>clkTrans() - This operation accepts a time expressed in UTC and returns a time expressed in this TM_Clock.</p>
+</li>
+<li>
+<p>utcTrans() - This operation accepts a time of day on TM_Clock and returns a time expressed as UTC or a related standard time.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p><strong>To be provided</strong> - the main limitation is its close association with TM_Calendar.</p>
+<p>The referenceEvent and referenceTime attributes are particularly interesting. Since these are not restricted in scope, they can be used to define a temporal reference system with an arbitrary origin. For example, an airborn Motion Imagery collection mission can set the referenceEvent value to "takeoff" and the referenceTime to the value of the internal clock when the wheels left the runway.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, the attributes and operation parameters for TM_Clock are almost exclusively TM_ClockTime classes. A TM_ClockTime is the "time of day measured in a time keeping system other than UTC." Its sole attribute, clkTime, is a sequence of numbers. A suitable representation for a local nanosecond clock.</p>
+</div>
+<div class="paragraph">
+<p>This combination of classes allows us support high precision local-clock TRS as well as full date-time TRS. The only issue is that support for UTC time is required, even for non-terrestrial clocks.</p>
 </div>
 <div class="paragraph">
 <p>At this point it appears that transformations between clocks is not supported by 19108. But there is another avenue we can explore. TM_CoordinateSystem is a subclass of TM_ReferenceSystem. And TM_ReferenceSystem is a subclass of RS_ReferenceSystem. This takes us into ISO 19111: Referencing By Coordinates.</p>
@@ -1770,7 +1710,7 @@ the numeric value of milliseconds since midnight (00:00 a.m.) on January 1, 1970
 </div>
 </div>
 <div class="paragraph">
-<p>figure&#8201;&#8212;&#8201;illustrates the Timer architecture. A Timer is a physical device which provides a time stamp with up to nanosecond precision. The timer is associated with a "Source". The Source specifies how the timer is initallized and any subsequent corrections are applied. Finally, the TimeTransfer pack defines the metadata avaiable to detect and apply any corrections. to the time stamp.</p>
+<p>figure&#8201;&#8212;&#8201;illustrates the Timer architecture. A Timer is a physical device which provides a time stamp with up to nanosecond precision. The timer is associated with a "Source". The Source specifies how the timer is initallized and how any subsequent corrections are applied. Finally, the TimeTransfer pack defines the metadata available to detect and apply any corrections to the time stamp.</p>
 </div>
 <div class="paragraph">
 <p>The MISB timer concept is specific to the platforms and collection techniques used for Motion Imagery. These can be extended to provide a more general solution.</p>
@@ -1871,10 +1811,25 @@ z' = z</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="recommendations_section"><a class="anchor" href="#recommendations_section"></a>5.7. Discussions and Recommendations</h3>
+<div class="paragraph">
+<p>TBD</p>
+</div>
+<div class="paragraph">
+<p>Quaternions vs. Euler rotations</p>
+</div>
+<div class="paragraph">
+<p>Temporal representation - Unix time vs the Timer model.</p>
+</div>
+<div class="paragraph">
+<p>Standarize on a right-handed Cartisian coorinate system for all stages/Poses?</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Bibliography_section"><a class="anchor" href="#Bibliography_section"></a>Annex A: Bibliography</h2>
+<h2 id="bibliography_section"><a class="anchor" href="#bibliography_section"></a>Annex A: Bibliography</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Hughes, P. :Spacecraft Attitude Dynamics, Dover Publications Inc. 2024</p>
@@ -1906,7 +1861,156 @@ z' = z</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Annex B: Revision History</h2>
+<h2 id="glossary_section"><a class="anchor" href="#glossary_section"></a>Annex B: Glossary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following terms and definitions are used in this Discussion Paper.</p>
+</div>
+<div class="sect2">
+<h3 id="base_representation_definition"><a class="anchor" href="#base_representation_definition"></a>B.1. <strong>base representation</strong></h3>
+<div class="paragraph">
+<p>&lt;moving features〉representation, using a local origin and local ordinate vectors, of a geometric object at a given reference time [ISO 19141:2008, definition 4.1.1]</p>
+</div>
+<div class="paragraph">
+<p>NOTE 1 A rigid geometric object may undergo translation or rotation, but remains congruent with its base representation.</p>
+</div>
+<div class="paragraph">
+<p>NOTE 2 The local origin and ordinate vectors establish an engineering coordinate reference system (ISO 19111), also called a local frame or a local Euclidean coordinate system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="design_coordinate_reference_system_definition"><a class="anchor" href="#design_coordinate_reference_system_definition"></a>B.2. <strong>design coordinate reference system</strong></h3>
+<div class="paragraph">
+<p>engineering coordinate reference system in which the base representation of a moving object is specified. [ISO 19141:2008, definition 4.1.3]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="direct_position_definition"><a class="anchor" href="#direct_position_definition"></a>B.3. <strong>direct position</strong></h3>
+<div class="paragraph">
+<p>DirectPosition object data types hold the coordinates for a position within some coordinate reference system.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="external_coordinate_reference_system_definition"><a class="anchor" href="#external_coordinate_reference_system_definition"></a>B.4. <strong>external coordinate reference system</strong></h3>
+<div class="paragraph">
+<p>the coordinate reference system in which the geometry of the curve for a trajectory is defined. Usually an earth-fixed geographic CRS. [ISO 19141:2008, derived]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="feature_definition"><a class="anchor" href="#feature_definition"></a>B.5. feature</h3>
+<div class="paragraph">
+<p>abstraction of real world phenomena [ISO 19101:2002, definition 4.11]</p>
+</div>
+<div class="paragraph">
+<p>NOTE A feature may occur as a type or an instance. Feature type or feature instance shall be used when only one is meant.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="foliation_definition"><a class="anchor" href="#foliation_definition"></a>B.6. <strong>foliation</strong></h3>
+<div class="paragraph">
+<p>one parameter set of geometries such that each point in the prism of the set is in one and only one trajectory and in one and only one leaf [ISO 19141:2008, definition 4.1.8]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="geometric_object_definition"><a class="anchor" href="#geometric_object_definition"></a>B.7. <strong>geometric object</strong></h3>
+<div class="paragraph">
+<p>spatial object representing a geometric set [ISO 19107:2003, definition 4.47]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="geometric_primitive_definition"><a class="anchor" href="#geometric_primitive_definition"></a>B.8. <strong>geometric primitive</strong></h3>
+<div class="paragraph">
+<p>geometric object representing a single, connected, homogeneous element of space [ISO 19107:2003, definition 4.48]</p>
+</div>
+<div class="paragraph">
+<p>NOTE Geometric primitives are non-decomposed objects that present information about geometric configuration. They include points, curves, surfaces, and solids.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="global_coordinate_reference_system_definition"><a class="anchor" href="#global_coordinate_reference_system_definition"></a>B.9. <strong>global coordinate system</strong></h3>
+<div class="paragraph">
+<p>the CRS of the trajectory of the reference point.</p>
+</div>
+<div class="paragraph">
+<p>NOTE A global coordinate system is usually in terms of the moving frame of the curve (oriented on the local tangent) or in terms of the external CRS in which the geometry of the curve is defined. [ISO 19141:2008, derived]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gm_point_definition"><a class="anchor" href="#gm_point_definition"></a>B.10. <strong>GM_Point</strong></h3>
+<div class="paragraph">
+<p>GM_Point is the basic data type for a geometric object consisting of one and only one point. That point is represented as a DirectPosition.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="instant_definition"><a class="anchor" href="#instant_definition"></a>B.11. <strong>instant</strong></h3>
+<div class="paragraph">
+<p>0-dimensional geometric primitive representing position in time [ISO 19108:2002, definition 4.1.17]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="leaf_definition"><a class="anchor" href="#leaf_definition"></a>B.12. <strong>leaf</strong></h3>
+<div class="paragraph">
+<p>&lt;one parameter set of geometries&gt; geometry at a particular value of the parameter [ISO 19141:2008, definition 4.1.12]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="local_coordinate_reference_system_definition"><a class="anchor" href="#local_coordinate_reference_system_definition"></a>B.13. <strong>local coordinate system</strong></h3>
+<div class="paragraph">
+<p>a coordinate reference system which is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="one_parameter_geometries_set_definition"><a class="anchor" href="#one_parameter_geometries_set_definition"></a>B.14. <strong>one parameter set of geometries</strong></h3>
+<div class="paragraph">
+<p>function f from an interval t ∈ [a, b] such that f(t) is a geometry and for each point P ∈ f(a) there is a one parameter set of points (called the trajectory of P) P(t) : [a, b] →P(t) such that P(t) ∈ f(t) [ISO 19141:2008, definition 4.1.15]</p>
+</div>
+<div class="paragraph">
+<p>EXAMPLE A curve C with constructive parameter t is a one parameter set of points c(t).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="prism_definition"><a class="anchor" href="#prism_definition"></a>B.15. <strong>prism</strong></h3>
+<div class="paragraph">
+<p>&lt;one parameter set of geometries&gt; set of points in the union of the geometries (or the union of the trajectories) of a one parameter set of geometries [ISO 19141:2008, definition 4.1.18]</p>
+</div>
+<div class="paragraph">
+<p>NOTE This is a generalization of the concept of a geometric prism that is the convex hull of two congruent polygons in 3D-space. Such polyhedrons can be viewed as a foliation of congruent polygons.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="temporal_coordinate_system_definition"><a class="anchor" href="#temporal_coordinate_system_definition"></a>B.16. <strong>temporal coordinate system</strong></h3>
+<div class="paragraph">
+<p>temporal reference system based on an interval scale on which distance is measured as a multiple of a single unit of time [ISO 19108:2002, definition 4.1.31]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="temporal_position_definition"><a class="anchor" href="#temporal_position_definition"></a>B.17. <strong>temporal position</strong></h3>
+<div class="paragraph">
+<p>location relative to a temporal reference system [ISO 19108:2002, definition 4.1.34]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="temporal_reference_system_definition"><a class="anchor" href="#temporal_reference_system_definition"></a>B.18. <strong>temporal reference system</strong></h3>
+<div class="paragraph">
+<p>reference system against which time is measured [ISO 19108:2002, definition 4.1.35]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="trajectory_definition"><a class="anchor" href="#trajectory_definition"></a>B.19. <strong>trajectory</strong></h3>
+<div class="paragraph">
+<p>path of a moving point described by a one parameter set of points [ISO 19141:2008, definition 4.1.22]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="vector_definition"><a class="anchor" href="#vector_definition"></a>B.20. <strong>vector</strong></h3>
+<div class="paragraph">
+<p>quantity having direction as well as magnitude [ISO 19123:2005, definition 4.1.43]</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_revision_history"><a class="anchor" href="#_revision_history"></a>Annex C: Revision History</h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all" style="width: 90%;">
 <colgroup>
@@ -1940,7 +2044,7 @@ z' = z</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-24 17:49:47 +0100
+Last updated 2022-04-25 19:18:10 +0100
 </div>
 </div>
 </body>

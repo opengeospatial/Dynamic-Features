@@ -8,4 +8,14 @@ http://www.opengis.net/spec/{standard}/{m.n}
 
 All requirements and conformance tests that appear in this document are denoted by partial URIs which are relative to this base.
 
-NOTE: A description of UML and how it is used in ISO and OGC standards will be included here.
+[[uml_notation_section]]
+=== UML Notation
+
+The logical structure of the elements used in this Discussion Paper is presented using the Unified Modeling Language (UML) static structure diagram (see Booch et al. 1997). The UML notations used in this paper are described in the diagram in <<figure-1>>. 
+
+Most of these UML diagrams have been extracted from the ISO/TC211 Harmonized Model maintained by the Harmonized Model Maintenance Group on their https://github.com/ISO-TC211/HMMG[GitHub Repository]. Some modifications may have been made to better present issues relevant to this discussion. None of these modifications change the underlying UML model.  
+
+[[figure-1]]
+.UML notation 
+image::./images/UML_Notation.png[align ="center"]
+
