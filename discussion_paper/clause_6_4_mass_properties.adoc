@@ -1,3 +1,4 @@
+[[mass_properties_section]]
 === Mass Properties
 
 Consider an articulated vehicle in free-flight. As the components change position, they change the center of mass, priciple axis of rotation, and a number of other mass properties. These changes affect the dynamic behavior of the vehicle. Most designers take great care to assure that problems cannot occur. But that doesn't mean we should ignore the issue.

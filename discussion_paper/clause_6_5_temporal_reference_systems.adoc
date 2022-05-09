@@ -1,3 +1,4 @@
+[[temporal_reference_systems_section]]
 === Temporal Reference Systems
 
 Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.
@@ -26,7 +27,7 @@ image::./images/TM_CoordinateSystem.png[]
 
 TM_CoordinateSystem is "A system for measuring time on a continuous interval scale using a single standard time interval". The standard time interval is provided through the `interval` attribute. In addition, the `origin` attribute provides a temporal "datum" from which time is measured. Since time is a one-dimensional quantity, the origin and interval are sufficient to define a basic Temporal Coordinate Reference System.
 
-However, TM_CoordinateSystem does have limitations. The transformation operations, for example, only convert to and from DateTime. DateTime is a primitive type defined in ISO 19103. These operations cannot be used to convert from one TM_CoordinateSystem to another. Furthermore. TM_CoordinateSystem does not provide sufficient information to perform these transformations trough an outside service.  
+However, TM_CoordinateSystem does have limitations. The transformation operations, for example, only convert to and from DateTime. DateTime is a primitive type defined in ISO 19103. These operations cannot be used to convert from one TM_CoordinateSystem to another. Furthermore. TM_CoordinateSystem does not provide sufficient information to perform these transformations through an outside service.  
 
 The other alternative is TM_Clock illustrated in Figure --
 
@@ -62,7 +63,7 @@ Timing is critical for motion imagery. Not only are accurate time stamps essenti
 
 For that reason, the Motion Imagery Standards Board (MISB) developed a timing infrastructure for use with MISB standards. This infrastructure addresses not only the locality of time, but also the conversion of time values from one locality to another.
 
-Three timers are illustrated in the example below (T1, T2, and T3). T1 is associated with the Platform. This timer receives regular GPS updates and is considered the most accurate in this system. T2 is associated with Sensor 1. This is a simple oscillator, counting nanoseconds since the sensor was last powered up. T3 is associated with Sensor 2. It also is a simple oscillator.  
+Three timers are illustrated in the example below (T1, T2, and T3). T1 is associated with the Platform. This timer receives regular GPS updates and is considered the most accurate in this system. T2 is associated with Sensor 1. This is a simple oscillator, counting nanoseconds since the sensor was last powered up. T3 is associated with Sensor 2. It also is a simple nanosecond counter.  
 
 image::./images/Timer_Example.png[]
 
@@ -74,3 +75,20 @@ figure -- illustrates the Timer architecture. A Timer is a physical device which
 
 The MISB timer concept is specific to the platforms and collection techniques used for Motion Imagery. These can be extended to provide a more general solution.
 
+==== Discussion
+
+ISO 19108 does not support tranformation between temporal reference systems. However, we can combined ISO 19108 with ISO 19111 to create a rudimentary transformation model for temporal reference systems. This approach will also allow us to minimize the difference between temporal and spatial reference systems.
+
+One characteristic of temporal transformations is that the transformation parameters are not static. They are often based on the current state of a physical clock. This suggests that a temporal reference system may include a Moving Feature. A representation of a real-world object with Temporal Properties. The MISB Timer system is an example of this approach. However, the MISB approach is designed for the limited scope of motion imagery collection systems. It does not provide a general solution. Therefore, a more robust model for both Precision Temporal Reference Systems and their transformation is needed.
+
+In summary:
+
+. We can define high-precision temporal CRS as subclasses of TM_TemporalCRS.
+. A high-precision temporal CRS is a physical device, a Timer. 
+. Precision Time Stamps are created from the local Timer, which is a Temporal CRS
+. Since a Timer is a device, it is also a Feature.
+. Transformation of values from one timer to another requires knowledge of the distance between timers. 
+. Since timers can move, they must be Moving Features
+. Transformation parameters may also be time sensitive. So Timers must support termporalProperties.
+. A photon travels roughly 30 centimeters in 1 nanosecond. To achieve and maintain 1 nanosecond accuracy, an accurate measurement of distance, and the associated adjustment, is required.
+. If the timer is traveling very fast, relativistic effects must be accomodated.

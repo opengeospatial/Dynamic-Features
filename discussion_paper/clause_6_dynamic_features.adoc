@@ -1,15 +1,18 @@
+[[dynamic_features_section]]
 == Dynamic Features
 
 Introductory text
 
 include::clause_6_1_geometry_in_3_dimensions.adoc[]
 
-include::clause_6_2_temporal_geometry.adoc[]
+include::clause_6_2_moving_features.adoc[]
 
-include::clause_6_4_articulated_geometries.adoc[]
+include::clause_6_3_articulated_geometries.adoc[]
 
-include::clause_6_6_mass_properties.adoc[]
+include::clause_6_4_mass_properties.adoc[]
 
-include::clause_6_8_temporal_reference_systems.adoc[]
+include::clause_6_5_temporal_reference_systems.adoc[]
 
-include::clause_6_9_dynamic_features_at_relativistic_velocities.adoc[]
+include::clause_6_6_precise_positioning.adoc[]
+
+include::clause_6_7_dynamic_features_at_relativistic_velocities.adoc[]

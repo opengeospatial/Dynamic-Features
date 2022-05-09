@@ -1,3 +1,4 @@
+[[relativistic_velocities_section]]
 === Dynamic Features at Relativistic Velocities
 
 Newtonian physics, the physics of everyday life, served us well for almost 200 years. By the late 1800's, however, it became clear that something more was needed. 
@@ -52,6 +53,34 @@ Yes for complex Minkowski space time. Here it is expressed as x^2 + y^2 + z^2 + 
 Complex Minkowski spacetime was replaced with real Minkowski space time where time is a real coordinate rather than an imaginary one.
 
 Where v is velocity, and x, y, and z are Cartesian coordinates in 3-dimensional space, and c is the constant representing the universal speed limit, and t is time, the four-dimensional vector v = (ct, x, y, z) = (ct, **r**) is classified according to the sign of (c^2 t^2) − r^2. A vector is **timelike** if (c^2 t^2) > r^2, **spacelike** if (c^2 t^2) < r^2, and **null** or **lightlike** if (c^2 t^2) = r^2. This can be expressed in terms of the sign of η(v, v) as well, which depends on the signature. The classification of any vector will be the same in all frames of reference that are related by a Lorentz transformation (but not by a general Poincaré transformation because the origin may then be displaced) because of the invariance of the interval.
+
+
+==== Musings
+
+A Minkowski coordinate reference system is M4D.
+
+Minkowski spacetime has no natural CRS. All M4D CRS are local.
+
+M4D is a spatial CRS. the axis are x, y, z, and ct. 
+
+Note the units of ct -> M/S * S = M -> all axis of a M4D CRS have the same units of measure.
+
+Consider an Observer O and an Observed phenomenon O'.
+
+Discuss Worlds and world lines
+
+If O' is stationary in respect to O, then Newtonian physics applies. 
+
+If O' is moving in respect to O, then it has a world line as shown in figure ---
+
+Notice that the M4D CRS of O' is inclined in respect to the CRS of O. It has undergone a rotation. The effect of this rotation is a contraction in both the measured X and ct coordinates. The ammount of contraction depends on the rotation of M4D O' in respect to M4D O. 
+
+So M4D O' and M4D O can be evaluated in terms of our standard concepts of translation and rotation.
+
+The actual mathematics involved can be packaged in a reusable library, similar to the way terrestrial CRS conversions are handled by GeoTRANS. It is sufficient for geospatial users to understand the required parameters and the basic principles of the transforms.
+
+Also - this requires that the general practice of measuring across coordinate reference systems be matured. CRS and CRS transformation will play a much larger role in spatial-temporal data processing than it has in the past.
+
 
 
 

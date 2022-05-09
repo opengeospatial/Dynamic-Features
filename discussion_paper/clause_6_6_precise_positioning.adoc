@@ -1,0 +1,222 @@
+[[precise_positioning_section]]
+=== Precise Positioning
+
+==== Network Time Protocol
+
+Do you really know what time it is?
+
+A standard technique for synchronizing clocks is the IETF RFC 5905 Network Time Protocol (NTP).
+
+NTP is a client-server protocol. A client requests the time from a Time Server, and the server provides a response with the current time. NTP provides a precision up to 2^-64^ seconds. However, precision is not accuracy. It takes time to process the NTP packets. It also takes time for the packets to traverse the network. So the accuracy of NTP can be as low as 0.01 seconds.
+
+NTP addresses these sources of error by using a round-trip protocol. The initial request contains one timestamp – the time of the request packet transmission.  The response adds two more timestamps; the time that the request was received and the time that the response packet was transmitted. The final timestamp is the time of the response packet reception. So we have:
+
+t~0~ – Request packet transmission timestamp
+
+t~1~ – Request packet reception timestamp
+
+t~2~ – Response packet transmission timestamp
+
+t~3~ – Response packet reception timestamp
+
+Note that the timestamps must be created as low in the protocol stack as possible to avoid additional CPU processing delays.
+
+The difference between the client and server clocks is measured twice. First for the request packet (t~1~ – t~0~) and then for the response packet (t~3~ – t~2~).  The total clock offset (θ) is the average of these two measures. Mathematically defined by the formula:
+
+Θ = ( ( t~1~ – t~0~ ) + ( t~2~ – t~3~ ) ) / 2
+
+The round-trip delay (δ) is the time spent in transit between the transmission of a request and reception of the response. Mathematically defined by the formula:
+
+δ = (t~3~ – t~0~) – (t~2~ – t~1~)
+
+The term t~3~ – t~0~ represents the total delay while the term t~2~ – t~1~ represents delay at the server. Since the processing time of an NTP packet should consistent, the second term removes this delay from the measurement. The result is the delay due to network latency, the most dynamic part of the problem.
+
+Given these concepts, the NTP protocol can be viewed as follows:
+
+. Issue an NTP request
+. Receive the response
+. Calculate Θ
+. Calculate δ
+. IF either Θ or δ is a statistical outlier, GOTO 1
+. IF δ is symmetrical (request and response delays
+are equal) GOTO 8
+. Adjust the local clock in the direction of Θ (incremental corrections only)
+. Wait a bit
+. GOTO 1
+
+This approach assumes a single time server. Additional accuracy can be achieved by using multiple time servers and adjusting to the weighted average of their respective offsets.
+
+The NTP has one source of systematic error. If the Time Servers are not accurate, then their clients will not be accurate either. This problem is addressed through an infrastructure of network time servers. At the top (stratum 0) servers are high-precision timekeeping devices such as atomic clocks. Next are the stratum 1 servers. These are servers whose system time is synchronized to within a few microseconds of their **[underline]#attached#** stratum 0 devices. Stratum 2 servers are synchronized over a network to stratum 1 servers.  Stratum 3 servers are synchronized over a network to stratum 2 servers.  This pattern can be replicated down to stratum 15. Lower stratums naturally lead to less accuracy. 
+
+Note: The time server includes its stratum level in the NTP response packet.
+
+image::./images/Network_Time_Protocol_servers_and_clients.png[align="center"]
+
+==== Electronic Distance Measurement
+
+Electronic Distance Measurement (EDM) devices operate by sending a laser pulse to a reflective target and measuring the time until the reflection is received back at the instrument. Distance can be calculated using the following formula:
+
+ρ = c * (Δt / 2)
+
+Where:
+
+ρ = the measured distance<
+
+c = the speed of light
+
+Δt = the interval between emission of the laser pulse and detection of its reflection
+
+Figure --- illustrates an EDM measurement. The blue sine wave indicates the emitted light. The Red sine wave indicates the reflection. The value Ρ is the distance between the EDM and the reflector.
+
+image::./images/EDM.png[align="center"]
+
+Source: GPS for Land Surveyors
+
+There is an issue though. With the speed of light at 3.0X10^8^ meters per second, a six-nanosecond error in the time measurement would equal a 1-meter error in distance. This level of accuracy is difficult to obtain with an atomic clock. It’s unheard of for a field surveying device. A more precise method is needed.
+
+Most EDM devices solve this problem by using the laser as the clock. The laser pulse has a frequency. That frequency corresponds to a wavelength. If we can measure the offset between the transmitted and received signal, we can measure the time delay.
+
+The wavelength of a signal can be derived from the frequency using the formula:
+
+λ = c / h
+
+Where: 
+
+h = frequency 
+
+λ = wavelength 
+
+c = the speed of light 
+
+Given the wavelength, the distance can be calculated using the formula: 
+
+Ρ = (N λ + d) / 2 
+
+Where: 
+
+N = the number of full wavelengths received at the detector. 
+
+d = the fractional part of a wavelength received. 
+
+Note that the higher the frequency of the signal, the greater precision in the distance measurement. 
+
+The fractional part of the wavelength is the phase shift (figure ---). While high-precision clocks are difficult to build, a tuning circuit capable of measuring the phase shift is simple and inexpensive. 
+
+image::./images/EDM-2.png[align="center"]
+
+But how do we solve for N? Counting cycles is impractical, particularly since many EDM devices use a continuous wave. The solution is to measure the distance using multiple frequencies. Since lower frequencies have a longer wavelength, we can start with a low-frequency, low-resolution measurement, then incrementally increase the frequency, thereby refining the measurement.
+
+Another approach is to encode a pseudo-random sequence onto the signal. The sequence in the reflected signal is then compared to the original. Since we know when the signal was transmitted, any miss-alignment between the reflected sequence and the original indicates the elapsed time (Δt). If the sequence is long enough to span multiple cycles, then N can be found by multiplying Δt by the frequency (h) and rounding down to the nearest whole cycle:
+
+N = Δt * h 
+
+Since the phase shift approach is more precise, most implementations use a code sequence to measure N and phase shift to measure d.
+
+==== GPS
+
+The Global Positioning System (GPS) is the most widely known precise positioning technology we have today. Yet, the GPS satellites obit 20,183 km above the earth surface. How can something so far away provide measurements so precise?
+
+===== GPS Time
+
+An understanding of precise positioning with GPS first requires an understanding of GPS time.
+
+The GPS system consists of a constellation of Earth orbiting satellites. Each satellite is fitted with a highly accurate atomic clock, which is periodically synchronized by a ground control station located at USNO, Colorado. As a result, the GPS satellites share a single synchronized temporal reference system. This temporal reference system is GPS time. USNO ensures that GPS time has an accuracy of ≤40 nanoseconds 95% of the time.
+
+The GPS time scale consists of two parts. The first part is a count of the number of weeks since the epoch. Each GPS week is 604,800 seconds long. Since GPS is a monotonic reference system, it does not include leap seconds or years. The second part is the number of seconds in the current week. The start epoch is 0 hours (midnight) Sunday 6-Jan-1980, when GPS time was 0.
+
+While the atomic clocks used in GPS satellites are good, they are not perfect. They tend to drift off perfect alignment with GPS time. Furthermore, frequent resetting would degrade the lifespan of the clocks. So, GPS satellites also record the clock bias (τ), the difference between GPS and Space Vehicle (SV) time. This information is provided to the receiver in the NAV message. 
+
+There are a few rules governing the use of SV time:
+
+. Each SV operates on its own SV time,
+. All time-related data in the NAV messages shall be in SV time,
+. All other data in the NAV message shall be relative to GPS time,
+. The acts of transmitting the NAV messages shall be executed on SV time.
+
+===== GPS Signal
+
+GPS signals are driven by the on-board atomic clocks. Four frequency bands are used (see figure --)
+
+|====
+^|Band ^|Frequency
+^|L1 |1575.42 MHz
+^|L2 |1227.60 MHz
+^|L3 |1381.05 MHz
+^|L5 |1176.45 MHz
+|====
+
+The L1 and L2 bands serve as carriers for broadcasting GPS data to GPS receivers. A carrier is not intended to convey information. It serves as a medium upon which other signals can be superimposed. This is the same principle as an FM radio. Your radio is tuned to a carrier frequency. The sound you hear is a separate signal which is superimposed or encoded onto the carrier signal. In the case of GPS, three additional signals are transmitted over the carrier:
+
+Navigation Message: The Navigation Message (NAV) provides the receiver with metadata about the satellite. It is broadcast at 50 bps and takes about 30 seconds to transmit. This message includes the satellite ephemeris data, satellite clock corrections, almanac data, ionosphere and troposphere corrections, and satellite health data. 
+
+C/A Code: The C/A code is a 1023-bit pseudo-random number that repeats every 1 ms. The C/A code is broadcast at the rate of 1.023 Mbps. It has a chip length (distance between binary transitions) of 293 meters. Given a 1023-bit code and a chip length of 293 meters, the C/A sequence repeats every 300 km. (1023 * 293). Its primary purpose is to identify the satellite and to phase-lock the receiver and satellite clocks. 
+
+P Code: The P code is a pseudo-random number that repeats every 37 weeks. Each GPS satellite is assigned a one-week section of the P code. This section serves as a unique identifier, which helps a GPS receiver distinguish one satellite’s transmission from another. Each satellite broadcasts its’ section of the P code at the rate of 10.23 Mbps. It has a chip length (distance between binary transitions) of 29.3 meters and repeats every seven days. Due to the higher resolution possible at this higher broadcast rate, the P code may be encrypted.
+
+In addition to the signals generated by the satellite, GPS receivers generate the same signals based on their own clock. These signals are used to correlate the signals received from the satellite with the local conditions at the receiver.
+
+===== Pseudo Ranging
+
+GPS positioning is based on trilateration. Trilateration calculates a location using three or more control points and the distances to each of those control points (figure --).  In the case of GPS, the control points are satellites located at P~1~, P~2~, and P~3~. The GPS receiver is located at A. If we construct a sphere around each control point (P~i~) of radius (L~i~), then the location of A is at the intersection of the three spheres.
+
+image::images/./three-rings-2.png[align="center"]
+
+Therefore, all we need to know for satellite-based precise positioning is the locations of P~i~ and the distances L~i~. Much easier said than done.
+
+GPS satellites are tracked to a high degree of precision by the GPS Control Segment. This “ephemeris” data is sent to the satellite every 4 hours. Receivers use a standard “Ephemeris Algorithm” to convert this data into an Earth-centered cartesian (x,y,z) coordinate in the WGS-84 coordinate reference system. However, since the satellites are moving, the calculated position is only valid for a specific time instance. A 1 nano-second (1.0 x 10^-9^ seconds) error in time can yield a 30 cm error in range.
+
+GPS works on the same basic principles as an EDM device. Unlike an EDA, however, a GPS signal is one-way. The transmitted signal cannot be directly compared with the received signal. So the receiver first calculates the pesudorange observable and iterates to find an accurate solution.
+
+The pseudorange is calculated by taking the time required for the signal to reach the receiver and multiplying that value by the speed of light. The basic formula to calculate a pseudorange is:
+
+Ρ~i~ = c * (t~a~ – t~i~)
+
+Where: 
+
+Ρ = the pesudorange for satellite “i”
+
+c = the speed of light
+
+t~a~ = the time at position A when the signal was received.
+
+t~i~ = the time on satellite “i” when the signal was transmitted.
+
+The pseudorange can also be defined in terms of the locations of the satellite and receiver.
+
+Ρ~i~ = ((x~i~ - x)^2^ + (y~i~ – y)^2^ + (z~i~ - z)^2^)^1/2^ + c( τ ) - c( τ~i~ )
+
+The terms ((x~i~ - x)^2^ + (y~i~ – y)^2^ + (z~i~ - z)^2^) are an application of the Pythagorean Theorem (a^2^ + b^2^ = c^2^). The terms c( τ ) and c( τ~i~ ) are the range error introduced by the clock bias at the receiver and on the satellite respectively.
+
+Ρ~i~ was calculated using equation ---. The satellite location and clock bias was provided through the NAV message. This leaves us with four unknowns. The location of A (x, y, z) and the receiver clock bias (τ). If we are working with four satellites, then that gives up four equations with four unknowns. These four simultaneous equations are usually solved using a least squares method. The result is a reasonably accurate position for A in x, y, z, and t. Repeating this process will refine the results. In particular, improved accuracy of the receiver clock will result in better range accuracy.
+
+===== Carrier Phase Observable
+
+The pseudo ranging result can be further improved using the Carrier Phase Observable. This approach is similar to the phase shift technique employed by EDM devices. The main difference is that the received signal is compared to the locally generated reference signal rather than the reflection. This gives us the formula: 
+
+Ρ~i~ = N~i~ λ + d~i~
+
+Where:
+
+N~i~ = the number of full wavelengths received at the detector.
+
+λ = wavelength of the carrier
+
+d~i~ = the fractional part of a wavelength received.
+
+We can also represent the carrier phase observation using the Carrier Phase Bias (B~i~) where:
+
+B~i~ = λ (Φ - Φ~i~ - N~i~)
+
+Where:
+
+Φ = the phase generated by the receiver clock
+
+Φ~i~ = the phase of the incoming signal
+
+Adding the Carrier Phase Bias to the pseudorange gives us:
+
+Ρ~i~ = ((x~i~ - x)^2^ + (y~i~
+– y)^2^ + (z~i~ - z)^2^)^1/2^ + c( τ ) - c( τ~i~ ) + B~i~
+
+Once again we have four equations solving for four variables: x, y, z, and τ, but with the extra precision added by B~i~. 
+

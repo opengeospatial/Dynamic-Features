@@ -462,7 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Approval Date:   &lt;yyyy-mm-dd&gt;</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-04-25</p></td>
+<td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Publication Date:   2022-05-09</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-right valign-top" style="background-color: #FFFFFF;"><p class="tableblock">External identifier of this OGC&#174; document: <a href="http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}" class="bare">http://www.opengis.net/doc/dp/DynamicFeatures/{m.n}</a></p></td>
@@ -571,9 +571,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#uml_notation_section">4.2. UML Notation</a></li>
 </ul>
 </li>
-<li><a href="#_dynamic_features">5. Dynamic Features</a>
+<li><a href="#dynamic_features_section">5. Dynamic Features</a>
 <ul class="sectlevel2">
-<li><a href="#_geometry_in_3_dimensions">5.1. Geometry in 3 Dimensions</a>
+<li><a href="#geometry_in_3_d_section">5.1. Geometry in 3 Dimensions</a>
 <ul class="sectlevel3">
 <li><a href="#_feature_model">5.1.1. Feature Model</a></li>
 <li><a href="#_feature_geometry">5.1.2. Feature Geometry</a></li>
@@ -590,27 +590,36 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_non_rigid_bodies">5.2.6. Non-rigid Bodies</a></li>
 </ul>
 </li>
-<li><a href="#_articulated_geometries">5.3. Articulated Geometries</a>
+<li><a href="#articulated_geometries_section">5.3. Articulated Geometries</a>
 <ul class="sectlevel3">
 <li><a href="#_misb_staging_system">5.3.1. MISB Staging System</a></li>
 <li><a href="#_geopose">5.3.2. GeoPOSE</a></li>
 <li><a href="#_discussions">5.3.3. Discussions</a></li>
 </ul>
 </li>
-<li><a href="#_mass_properties">5.4. Mass Properties</a></li>
-<li><a href="#_temporal_reference_systems_2">5.5. Temporal Reference Systems</a>
+<li><a href="#mass_properties_section">5.4. Mass Properties</a></li>
+<li><a href="#temporal_reference_systems_section">5.5. Temporal Reference Systems</a>
 <ul class="sectlevel3">
 <li><a href="#_iso_19108">5.5.1. ISO 19108</a></li>
 <li><a href="#_misb_timers">5.5.2. MISB Timers</a></li>
+<li><a href="#_discussion">5.5.3. Discussion</a></li>
 </ul>
 </li>
-<li><a href="#_dynamic_features_at_relativistic_velocities">5.6. Dynamic Features at Relativistic Velocities</a>
+<li><a href="#precise_positioning_section">5.6. Precise Positioning</a>
 <ul class="sectlevel3">
-<li><a href="#_lorentz_transformation">5.6.1. Lorentz Transformation</a></li>
-<li><a href="#_minkowski_space_time">5.6.2. Minkowski Space Time</a></li>
+<li><a href="#_network_time_protocol">5.6.1. Network Time Protocol</a></li>
+<li><a href="#_electronic_distance_measurement">5.6.2. Electronic Distance Measurement</a></li>
+<li><a href="#_gps">5.6.3. GPS</a></li>
 </ul>
 </li>
-<li><a href="#recommendations_section">5.7. Discussions and Recommendations</a></li>
+<li><a href="#relativistic_velocities_section">5.7. Dynamic Features at Relativistic Velocities</a>
+<ul class="sectlevel3">
+<li><a href="#_lorentz_transformation">5.7.1. Lorentz Transformation</a></li>
+<li><a href="#_minkowski_space_time">5.7.2. Minkowski Space Time</a></li>
+<li><a href="#_musings">5.7.3. Musings</a></li>
+</ul>
+</li>
+<li><a href="#recommendations_section">5.8. Discussions and Recommendations</a></li>
 </ul>
 </li>
 <li><a href="#bibliography_section">Annex A: Bibliography</a></li>
@@ -764,13 +773,13 @@ Attention is drawn to the possibility that some of the elements of this document
 </div>
 </div>
 <div class="sect1">
-<h2 id="_dynamic_features"><a class="anchor" href="#_dynamic_features"></a>5. Dynamic Features</h2>
+<h2 id="dynamic_features_section"><a class="anchor" href="#dynamic_features_section"></a>5. Dynamic Features</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Introductory text</p>
 </div>
 <div class="sect2">
-<h3 id="_geometry_in_3_dimensions"><a class="anchor" href="#_geometry_in_3_dimensions"></a>5.1. Geometry in 3 Dimensions</h3>
+<h3 id="geometry_in_3_d_section"><a class="anchor" href="#geometry_in_3_d_section"></a>5.1. Geometry in 3 Dimensions</h3>
 <div class="paragraph">
 <p><strong>Topic:</strong> Is the OGC Geometry model sufficient to support 3D?</p>
 </div>
@@ -1340,7 +1349,7 @@ verify the following definition and clarify the symbology. It does not appear to
 </div>
 </div>
 <div class="sect2">
-<h3 id="_articulated_geometries"><a class="anchor" href="#_articulated_geometries"></a>5.3. Articulated Geometries</h3>
+<h3 id="articulated_geometries_section"><a class="anchor" href="#articulated_geometries_section"></a>5.3. Articulated Geometries</h3>
 <div class="paragraph">
 <p>Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object.</p>
 </div>
@@ -1571,7 +1580,7 @@ verify the following definition and clarify the symbology. It does not appear to
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mass_properties"><a class="anchor" href="#_mass_properties"></a>5.4. Mass Properties</h3>
+<h3 id="mass_properties_section"><a class="anchor" href="#mass_properties_section"></a>5.4. Mass Properties</h3>
 <div class="paragraph">
 <p>Consider an articulated vehicle in free-flight. As the components change position, they change the center of mass, priciple axis of rotation, and a number of other mass properties. These changes affect the dynamic behavior of the vehicle. Most designers take great care to assure that problems cannot occur. But that doesn&#8217;t mean we should ignore the issue.</p>
 </div>
@@ -1580,7 +1589,7 @@ verify the following definition and clarify the symbology. It does not appear to
 </div>
 </div>
 <div class="sect2">
-<h3 id="_temporal_reference_systems_2"><a class="anchor" href="#_temporal_reference_systems_2"></a>5.5. Temporal Reference Systems</h3>
+<h3 id="temporal_reference_systems_section"><a class="anchor" href="#temporal_reference_systems_section"></a>5.5. Temporal Reference Systems</h3>
 <div class="paragraph">
 <p>Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.</p>
 </div>
@@ -1626,7 +1635,7 @@ verify the following definition and clarify the symbology. It does not appear to
 <p>TM_CoordinateSystem is "A system for measuring time on a continuous interval scale using a single standard time interval". The standard time interval is provided through the <code>interval</code> attribute. In addition, the <code>origin</code> attribute provides a temporal "datum" from which time is measured. Since time is a one-dimensional quantity, the origin and interval are sufficient to define a basic Temporal Coordinate Reference System.</p>
 </div>
 <div class="paragraph">
-<p>However, TM_CoordinateSystem does have limitations. The transformation operations, for example, only convert to and from DateTime. DateTime is a primitive type defined in ISO 19103. These operations cannot be used to convert from one TM_CoordinateSystem to another. Furthermore. TM_CoordinateSystem does not provide sufficient information to perform these transformations trough an outside service.</p>
+<p>However, TM_CoordinateSystem does have limitations. The transformation operations, for example, only convert to and from DateTime. DateTime is a primitive type defined in ISO 19103. These operations cannot be used to convert from one TM_CoordinateSystem to another. Furthermore. TM_CoordinateSystem does not provide sufficient information to perform these transformations through an outside service.</p>
 </div>
 <div class="paragraph">
 <p>The other alternative is TM_Clock illustrated in Figure&#8201;&#8212;&#8201;</p>
@@ -1694,7 +1703,7 @@ verify the following definition and clarify the symbology. It does not appear to
 <p>For that reason, the Motion Imagery Standards Board (MISB) developed a timing infrastructure for use with MISB standards. This infrastructure addresses not only the locality of time, but also the conversion of time values from one locality to another.</p>
 </div>
 <div class="paragraph">
-<p>Three timers are illustrated in the example below (T1, T2, and T3). T1 is associated with the Platform. This timer receives regular GPS updates and is considered the most accurate in this system. T2 is associated with Sensor 1. This is a simple oscillator, counting nanoseconds since the sensor was last powered up. T3 is associated with Sensor 2. It also is a simple oscillator.</p>
+<p>Three timers are illustrated in the example below (T1, T2, and T3). T1 is associated with the Platform. This timer receives regular GPS updates and is considered the most accurate in this system. T2 is associated with Sensor 1. This is a simple oscillator, counting nanoseconds since the sensor was last powered up. T3 is associated with Sensor 2. It also is a simple nanosecond counter.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1716,9 +1725,431 @@ verify the following definition and clarify the symbology. It does not appear to
 <p>The MISB timer concept is specific to the platforms and collection techniques used for Motion Imagery. These can be extended to provide a more general solution.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_discussion"><a class="anchor" href="#_discussion"></a>5.5.3. Discussion</h4>
+<div class="paragraph">
+<p>ISO 19108 does not support tranformation between temporal reference systems. However, we can combined ISO 19108 with ISO 19111 to create a rudimentary transformation model for temporal reference systems. This approach will also allow us to minimize the difference between temporal and spatial reference systems.</p>
+</div>
+<div class="paragraph">
+<p>One characteristic of temporal transformations is that the transformation parameters are not static. They are often based on the current state of a physical clock. This suggests that a temporal reference system may include a Moving Feature. A representation of a real-world object with Temporal Properties. The MISB Timer system is an example of this approach. However, the MISB approach is designed for the limited scope of motion imagery collection systems. It does not provide a general solution. Therefore, a more robust model for both Precision Temporal Reference Systems and their transformation is needed.</p>
+</div>
+<div class="paragraph">
+<p>In summary:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We can define high-precision temporal CRS as subclasses of TM_TemporalCRS.</p>
+</li>
+<li>
+<p>A high-precision temporal CRS is a physical device, a Timer.</p>
+</li>
+<li>
+<p>Precision Time Stamps are created from the local Timer, which is a Temporal CRS</p>
+</li>
+<li>
+<p>Since a Timer is a device, it is also a Feature.</p>
+</li>
+<li>
+<p>Transformation of values from one timer to another requires knowledge of the distance between timers.</p>
+</li>
+<li>
+<p>Since timers can move, they must be Moving Features</p>
+</li>
+<li>
+<p>Transformation parameters may also be time sensitive. So Timers must support termporalProperties.</p>
+</li>
+<li>
+<p>A photon travels roughly 30 centimeters in 1 nanosecond. To achieve and maintain 1 nanosecond accuracy, an accurate measurement of distance, and the associated adjustment, is required.</p>
+</li>
+<li>
+<p>If the timer is traveling very fast, relativistic effects must be accomodated.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_dynamic_features_at_relativistic_velocities"><a class="anchor" href="#_dynamic_features_at_relativistic_velocities"></a>5.6. Dynamic Features at Relativistic Velocities</h3>
+<h3 id="precise_positioning_section"><a class="anchor" href="#precise_positioning_section"></a>5.6. Precise Positioning</h3>
+<div class="sect3">
+<h4 id="_network_time_protocol"><a class="anchor" href="#_network_time_protocol"></a>5.6.1. Network Time Protocol</h4>
+<div class="paragraph">
+<p>Do you really know what time it is?</p>
+</div>
+<div class="paragraph">
+<p>A standard technique for synchronizing clocks is the IETF RFC 5905 Network Time Protocol (NTP).</p>
+</div>
+<div class="paragraph">
+<p>NTP is a client-server protocol. A client requests the time from a Time Server, and the server provides a response with the current time. NTP provides a precision up to 2<sup>-64</sup> seconds. However, precision is not accuracy. It takes time to process the NTP packets. It also takes time for the packets to traverse the network. So the accuracy of NTP can be as low as 0.01 seconds.</p>
+</div>
+<div class="paragraph">
+<p>NTP addresses these sources of error by using a round-trip protocol. The initial request contains one timestamp – the time of the request packet transmission.  The response adds two more timestamps; the time that the request was received and the time that the response packet was transmitted. The final timestamp is the time of the response packet reception. So we have:</p>
+</div>
+<div class="paragraph">
+<p>t<sub>0</sub> – Request packet transmission timestamp</p>
+</div>
+<div class="paragraph">
+<p>t<sub>1</sub> – Request packet reception timestamp</p>
+</div>
+<div class="paragraph">
+<p>t<sub>2</sub> – Response packet transmission timestamp</p>
+</div>
+<div class="paragraph">
+<p>t<sub>3</sub> – Response packet reception timestamp</p>
+</div>
+<div class="paragraph">
+<p>Note that the timestamps must be created as low in the protocol stack as possible to avoid additional CPU processing delays.</p>
+</div>
+<div class="paragraph">
+<p>The difference between the client and server clocks is measured twice. First for the request packet (t<sub>1</sub> – t<sub>0</sub>) and then for the response packet (t<sub>3</sub> – t<sub>2</sub>).  The total clock offset (θ) is the average of these two measures. Mathematically defined by the formula:</p>
+</div>
+<div class="paragraph">
+<p>Θ = ( ( t<sub>1</sub> – t<sub>0</sub> ) + ( t<sub>2</sub> – t<sub>3</sub> ) ) / 2</p>
+</div>
+<div class="paragraph">
+<p>The round-trip delay (δ) is the time spent in transit between the transmission of a request and reception of the response. Mathematically defined by the formula:</p>
+</div>
+<div class="paragraph">
+<p>δ = (t<sub>3</sub> – t<sub>0</sub>) – (t<sub>2</sub> – t<sub>1</sub>)</p>
+</div>
+<div class="paragraph">
+<p>The term t<sub>3</sub> – t<sub>0</sub> represents the total delay while the term t<sub>2</sub> – t<sub>1</sub> represents delay at the server. Since the processing time of an NTP packet should consistent, the second term removes this delay from the measurement. The result is the delay due to network latency, the most dynamic part of the problem.</p>
+</div>
+<div class="paragraph">
+<p>Given these concepts, the NTP protocol can be viewed as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Issue an NTP request</p>
+</li>
+<li>
+<p>Receive the response</p>
+</li>
+<li>
+<p>Calculate Θ</p>
+</li>
+<li>
+<p>Calculate δ</p>
+</li>
+<li>
+<p>IF either Θ or δ is a statistical outlier, GOTO 1</p>
+</li>
+<li>
+<p>IF δ is symmetrical (request and response delays
+are equal) GOTO 8</p>
+</li>
+<li>
+<p>Adjust the local clock in the direction of Θ (incremental corrections only)</p>
+</li>
+<li>
+<p>Wait a bit</p>
+</li>
+<li>
+<p>GOTO 1</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This approach assumes a single time server. Additional accuracy can be achieved by using multiple time servers and adjusting to the weighted average of their respective offsets.</p>
+</div>
+<div class="paragraph">
+<p>The NTP has one source of systematic error. If the Time Servers are not accurate, then their clients will not be accurate either. This problem is addressed through an infrastructure of network time servers. At the top (stratum 0) servers are high-precision timekeeping devices such as atomic clocks. Next are the stratum 1 servers. These are servers whose system time is synchronized to within a few microseconds of their <strong><span class="underline">attached</span></strong> stratum 0 devices. Stratum 2 servers are synchronized over a network to stratum 1 servers.  Stratum 3 servers are synchronized over a network to stratum 2 servers.  This pattern can be replicated down to stratum 15. Lower stratums naturally lead to less accuracy.</p>
+</div>
+<div class="paragraph">
+<p>Note: The time server includes its stratum level in the NTP response packet.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/Network_Time_Protocol_servers_and_clients.png" alt="Network Time Protocol servers and clients">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_electronic_distance_measurement"><a class="anchor" href="#_electronic_distance_measurement"></a>5.6.2. Electronic Distance Measurement</h4>
+<div class="paragraph">
+<p>Electronic Distance Measurement (EDM) devices operate by sending a laser pulse to a reflective target and measuring the time until the reflection is received back at the instrument. Distance can be calculated using the following formula:</p>
+</div>
+<div class="paragraph">
+<p>ρ = c * (Δt / 2)</p>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="paragraph">
+<p>ρ = the measured distance&lt;</p>
+</div>
+<div class="paragraph">
+<p>c = the speed of light</p>
+</div>
+<div class="paragraph">
+<p>Δt = the interval between emission of the laser pulse and detection of its reflection</p>
+</div>
+<div class="paragraph">
+<p>Figure --- illustrates an EDM measurement. The blue sine wave indicates the emitted light. The Red sine wave indicates the reflection. The value Ρ is the distance between the EDM and the reflector.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/EDM.png" alt="EDM">
+</div>
+</div>
+<div class="paragraph">
+<p>Source: GPS for Land Surveyors</p>
+</div>
+<div class="paragraph">
+<p>There is an issue though. With the speed of light at 3.0X10<sup>8</sup> meters per second, a six-nanosecond error in the time measurement would equal a 1-meter error in distance. This level of accuracy is difficult to obtain with an atomic clock. It’s unheard of for a field surveying device. A more precise method is needed.</p>
+</div>
+<div class="paragraph">
+<p>Most EDM devices solve this problem by using the laser as the clock. The laser pulse has a frequency. That frequency corresponds to a wavelength. If we can measure the offset between the transmitted and received signal, we can measure the time delay.</p>
+</div>
+<div class="paragraph">
+<p>The wavelength of a signal can be derived from the frequency using the formula:</p>
+</div>
+<div class="paragraph">
+<p>λ = c / h</p>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="paragraph">
+<p>h = frequency</p>
+</div>
+<div class="paragraph">
+<p>λ = wavelength</p>
+</div>
+<div class="paragraph">
+<p>c = the speed of light</p>
+</div>
+<div class="paragraph">
+<p>Given the wavelength, the distance can be calculated using the formula:</p>
+</div>
+<div class="paragraph">
+<p>Ρ = (N λ + d) / 2</p>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="paragraph">
+<p>N = the number of full wavelengths received at the detector.</p>
+</div>
+<div class="paragraph">
+<p>d = the fractional part of a wavelength received.</p>
+</div>
+<div class="paragraph">
+<p>Note that the higher the frequency of the signal, the greater precision in the distance measurement.</p>
+</div>
+<div class="paragraph">
+<p>The fractional part of the wavelength is the phase shift (figure ---). While high-precision clocks are difficult to build, a tuning circuit capable of measuring the phase shift is simple and inexpensive.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/EDM-2.png" alt="EDM 2">
+</div>
+</div>
+<div class="paragraph">
+<p>But how do we solve for N? Counting cycles is impractical, particularly since many EDM devices use a continuous wave. The solution is to measure the distance using multiple frequencies. Since lower frequencies have a longer wavelength, we can start with a low-frequency, low-resolution measurement, then incrementally increase the frequency, thereby refining the measurement.</p>
+</div>
+<div class="paragraph">
+<p>Another approach is to encode a pseudo-random sequence onto the signal. The sequence in the reflected signal is then compared to the original. Since we know when the signal was transmitted, any miss-alignment between the reflected sequence and the original indicates the elapsed time (Δt). If the sequence is long enough to span multiple cycles, then N can be found by multiplying Δt by the frequency (h) and rounding down to the nearest whole cycle:</p>
+</div>
+<div class="paragraph">
+<p>N = Δt * h</p>
+</div>
+<div class="paragraph">
+<p>Since the phase shift approach is more precise, most implementations use a code sequence to measure N and phase shift to measure d.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_gps"><a class="anchor" href="#_gps"></a>5.6.3. GPS</h4>
+<div class="paragraph">
+<p>The Global Positioning System (GPS) is the most widely known precise positioning technology we have today. Yet, the GPS satellites obit 20,183 km above the earth surface. How can something so far away provide measurements so precise?</p>
+</div>
+<div class="sect4">
+<h5 id="_gps_time"><a class="anchor" href="#_gps_time"></a>GPS Time</h5>
+<div class="paragraph">
+<p>An understanding of precise positioning with GPS first requires an understanding of GPS time.</p>
+</div>
+<div class="paragraph">
+<p>The GPS system consists of a constellation of Earth orbiting satellites. Each satellite is fitted with a highly accurate atomic clock, which is periodically synchronized by a ground control station located at USNO, Colorado. As a result, the GPS satellites share a single synchronized temporal reference system. This temporal reference system is GPS time. USNO ensures that GPS time has an accuracy of ≤40 nanoseconds 95% of the time.</p>
+</div>
+<div class="paragraph">
+<p>The GPS time scale consists of two parts. The first part is a count of the number of weeks since the epoch. Each GPS week is 604,800 seconds long. Since GPS is a monotonic reference system, it does not include leap seconds or years. The second part is the number of seconds in the current week. The start epoch is 0 hours (midnight) Sunday 6-Jan-1980, when GPS time was 0.</p>
+</div>
+<div class="paragraph">
+<p>While the atomic clocks used in GPS satellites are good, they are not perfect. They tend to drift off perfect alignment with GPS time. Furthermore, frequent resetting would degrade the lifespan of the clocks. So, GPS satellites also record the clock bias (τ), the difference between GPS and Space Vehicle (SV) time. This information is provided to the receiver in the NAV message.</p>
+</div>
+<div class="paragraph">
+<p>There are a few rules governing the use of SV time:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Each SV operates on its own SV time,</p>
+</li>
+<li>
+<p>All time-related data in the NAV messages shall be in SV time,</p>
+</li>
+<li>
+<p>All other data in the NAV message shall be relative to GPS time,</p>
+</li>
+<li>
+<p>The acts of transmitting the NAV messages shall be executed on SV time.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_gps_signal"><a class="anchor" href="#_gps_signal"></a>GPS Signal</h5>
+<div class="paragraph">
+<p>GPS signals are driven by the on-board atomic clocks. Four frequency bands are used (see figure --)</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Band</p></td>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">Frequency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">L1</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1575.42 MHz</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">L2</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1227.60 MHz</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">L3</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1381.05 MHz</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top" style="background-color: #FFFFFF;"><p class="tableblock">L5</p></td>
+<td class="tableblock halign-left valign-top" style="background-color: #FFFFFF;"><p class="tableblock">1176.45 MHz</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The L1 and L2 bands serve as carriers for broadcasting GPS data to GPS receivers. A carrier is not intended to convey information. It serves as a medium upon which other signals can be superimposed. This is the same principle as an FM radio. Your radio is tuned to a carrier frequency. The sound you hear is a separate signal which is superimposed or encoded onto the carrier signal. In the case of GPS, three additional signals are transmitted over the carrier:</p>
+</div>
+<div class="paragraph">
+<p>Navigation Message: The Navigation Message (NAV) provides the receiver with metadata about the satellite. It is broadcast at 50 bps and takes about 30 seconds to transmit. This message includes the satellite ephemeris data, satellite clock corrections, almanac data, ionosphere and troposphere corrections, and satellite health data.</p>
+</div>
+<div class="paragraph">
+<p>C/A Code: The C/A code is a 1023-bit pseudo-random number that repeats every 1 ms. The C/A code is broadcast at the rate of 1.023 Mbps. It has a chip length (distance between binary transitions) of 293 meters. Given a 1023-bit code and a chip length of 293 meters, the C/A sequence repeats every 300 km. (1023 * 293). Its primary purpose is to identify the satellite and to phase-lock the receiver and satellite clocks.</p>
+</div>
+<div class="paragraph">
+<p>P Code: The P code is a pseudo-random number that repeats every 37 weeks. Each GPS satellite is assigned a one-week section of the P code. This section serves as a unique identifier, which helps a GPS receiver distinguish one satellite’s transmission from another. Each satellite broadcasts its’ section of the P code at the rate of 10.23 Mbps. It has a chip length (distance between binary transitions) of 29.3 meters and repeats every seven days. Due to the higher resolution possible at this higher broadcast rate, the P code may be encrypted.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the signals generated by the satellite, GPS receivers generate the same signals based on their own clock. These signals are used to correlate the signals received from the satellite with the local conditions at the receiver.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_pseudo_ranging"><a class="anchor" href="#_pseudo_ranging"></a>Pseudo Ranging</h5>
+<div class="paragraph">
+<p>GPS positioning is based on trilateration. Trilateration calculates a location using three or more control points and the distances to each of those control points (figure --).  In the case of GPS, the control points are satellites located at P<sub>1</sub>, P<sub>2</sub>, and P<sub>3</sub>. The GPS receiver is located at A. If we construct a sphere around each control point (P<sub>i</sub>) of radius (L<sub>i</sub>), then the location of A is at the intersection of the three spheres.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="images/three-rings-2.png" alt="three rings 2">
+</div>
+</div>
+<div class="paragraph">
+<p>Therefore, all we need to know for satellite-based precise positioning is the locations of P<sub>i</sub> and the distances L<sub>i</sub>. Much easier said than done.</p>
+</div>
+<div class="paragraph">
+<p>GPS satellites are tracked to a high degree of precision by the GPS Control Segment. This “ephemeris” data is sent to the satellite every 4 hours. Receivers use a standard “Ephemeris Algorithm” to convert this data into an Earth-centered cartesian (x,y,z) coordinate in the WGS-84 coordinate reference system. However, since the satellites are moving, the calculated position is only valid for a specific time instance. A 1 nano-second (1.0 x 10<sup>-9</sup> seconds) error in time can yield a 30 cm error in range.</p>
+</div>
+<div class="paragraph">
+<p>GPS works on the same basic principles as an EDM device. Unlike an EDA, however, a GPS signal is one-way. The transmitted signal cannot be directly compared with the received signal. So the receiver first calculates the pesudorange observable and iterates to find an accurate solution.</p>
+</div>
+<div class="paragraph">
+<p>The pseudorange is calculated by taking the time required for the signal to reach the receiver and multiplying that value by the speed of light. The basic formula to calculate a pseudorange is:</p>
+</div>
+<div class="paragraph">
+<p>Ρ<sub>i</sub> = c * (t<sub>a</sub> – t<sub>i</sub>)</p>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="paragraph">
+<p>Ρ = the pesudorange for satellite “i”</p>
+</div>
+<div class="paragraph">
+<p>c = the speed of light</p>
+</div>
+<div class="paragraph">
+<p>t<sub>a</sub> = the time at position A when the signal was received.</p>
+</div>
+<div class="paragraph">
+<p>t<sub>i</sub> = the time on satellite “i” when the signal was transmitted.</p>
+</div>
+<div class="paragraph">
+<p>The pseudorange can also be defined in terms of the locations of the satellite and receiver.</p>
+</div>
+<div class="paragraph">
+<p>Ρ<sub>i</sub> = ((x<sub>i</sub> - x)<sup>2</sup> + (y<sub>i</sub> – y)<sup>2</sup> + (z<sub>i</sub> - z)<sup>2</sup>)<sup>1/2</sup> + c( τ ) - c( τ<sub>i</sub> )</p>
+</div>
+<div class="paragraph">
+<p>The terms ((x<sub>i</sub> - x)<sup>2</sup> + (y<sub>i</sub> – y)<sup>2</sup> + (z<sub>i</sub> - z)<sup>2</sup>) are an application of the Pythagorean Theorem (a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>). The terms c( τ ) and c( τ<sub>i</sub> ) are the range error introduced by the clock bias at the receiver and on the satellite respectively.</p>
+</div>
+<div class="paragraph">
+<p>Ρ<sub>i</sub> was calculated using equation ---. The satellite location and clock bias was provided through the NAV message. This leaves us with four unknowns. The location of A (x, y, z) and the receiver clock bias (τ). If we are working with four satellites, then that gives up four equations with four unknowns. These four simultaneous equations are usually solved using a least squares method. The result is a reasonably accurate position for A in x, y, z, and t. Repeating this process will refine the results. In particular, improved accuracy of the receiver clock will result in better range accuracy.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_carrier_phase_observable"><a class="anchor" href="#_carrier_phase_observable"></a>Carrier Phase Observable</h5>
+<div class="paragraph">
+<p>The pseudo ranging result can be further improved using the Carrier Phase Observable. This approach is similar to the phase shift technique employed by EDM devices. The main difference is that the received signal is compared to the locally generated reference signal rather than the reflection. This gives us the formula:</p>
+</div>
+<div class="paragraph">
+<p>Ρ<sub>i</sub> = N<sub>i</sub> λ + d<sub>i</sub></p>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="paragraph">
+<p>N<sub>i</sub> = the number of full wavelengths received at the detector.</p>
+</div>
+<div class="paragraph">
+<p>λ = wavelength of the carrier</p>
+</div>
+<div class="paragraph">
+<p>d<sub>i</sub> = the fractional part of a wavelength received.</p>
+</div>
+<div class="paragraph">
+<p>We can also represent the carrier phase observation using the Carrier Phase Bias (B<sub>i</sub>) where:</p>
+</div>
+<div class="paragraph">
+<p>B<sub>i</sub> = λ (Φ - Φ<sub>i</sub> - N<sub>i</sub>)</p>
+</div>
+<div class="paragraph">
+<p>Where:</p>
+</div>
+<div class="paragraph">
+<p>Φ = the phase generated by the receiver clock</p>
+</div>
+<div class="paragraph">
+<p>Φ<sub>i</sub> = the phase of the incoming signal</p>
+</div>
+<div class="paragraph">
+<p>Adding the Carrier Phase Bias to the pseudorange gives us:</p>
+</div>
+<div class="paragraph">
+<p>Ρ<sub>i</sub> = ((x<sub>i</sub> - x)<sup>2</sup> + (y<sub>i</sub>
+– y)<sup>2</sup> + (z<sub>i</sub> - z)<sup>2</sup>)<sup>1/2</sup> + c( τ ) - c( τ<sub>i</sub> ) + B<sub>i</sub></p>
+</div>
+<div class="paragraph">
+<p>Once again we have four equations solving for four variables: x, y, z, and τ, but with the extra precision added by B<sub>i</sub>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="relativistic_velocities_section"><a class="anchor" href="#relativistic_velocities_section"></a>5.7. Dynamic Features at Relativistic Velocities</h3>
 <div class="paragraph">
 <p>Newtonian physics, the physics of everyday life, served us well for almost 200 years. By the late 1800&#8217;s, however, it became clear that something more was needed.</p>
 </div>
@@ -1733,7 +2164,7 @@ verify the following definition and clarify the symbology. It does not appear to
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_lorentz_transformation"><a class="anchor" href="#_lorentz_transformation"></a>5.6.1. Lorentz Transformation</h4>
+<h4 id="_lorentz_transformation"><a class="anchor" href="#_lorentz_transformation"></a>5.7.1. Lorentz Transformation</h4>
 <div class="paragraph">
 <p>The 1887 aether-wind experiment of Michelson and Morley demonstrated that the speed of light is independent of the reference frame. This ran counter to the contemporary belief in a luminiferous aether which permiates space. According to this theory, the speed of light should be higher for an object moving toward a light source and lower for one moving away.  The Lorentz transformations were the result of attempts by Lorentz and others to explain how the speed of light could be independent of the underlying reference frame without discarding the luminiferous aether. While the aether theory is long discarded, Lorentz Transforms are consistent with Special Relativity which makes them still useful today.</p>
 </div>
@@ -1765,7 +2196,7 @@ z' = z</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_minkowski_space_time"><a class="anchor" href="#_minkowski_space_time"></a>5.6.2. Minkowski Space Time</h4>
+<h4 id="_minkowski_space_time"><a class="anchor" href="#_minkowski_space_time"></a>5.7.2. Minkowski Space Time</h4>
 <div class="paragraph">
 <p>It is basically a combination of 3-dimensional Euclidean Space and time into a 4-dimensional manifold, where the interval of spacetime that exists between any two events is not dependent on the inertial frame of reference.</p>
 </div>
@@ -1810,9 +2241,48 @@ z' = z</p>
 <p>Where v is velocity, and x, y, and z are Cartesian coordinates in 3-dimensional space, and c is the constant representing the universal speed limit, and t is time, the four-dimensional vector v = (ct, x, y, z) = (ct, <strong>r</strong>) is classified according to the sign of (c^2 t^2) − r^2. A vector is <strong>timelike</strong> if (c^2 t^2) &gt; r^2, <strong>spacelike</strong> if (c^2 t^2) &lt; r^2, and <strong>null</strong> or <strong>lightlike</strong> if (c^2 t^2) = r^2. This can be expressed in terms of the sign of η(v, v) as well, which depends on the signature. The classification of any vector will be the same in all frames of reference that are related by a Lorentz transformation (but not by a general Poincaré transformation because the origin may then be displaced) because of the invariance of the interval.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_musings"><a class="anchor" href="#_musings"></a>5.7.3. Musings</h4>
+<div class="paragraph">
+<p>A Minkowski coordinate reference system is M4D.</p>
+</div>
+<div class="paragraph">
+<p>Minkowski spacetime has no natural CRS. All M4D CRS are local.</p>
+</div>
+<div class="paragraph">
+<p>M4D is a spatial CRS. the axis are x, y, z, and ct.</p>
+</div>
+<div class="paragraph">
+<p>Note the units of ct &#8594; M/S * S = M &#8594; all axis of a M4D CRS have the same units of measure.</p>
+</div>
+<div class="paragraph">
+<p>Consider an Observer O and an Observed phenomenon O'.</p>
+</div>
+<div class="paragraph">
+<p>Discuss Worlds and world lines</p>
+</div>
+<div class="paragraph">
+<p>If O' is stationary in respect to O, then Newtonian physics applies.</p>
+</div>
+<div class="paragraph">
+<p>If O' is moving in respect to O, then it has a world line as shown in figure ---</p>
+</div>
+<div class="paragraph">
+<p>Notice that the M4D CRS of O' is inclined in respect to the CRS of O. It has undergone a rotation. The effect of this rotation is a contraction in both the measured X and ct coordinates. The ammount of contraction depends on the rotation of M4D O' in respect to M4D O.</p>
+</div>
+<div class="paragraph">
+<p>So M4D O' and M4D O can be evaluated in terms of our standard concepts of translation and rotation.</p>
+</div>
+<div class="paragraph">
+<p>The actual mathematics involved can be packaged in a reusable library, similar to the way terrestrial CRS conversions are handled by GeoTRANS. It is sufficient for geospatial users to understand the required parameters and the basic principles of the transforms.</p>
+</div>
+<div class="paragraph">
+<p>Also - this requires that the general practice of measuring across coordinate reference systems be matured. CRS and CRS transformation will play a much larger role in spatial-temporal data processing than it has in the past.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="recommendations_section"><a class="anchor" href="#recommendations_section"></a>5.7. Discussions and Recommendations</h3>
+<h3 id="recommendations_section"><a class="anchor" href="#recommendations_section"></a>5.8. Discussions and Recommendations</h3>
 <div class="paragraph">
 <p>TBD</p>
 </div>
@@ -2044,7 +2514,7 @@ z' = z</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-25 19:18:10 +0100
+Last updated 2022-05-09 21:45:46 +0100
 </div>
 </div>
 </body>

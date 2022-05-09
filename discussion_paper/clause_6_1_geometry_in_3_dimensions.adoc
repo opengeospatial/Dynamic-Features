@@ -1,3 +1,4 @@
+[[geometry_in_3_d_section]]
 === Geometry in 3 Dimensions
 
 *Topic:* Is the OGC Geometry model sufficient to support 3D?
