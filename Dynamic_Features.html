@@ -602,34 +602,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#kinematics_section">5.7. Kinematics</a></li>
 </ul>
 </li>
-<li><a href="#_part_2_spatial_reference_systems">6. Part 2: Spatial Reference Systems</a>
+<li><a href="#_part_2_time">6. Part 2: Time</a>
 <ul class="sectlevel2">
-<li><a href="#planetary_reference_systems_section">6.1. Planetary Reference Systems</a></li>
-<li><a href="#astronomical_reference_systems_section">6.2. Astronomical Reference Systems</a></li>
-<li><a href="#local_reference_systems_section">6.3. Local Reference Systems</a></li>
-<li><a href="#dynamic_reference_systems_section">6.4. Dynamic reference Systems</a></li>
+<li><a href="#clocks_and_timers_section">6.1. Clocks and Timers</a>
+<ul class="sectlevel3">
+<li><a href="#_misb_timers">6.1.1. MISB Timers</a></li>
+<li><a href="#_network_time_protocol">6.1.2. Network Time Protocol</a></li>
+<li><a href="#_electronic_distance_measurement">6.1.3. Electronic Distance Measurement</a></li>
+<li><a href="#_gps">6.1.4. GPS</a></li>
 </ul>
 </li>
-<li><a href="#_part_3_time">7. Part 3: Time</a>
+<li><a href="#temporal_reference_systems_section">6.2. Temporal Reference Systems</a>
+<ul class="sectlevel3">
+<li><a href="#_iso_19108">6.2.1. ISO 19108</a></li>
+<li><a href="#_misb_timers_2">6.2.2. MISB Timers</a></li>
+<li><a href="#_discussion">6.2.3. Discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_part_3_reference_systems">7. Part 3: Reference Systems</a>
 <ul class="sectlevel2">
-<li><a href="#clocks_and_timers_section">7.1. Clocks and Timers</a>
+<li><a href="#planetary_reference_systems_section">7.1. Planetary Reference Systems</a></li>
+<li><a href="#astronomical_reference_systems_section">7.2. Astronomical Reference Systems</a></li>
+<li><a href="#local_reference_systems_section">7.3. Local Reference Systems</a></li>
+<li><a href="#dynamic_reference_systems_section">7.4. Dynamic reference Systems</a></li>
+<li><a href="#space-time_reference_systems_section">7.5. Space-Time Reference Systems</a>
 <ul class="sectlevel3">
-<li><a href="#_misb_timers">7.1.1. MISB Timers</a></li>
-<li><a href="#_network_time_protocol">7.1.2. Network Time Protocol</a></li>
-<li><a href="#_electronic_distance_measurement">7.1.3. Electronic Distance Measurement</a></li>
-<li><a href="#_gps">7.1.4. GPS</a></li>
-</ul>
-</li>
-<li><a href="#temporal_reference_systems_section">7.2. Temporal Reference Systems</a>
-<ul class="sectlevel3">
-<li><a href="#_iso_19108">7.2.1. ISO 19108</a></li>
-<li><a href="#_misb_timers_2">7.2.2. MISB Timers</a></li>
-<li><a href="#_discussion">7.2.3. Discussion</a></li>
-</ul>
-</li>
-<li><a href="#space-time_reference_systems_section">7.3. Space-Time Reference Systems</a>
-<ul class="sectlevel3">
-<li><a href="#_lorentz_transformation">7.3.1. Lorentz Transformation</a></li>
+<li><a href="#_lorentz_transformation">7.5.1. Lorentz Transformation</a></li>
 </ul>
 </li>
 </ul>
@@ -1664,53 +1664,12 @@ verify the following definition and clarify the symbology. It does not appear to
 </div>
 </div>
 <div class="sect1">
-<h2 id="_part_2_spatial_reference_systems"><a class="anchor" href="#_part_2_spatial_reference_systems"></a>6. Part 2: Spatial Reference Systems</h2>
+<h2 id="_part_2_time"><a class="anchor" href="#_part_2_time"></a>6. Part 2: Time</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="planetary_reference_systems_section"><a class="anchor" href="#planetary_reference_systems_section"></a>6.1. Planetary Reference Systems</h3>
-<div class="paragraph">
-<p>NASA, USGA, and the IAU are developing Reference Systems for non-Earth planetary bodies.</p>
-</div>
-<div class="paragraph">
-<p>ISO 19111 is the international standard for defining Reference Systems</p>
-</div>
-<div class="paragraph">
-<p>Reference EPSG and NSG registry for examples</p>
-</div>
-<div class="paragraph">
-<p>Work to do, further refinement of the existing planetary reference systems and develop ISO 19111 compliant descriptions of those reference systems.</p>
-</div>
-<div class="paragraph">
-<p>Additional work to consider – The Space AOI is likely to require planetary Reference Systems consisting of a point mass with surrounding non-uniform magnetic and gravitational fields. Is this a valid requirement, how do we define such a reference system, and can be extend IAO 19111 to support it.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="astronomical_reference_systems_section"><a class="anchor" href="#astronomical_reference_systems_section"></a>6.2. Astronomical Reference Systems</h3>
-<div class="paragraph">
-<p>TBD - refer to the International Astronomical Union (IAU)</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="local_reference_systems_section"><a class="anchor" href="#local_reference_systems_section"></a>6.3. Local Reference Systems</h3>
-<div class="paragraph">
-<p>TBD</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="dynamic_reference_systems_section"><a class="anchor" href="#dynamic_reference_systems_section"></a>6.4. Dynamic reference Systems</h3>
-<div class="paragraph">
-<p>TBD</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_part_3_time"><a class="anchor" href="#_part_3_time"></a>7. Part 3: Time</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="clocks_and_timers_section"><a class="anchor" href="#clocks_and_timers_section"></a>7.1. Clocks and Timers</h3>
+<h3 id="clocks_and_timers_section"><a class="anchor" href="#clocks_and_timers_section"></a>6.1. Clocks and Timers</h3>
 <div class="sect3">
-<h4 id="_misb_timers"><a class="anchor" href="#_misb_timers"></a>7.1.1. MISB Timers</h4>
+<h4 id="_misb_timers"><a class="anchor" href="#_misb_timers"></a>6.1.1. MISB Timers</h4>
 <div class="paragraph">
 <p>Timing is critical for motion imagery. Not only are accurate time stamps essential for the smooth viewing of the images, they are even more critical for the accuracy of data derived from that imagery. Proper geolocation of a moving image, for example, requires nano-precision time stamps.</p>
 </div>
@@ -1741,7 +1700,7 @@ verify the following definition and clarify the symbology. It does not appear to
 </div>
 </div>
 <div class="sect3">
-<h4 id="_network_time_protocol"><a class="anchor" href="#_network_time_protocol"></a>7.1.2. Network Time Protocol</h4>
+<h4 id="_network_time_protocol"><a class="anchor" href="#_network_time_protocol"></a>6.1.2. Network Time Protocol</h4>
 <div class="paragraph">
 <p>Do you really know what time it is?</p>
 </div>
@@ -1835,7 +1794,7 @@ are equal) GOTO 8</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_electronic_distance_measurement"><a class="anchor" href="#_electronic_distance_measurement"></a>7.1.3. Electronic Distance Measurement</h4>
+<h4 id="_electronic_distance_measurement"><a class="anchor" href="#_electronic_distance_measurement"></a>6.1.3. Electronic Distance Measurement</h4>
 <div class="paragraph">
 <p>Electronic Distance Measurement (EDM) devices operate by sending a laser pulse to a reflective target and measuring the time until the reflection is received back at the instrument. Distance can be calculated using the following formula:</p>
 </div>
@@ -1929,7 +1888,7 @@ are equal) GOTO 8</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_gps"><a class="anchor" href="#_gps"></a>7.1.4. GPS</h4>
+<h4 id="_gps"><a class="anchor" href="#_gps"></a>6.1.4. GPS</h4>
 <div class="paragraph">
 <p>The Global Positioning System (GPS) is the most widely known precise positioning technology we have today. Yet, the GPS satellites obit 20,183 km above the earth surface. How can something so far away provide measurements so precise?</p>
 </div>
@@ -2118,7 +2077,7 @@ are equal) GOTO 8</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="temporal_reference_systems_section"><a class="anchor" href="#temporal_reference_systems_section"></a>7.2. Temporal Reference Systems</h3>
+<h3 id="temporal_reference_systems_section"><a class="anchor" href="#temporal_reference_systems_section"></a>6.2. Temporal Reference Systems</h3>
 <div class="paragraph">
 <p>Proposition: Time is in the eye of the beholder.  So all measurements of time must be local.</p>
 </div>
@@ -2132,7 +2091,7 @@ are equal) GOTO 8</p>
 <p>So if all time is local, we need a Temporal Reference System concept which captures the parameters needed to transform across TRSs. A temporal equivalent to GeoPOSE.</p>
 </div>
 <div class="sect3">
-<h4 id="_iso_19108"><a class="anchor" href="#_iso_19108"></a>7.2.1. ISO 19108</h4>
+<h4 id="_iso_19108"><a class="anchor" href="#_iso_19108"></a>6.2.1. ISO 19108</h4>
 <div class="paragraph">
 <p>The ISO standard for Temporal Reference Systems is ISO 19108:2006 Geographic Schema - Temporal Schema.</p>
 </div>
@@ -2224,7 +2183,7 @@ are equal) GOTO 8</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_misb_timers_2"><a class="anchor" href="#_misb_timers_2"></a>7.2.2. MISB Timers</h4>
+<h4 id="_misb_timers_2"><a class="anchor" href="#_misb_timers_2"></a>6.2.2. MISB Timers</h4>
 <div class="paragraph">
 <p>Timing is critical for motion imagery. Not only are accurate time stamps essential for the smooth viewing of the images, they are even more critical for the accuracy of data derived from that imagery. Proper geolocation of a moving image, for example, requires nano-precision time stamps.</p>
 </div>
@@ -2255,7 +2214,7 @@ are equal) GOTO 8</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_discussion"><a class="anchor" href="#_discussion"></a>7.2.3. Discussion</h4>
+<h4 id="_discussion"><a class="anchor" href="#_discussion"></a>6.2.3. Discussion</h4>
 <div class="paragraph">
 <p>ISO 19108 does not support tranformation between temporal reference systems. However, we can combined ISO 19108 with ISO 19111 to create a rudimentary transformation model for temporal reference systems. This approach will also allow us to minimize the difference between temporal and spatial reference systems.</p>
 </div>
@@ -2298,8 +2257,49 @@ are equal) GOTO 8</p>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_part_3_reference_systems"><a class="anchor" href="#_part_3_reference_systems"></a>7. Part 3: Reference Systems</h2>
+<div class="sectionbody">
 <div class="sect2">
-<h3 id="space-time_reference_systems_section"><a class="anchor" href="#space-time_reference_systems_section"></a>7.3. Space-Time Reference Systems</h3>
+<h3 id="planetary_reference_systems_section"><a class="anchor" href="#planetary_reference_systems_section"></a>7.1. Planetary Reference Systems</h3>
+<div class="paragraph">
+<p>NASA, USGA, and the IAU are developing Reference Systems for non-Earth planetary bodies.</p>
+</div>
+<div class="paragraph">
+<p>ISO 19111 is the international standard for defining Reference Systems</p>
+</div>
+<div class="paragraph">
+<p>Reference EPSG and NSG registry for examples</p>
+</div>
+<div class="paragraph">
+<p>Work to do, further refinement of the existing planetary reference systems and develop ISO 19111 compliant descriptions of those reference systems.</p>
+</div>
+<div class="paragraph">
+<p>Additional work to consider – The Space AOI is likely to require planetary Reference Systems consisting of a point mass with surrounding non-uniform magnetic and gravitational fields. Is this a valid requirement, how do we define such a reference system, and can be extend IAO 19111 to support it.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="astronomical_reference_systems_section"><a class="anchor" href="#astronomical_reference_systems_section"></a>7.2. Astronomical Reference Systems</h3>
+<div class="paragraph">
+<p>TBD - refer to the International Astronomical Union (IAU)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="local_reference_systems_section"><a class="anchor" href="#local_reference_systems_section"></a>7.3. Local Reference Systems</h3>
+<div class="paragraph">
+<p>TBD</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dynamic_reference_systems_section"><a class="anchor" href="#dynamic_reference_systems_section"></a>7.4. Dynamic reference Systems</h3>
+<div class="paragraph">
+<p>TBD</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="space-time_reference_systems_section"><a class="anchor" href="#space-time_reference_systems_section"></a>7.5. Space-Time Reference Systems</h3>
 <div class="paragraph">
 <p>Minkowski Space Time is a four-dimension Reference System commonly used in Special and General Relativity. It is basically a combination of 3-dimensional Euclidean Space and time into a 4-dimensional manifold, where the interval of spacetime that exists between any two events is not dependent on the inertial frame of reference.</p>
 </div>
@@ -2344,7 +2344,7 @@ are equal) GOTO 8</p>
 <p>Where v is velocity, and x, y, and z are Cartesian coordinates in 3-dimensional space, and c is the constant representing the universal speed limit, and t is time, the four-dimensional vector v = (ct, x, y, z) = (ct, <strong>r</strong>) is classified according to the sign of (c^2 t^2) − r^2. A vector is <strong>timelike</strong> if (c^2 t^2) &gt; r^2, <strong>spacelike</strong> if (c^2 t^2) &lt; r^2, and <strong>null</strong> or <strong>lightlike</strong> if (c^2 t^2) = r^2. This can be expressed in terms of the sign of η(v, v) as well, which depends on the signature. The classification of any vector will be the same in all frames of reference that are related by a Lorentz transformation (but not by a general Poincaré transformation because the origin may then be displaced) because of the invariance of the interval.</p>
 </div>
 <div class="sect3">
-<h4 id="_lorentz_transformation"><a class="anchor" href="#_lorentz_transformation"></a>7.3.1. Lorentz Transformation</h4>
+<h4 id="_lorentz_transformation"><a class="anchor" href="#_lorentz_transformation"></a>7.5.1. Lorentz Transformation</h4>
 <div class="paragraph">
 <p>A transformation between two different coordinate frames that move at a constant velocity and are relative to each other.</p>
 </div>

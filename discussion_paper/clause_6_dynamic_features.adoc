@@ -17,21 +17,21 @@ include::Part_1/clause_mass_properties.adoc[]
 
 include::Part_1/clause_kinematics.adoc[]
 
-== Part 2: Spatial Reference Systems
+== Part 2: Time
 
-include::Part_2/clause_planetary_reference_systems.adoc[]
+include::Part_2/clause_clocks_and_timers.adoc[]
 
-include::Part_2/clause_astronomical_reference_systems.adoc[]
+include::Part_2/clause_temporal_reference_systems.adoc[]
 
-include::Part_2/clause_local_reference_systems.adoc[]
+== Part 3: Reference Systems
 
-include::Part_2/clause_dynamic_reference_systems.adoc[]
+include::Part_3/clause_planetary_reference_systems.adoc[]
 
-== Part 3: Time
+include::Part_3/clause_astronomical_reference_systems.adoc[]
 
-include::Part_3/clause_clocks_and_timers.adoc[]
+include::Part_3/clause_local_reference_systems.adoc[]
 
-include::Part_3/clause_temporal_reference_systems.adoc[]
+include::Part_3/clause_dynamic_reference_systems.adoc[]
 
 include::Part_3/clause_space-time_reference_systems.adoc[]
 
