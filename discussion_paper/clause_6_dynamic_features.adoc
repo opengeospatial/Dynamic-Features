@@ -1,18 +1,60 @@
 [[dynamic_features_section]]
-== Dynamic Features
+== Part 1: Space Objects
 
 Introductory text
 
-include::clause_6_1_geometry_in_3_dimensions.adoc[]
+include::Part_1/clause_6_1_feature_model.adoc[]
 
-include::clause_6_2_moving_features.adoc[]
+include::Part_1/clause_6_1_geometry_in_3_dimensions.adoc[]
 
-include::clause_6_3_articulated_geometries.adoc[]
+include::Part_1/clause_6_2_moving_features.adoc[]
 
-include::clause_6_4_mass_properties.adoc[]
+include::Part_1/clause_6_3_articulated_geometries.adoc[]
 
-include::clause_6_5_temporal_reference_systems.adoc[]
+include::Part_1/clause_6_4_mass_properties.adoc[]
 
-include::clause_6_6_precise_positioning.adoc[]
+include::Part_1/clause_6_4_kinematics.adoc[]
 
-include::clause_6_7_dynamic_features_at_relativistic_velocities.adoc[]
+== Part 2: Reference Systems
+
+=== Planetary Reference Systems
+
+NASA, USGA, and the IAU are developing Reference Systems for non-Earth planetary bodies.
+
+ISO 19111 is the international standard for defining Reference Systems
+
+Reference EPSG and NSG registry for examples
+
+Work to do, further refinement of the existing planetary reference systems and develop ISO 19111 compliant descriptions of those reference systems.
+
+Additional work to consider – The Space AOI is likely to require planetary Reference Systems consisting of a point mass with surrounding non-uniform magnetic and gravitational fields. Is this a valid requirement, how do we define such a reference system, and can be extend IAO 19111 to support it.
+
+=== Local Reference Systems
+
+
+
+=== Dynamic Reference Systems
+
+
+
+== Part 3: Time
+
+The dominant role of clocks in Space GeoINT - why calendars are not useful.
+
+include::Part_3/clause_6_6_precise_positioning.adoc[]
+
+include::Part_3/clause_6_5_temporal_reference_systems.adoc[]
+
+== Part 4: Systems of Reference Systems
+
+Traditionally we have taken reference systems for granted. Everything was ultimately referenced to the Earth. Not so in Space,
+
+Mickelson Moorely shows us that there is no Universal Reference System. All measurements of location are relative. Object A measures the velocity of Object B relative to itself. This measurement is unique to the A-B relationship. There is no absolute measure of velocity that Object B can report to any obserer. 
+
+Reference System integration - Stages System, GeoPOSE, the need for more complex models
+
+The need for a more robust concept of coordinate system transformation.
+
+== Part 5: Special Relativity
+
+include::Part_5/clause_6_7_dynamic_features_at_relativistic_velocities.adoc[]

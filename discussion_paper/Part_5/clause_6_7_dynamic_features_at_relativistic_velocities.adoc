@@ -3,12 +3,21 @@
 
 Newtonian physics, the physics of everyday life, served us well for almost 200 years. By the late 1800's, however, it became clear that something more was needed. 
 
-* Inertial Frame: relative motion with constant velocity
-* Non-Inertial Frame: accelerating, moving in curved paths, rotational motion with constant angular velocity, etc.
+==== The birth of relativity
+
+Since light behaves like a wave, there must be a material for the waves to propagate through. Physicists called this material the luminiferous aether. The aether was an undetectable substance which permiates space. It provided a universal reference frame against which absolute motion could be measured.
+
+According to this theory, a measurement of the speed of light would vary depending on the motion of the measuring apparatus through the universal reference frame, the aether. The speed of light through the aether would be a fixed value. Measurements of the speed of light would be the sum of the velocity of the measurement appraratus relative to the aether and the speed of light through aether.
+
+Consider a measuring apparatus which consists of a light separated a fixed distance from a detector. If the apparatus is oriented in the same direction as the motion of the apparatus through the aether, then the measured speed of light would be higher. If the apparatus was traveling in the opposit direction, then the measured speed of light would be lower.    
+
+should be higher for an object moving toward a light source and lower for one moving away.
+
+In 1887, Michaelson and Morley built such an apparatus. Their experiments showed that the speed of light was the same no matter how their apparatus was oriented. The inescapable conclusion was that there is no luminiferous aether. That there is no universal reference system. There is no abolute motion. All motion must be a measurement of relative motion between two objects.
 
 ==== Lorentz Transformation
 
-The 1887 aether-wind experiment of Michelson and Morley demonstrated that the speed of light is independent of the reference frame. This ran counter to the contemporary belief in a luminiferous aether which permiates space. According to this theory, the speed of light should be higher for an object moving toward a light source and lower for one moving away.  The Lorentz transformations were the result of attempts by Lorentz and others to explain how the speed of light could be independent of the underlying reference frame without discarding the luminiferous aether. While the aether theory is long discarded, Lorentz Transforms are consistent with Special Relativity which makes them still useful today.
+The Lorentz transformations were the result of attempts by Lorentz and others to explain how the speed of light could be independent of the underlying reference frame without discarding the luminiferous aether. While the aether theory is long discarded, Lorentz Transforms are consistent with Special Relativity which makes them still useful today.
 
 Consider a reference frame 'A' which is moving in respect to an observer at 'B'. Lorentz asserts that 'A' and 'B' measure reality using two different reference frames. Transformation from reference frame 'A' (Fa) to Reference Frame 'B' (Fb) requires a transformation that accounts for the effect of velocity. Central to this transformation is the The Lorentz factor (g) which is defined as:
 

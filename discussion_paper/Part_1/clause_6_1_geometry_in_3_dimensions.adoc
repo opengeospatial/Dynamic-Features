@@ -1,29 +1,6 @@
 [[geometry_in_3_d_section]]
 === Geometry in 3 Dimensions
 
-*Topic:* Is the OGC Geometry model sufficient to support 3D?
-
-==== Feature Model
-
-Before we can discuss geometry, we must first have a conceptual model of the universe. The OGC and ISO TC211 provide that model in ISO 19109. This standard defines the General Feature Model (GFM). The GFM defines the concept of a Feature, its components, and behaviors.
-
-ISO TC211 defines a Feature as an "Abstraction of real world phenomena" (ISO 19101-1:2014)
-
-A Feature, then, is a high level abstraction for anything that does or could exist in the universe. 
-
-The General Feature Model further refines the concept of a Feature. The following principles are most relevant for this discussion:   
-
-. A Feature can be a FeatureType or an Instance of a FeatureType (AnyFeature).
-. FeatureTypes can form a taxonomy (inheritance)
-. Features possess characteristics (Properties)
-. A Property of a Feature can be an Operation, Attribute, or Association.
-
-image::./images/General-Feature-Model-L1.png[]
-
-The resulting model is sufficient to describe a Feature's identity (IdentifiedType), what it is (FeatureType), what it can do (Operations), its observable characterisitics (Attributes), and any associations with other Feature instances.
-
-==== Feature Geometry
-
 The General Feature Model treats geometry as an attribute of the Feature. In addition, it defines three types of attribute which are useful for associating geometry with a Feature in a standard manner: 
 
 * SpatialAttributeType: Geometries (GM_Object) and Topologies (TP_Object)

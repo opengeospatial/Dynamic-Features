@@ -26,7 +26,7 @@ DirectPosition object data types hold the coordinates for a position within some
 the coordinate reference system in which the geometry of the curve for a trajectory is defined. Usually an earth-fixed geographic CRS. [ISO 19141:2008, derived]
 
 [[feature_definition]]
-=== feature
+=== *feature*
 abstraction of real world phenomena [ISO 19101:2002, definition 4.11]
 
 NOTE A feature may occur as a type or an instance. Feature type or feature instance shall be used when only one is meant.
@@ -55,6 +55,10 @@ NOTE A global coordinate system is usually in terms of the moving frame of the c
 === *GM_Point*
 GM_Point is the basic data type for a geometric object consisting of one and only one point. That point is represented as a DirectPosition.
 
+[[inertial_frame_definition]]
+=== *Inertial Frame*
+relative motion with constant velocity
+
 [[instant_definition]]
 === *instant*
 0-dimensional geometric primitive representing position in time [ISO 19108:2002, definition 4.1.17]
@@ -66,6 +70,10 @@ GM_Point is the basic data type for a geometric object consisting of one and onl
 [[local_coordinate_reference_system_definition]]
 === *local coordinate system*
 a coordinate reference system which is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass.
+
+[[non-inertial_frame_definition]]
+=== *Non-Inertial Frame*
+accelerating, moving in curved paths, rotational motion with constant angular velocity, etc.
 
 [[one_parameter_geometries_set_definition]]
 === *one parameter set of geometries*
