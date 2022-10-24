@@ -1,0 +1,5 @@
+=== Plastic Geometries
+
+Given a suite of standards which allow you to define time-variant geometric elements, then the next step is to take a collection of those elements and assemble them into a complex object. 
+
+

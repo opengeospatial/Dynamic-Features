@@ -1,19 +1,27 @@
 [[geometry_in_3_d_section]]
 === Geometry in 3 Dimensions
 
+The applicable OGC/ISO standard for geometries is ISO 19107:2003. While a new version was approved in 2019, it hasn't propagated through the rest of the ISO standards baseline. As a result, 19107:2003 is the most recent implemented version. 
+
+==== Features and Geometry
+
 The General Feature Model treats geometry as an attribute of the Feature. In addition, it defines three types of attribute which are useful for associating geometry with a Feature in a standard manner: 
 
 * SpatialAttributeType: Geometries (GM_Object) and Topologies (TP_Object)
 * LocationalAttributeType: Named locations, extents, and points.
 * TemporalAttributeType: Temporal objects (TM_Object)
 
-image::./images/AttributeTypes.png[]
+image::images/AttributeTypes.png[align="center"]
 
-image::./images/SpatialAttributeType.png[]
+image::images/SpatialAttributeType.png[align="center"]
 
-image::./images/LocationalAttributeType.png[]
+image::images/LocationalAttributeType.png[align="center"]
 
-image::./images/TemporalAttributeType.png[]
+image::images/TemporalAttributeType.png[align="center"]
+
+NOTE: add discussion of how the geometry is not limited to a specific number of dimensions. That comes from the CRS definition associated with the geometry.
+
+==== Features in 3D
 
 In our discussion of Dynamic Features, we must allow for Features which are moving through three dimensions and have non-trivial three dimensional shapes. We must also consider that the shape of these objects may change with time. From this we see that the movement of the Feature and the shape of the Feature are two separate properties. 
 
@@ -31,17 +39,15 @@ One and two dimensional geometries are well understood. So the locational attrib
 
 NOTE: The Locational attribute only specifies the location of the Local CRS. It does not address the orientation of that CRS.
 
-==== 3D Geometry
-
-The applicable OGC/ISO standard for 3D geometries is ISO 19107:2003. While a new version was approved in 2019, it hasn't propagated through the rest of the ISO standards baseline. As a result, 19107:2003 is the most recent implemented version. 
+NOTE: the concept of a 3D geometry being a volume enclosed by a surface needs to be better described.  
 
 ISO 19107 defines both the GM_Object and GM_Boundary classes as root level geometry classes. The association between GM_Object and GM_Boundary is achieved through the “boundary()” operation on the GM_Object class.
 
-image::./images/Geometry_3D.png[]
+image::images/Geometry_3D.png[]
 
 Therefore, we can describe the shape of a Feature in terms of the space occupied by that Feature and the boundary which encloses that space.
 
-Postulate 3: A 3D Feature is a Feature who's geometry is defined by a volume enclosed by a boundary surface.
+Postulate 3: A 3D Feature is a Feature who's geometry is defined by a GM_Object enclosed by a boundary surface.
 
 NOTE: CityGML 3.0 is a good example of the use of 3D geometries.
 
@@ -55,7 +61,7 @@ Real 3D objects are often not solid. So the 3D model must also support voids, or
 
 A 3D volume is delineated by a bounding surface.  GM_Boundary is the root class for boundaries. The subclass GM_PrimitiveBoundary provides the boundary for GM_Primitives. The GM_PrimitiveBoundary subclass GM_SolidBoundary is defined as the boundary for a GM_Solid.
 
-image::./images/Boundary_3D.png[]
+image::images/Boundary_3D.png[]
 
 ISO 19107 goes even farther. A GM_SolidBoundary is composed of both interior and exterior boundaries. These boundaries are defined by the GM_Shell class. Following the class associations we see:
 
@@ -73,9 +79,9 @@ A surface constructed of polygons is an example of Boundary Representation (B-Re
 
 Some structures, such as a tunnel or overpass, pose difficulties for this geometry model. The boundary surface can be constructed so that it continues into the interior of the structure. That would make the interior of a tunnel external to the tunnel object. This is not always a desireable result. CityGML provides the concept of a "Closure Surface".
 
-A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a three-dimension solid, even though there is a hole in the bounding surface. 
+A Closure Surface is a surface which is a logical part of the object but does not correspond to a physical part of the object. For example, the entrance to a tunnel can have a closure surface. This surface allows you to treat the tunnel as a three-dimension solid, even though there is a hole in the bounding surface.
 
-image::./images/Closure_Surface.png[]
+image::images/Closure_Surface.png[]
 
 As implemented in CityGML 3.0, the ClosureSurface class has quite an ancestory. We may want to generalize this concept for use outside of CityGML. However, the capabilties provided by the ancestor classes do provide value and may be worth incorporating into a general 3D model.
 

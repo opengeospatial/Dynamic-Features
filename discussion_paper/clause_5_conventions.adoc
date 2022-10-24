@@ -17,5 +17,5 @@ Most of these UML diagrams have been extracted from the ISO/TC211 Harmonized Mod
 
 [[figure-1]]
 .UML notation 
-image::./images/UML_Notation.png[align ="center"]
+image::images/UML_Notation.png[align ="center"]
 

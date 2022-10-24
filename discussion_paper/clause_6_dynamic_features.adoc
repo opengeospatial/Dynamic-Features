@@ -3,58 +3,48 @@
 
 Introductory text
 
-include::Part_1/clause_6_1_feature_model.adoc[]
+include::Part_1/clause_feature_model.adoc[]
 
-include::Part_1/clause_6_1_geometry_in_3_dimensions.adoc[]
+include::Part_1/clause_geometry_in_3_dimensions.adoc[]
 
-include::Part_1/clause_6_2_moving_features.adoc[]
+include::Part_1/clause_moving_features.adoc[]
 
-include::Part_1/clause_6_3_articulated_geometries.adoc[]
+include::Part_1/clause_articulated_geometries.adoc[]
 
-include::Part_1/clause_6_4_mass_properties.adoc[]
+include::Part_1/clause_plastic_geometries.adoc[]
 
-include::Part_1/clause_6_4_kinematics.adoc[]
+include::Part_1/clause_mass_properties.adoc[]
 
-== Part 2: Reference Systems
+include::Part_1/clause_kinematics.adoc[]
 
-=== Planetary Reference Systems
+== Part 2: Spatial Reference Systems
 
-NASA, USGA, and the IAU are developing Reference Systems for non-Earth planetary bodies.
+include::Part_2/clause_planetary_reference_systems.adoc[]
 
-ISO 19111 is the international standard for defining Reference Systems
+include::Part_2/clause_astronomical_reference_systems.adoc[]
 
-Reference EPSG and NSG registry for examples
+include::Part_2/clause_local_reference_systems.adoc[]
 
-Work to do, further refinement of the existing planetary reference systems and develop ISO 19111 compliant descriptions of those reference systems.
-
-Additional work to consider – The Space AOI is likely to require planetary Reference Systems consisting of a point mass with surrounding non-uniform magnetic and gravitational fields. Is this a valid requirement, how do we define such a reference system, and can be extend IAO 19111 to support it.
-
-=== Local Reference Systems
-
-
-
-=== Dynamic Reference Systems
-
-
+include::Part_2/clause_dynamic_reference_systems.adoc[]
 
 == Part 3: Time
 
-The dominant role of clocks in Space GeoINT - why calendars are not useful.
+include::Part_3/clause_clocks_and_timers.adoc[]
 
-include::Part_3/clause_6_6_precise_positioning.adoc[]
+include::Part_3/clause_temporal_reference_systems.adoc[]
 
-include::Part_3/clause_6_5_temporal_reference_systems.adoc[]
+include::Part_3/clause_space-time_reference_systems.adoc[]
 
 == Part 4: Systems of Reference Systems
 
-Traditionally we have taken reference systems for granted. Everything was ultimately referenced to the Earth. Not so in Space,
+include::Part_4/clause_problem_statement.adoc[]
 
-Mickelson Moorely shows us that there is no Universal Reference System. All measurements of location are relative. Object A measures the velocity of Object B relative to itself. This measurement is unique to the A-B relationship. There is no absolute measure of velocity that Object B can report to any obserer. 
+include::Part_4/clause_MISB_stages.adoc[]
 
-Reference System integration - Stages System, GeoPOSE, the need for more complex models
+include::Part_4/clause_geopose.adoc[]
 
-The need for a more robust concept of coordinate system transformation.
+include::Part_4/clause_future_work.adoc[]
 
 == Part 5: Special Relativity
 
-include::Part_5/clause_6_7_dynamic_features_at_relativistic_velocities.adoc[]
+include::Part_5/clause_dynamic_features_at_relativistic_velocities.adoc[]

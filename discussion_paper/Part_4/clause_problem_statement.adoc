@@ -1,0 +1,11 @@
+[[reference_systems_problem_statement_section]]
+=== Reference Systems Problem Statement
+
+Traditionally we have taken reference systems for granted. Everything was ultimately referenced to the Earth. Not so in Space,
+
+Mickelson Moorely shows us that there is no Universal Reference System. All measurements of location are relative. Object A measures the velocity of Object B relative to itself. This measurement is unique to the A-B relationship. There is no absolute measure of velocity that Object B can report to any obserer. 
+
+Reference System integration - Stages System, GeoPOSE, the need for more complex models
+
+The need for a more robust concept of coordinate system transformation.
+

@@ -72,7 +72,7 @@ GeoPOSE is a proposed OGC standard which provides a general purpose alternative 
 
 A UML model for the core GeoPOSE concepts is provided in figure ---
 
-image::./images/GeoPOSE_Core.png[]
+image::images/GeoPOSE_Core.png[]
 
 The key element in this model is the `FrameTransform` class. This class expresses a transform between a pair of Reference Frames, Outer and Inner, each defined by a Frame Specification.
  
@@ -84,7 +84,7 @@ Outer and Inner Frames are subclasses of the the Frame Class. The Frame class pr
 
 The GeoPOSE time model is rather simple. It does away with calender and restricts time positions to milliseconds of UNIX Time. 
 
-image::./images/GeoPOSE_Time.png[]
+image::images/GeoPOSE_Time.png[]
 
 The most important classes are GeoPose_Instant (a single point in time) and GeoPose_Duration (a period of time).
 
@@ -92,7 +92,7 @@ The most important classes are GeoPose_Instant (a single point in time) and GeoP
 
 The sequence logical model defines methods for packaging GeoPose transformations. It addresses the need to integrate multiple GeoPoses which share the same Outer Frame and posess a time-dependent changing Inner Frame.
 
-image::./images/GeoPOSE_Sequence.png[]
+image::images/GeoPOSE_Sequence.png[]
 
 The GeoPOSE Standard provides three models for organizing a collection of Inner Frames.
 

@@ -1,0 +1,47 @@
+[[space-time_reference_systems_section]]
+=== Space-Time Reference Systems
+
+Minkowski Space Time is a four-dimension Reference System commonly used in Special and General Relativity. It is basically a combination of 3-dimensional Euclidean Space and time into a 4-dimensional manifold, where the interval of spacetime that exists between any two events is not dependent on the inertial frame of reference. 
+
+Minkowski spacetime is a 4-dimensional coordinate system in which the axes are given by (x, y, z, ct)
+
+Where ct is time (t) times the speed of light (c)
+
+ds^2 = -c^2dt^2 + dx^2 + dy^2, + dz^2 = the differential arc length in space time where:
+
+. dt = change in time
+. dx = change in x direction
+. dy = change in y direction
+. dz = change in z direction
+
+Key point - while a Lorentz transformation deals with spatial measurements, Minkowski space includes time as part of that space-time.  Thus ds is an arc length through space-time as opposed to a difference in x as in the Lorentz transform.
+
+Question, since c^2dt^2 is a negative term, does that inply that ct is an imaginary number orthagonal to x, y, and z (cti) such that i^2 = -1?
+
+Yes for complex Minkowski space time. Here it is expressed as x^2 + y^2 + z^2 + (ict)^2 = const.
+
+Complex Minkowski spacetime was replaced with real Minkowski space time where time is a real coordinate rather than an imaginary one.
+
+Where v is velocity, and x, y, and z are Cartesian coordinates in 3-dimensional space, and c is the constant representing the universal speed limit, and t is time, the four-dimensional vector v = (ct, x, y, z) = (ct, **r**) is classified according to the sign of (c^2 t^2) − r^2. A vector is **timelike** if (c^2 t^2) > r^2, **spacelike** if (c^2 t^2) < r^2, and **null** or **lightlike** if (c^2 t^2) = r^2. This can be expressed in terms of the sign of η(v, v) as well, which depends on the signature. The classification of any vector will be the same in all frames of reference that are related by a Lorentz transformation (but not by a general Poincaré transformation because the origin may then be displaced) because of the invariance of the interval.
+
+==== Lorentz Transformation
+
+A transformation between two different coordinate frames that move at a constant velocity and are relative to each other.  
+
+Only related to changes in inertial reference frames:
+
+* Inertial frames - motion with a constant velocity
+* Non-inertial frames - rotational motion with constant angular velocity, acceleration in curved paths.
+
+In the reference frame "F" which is stationary, the coordinate defined are x, y, z, and t.  In another reference frame F' which moves at a velocity v which is relative to F and the observer defines coordinate in the moving reverence frame as x', y', z', t'. In both the reference frames the coordinate axis are parallel and they remain mutually perpedicular.  The relative motion is along the xx' axes. At t = t' = 0, the origins in both reference frames are the same (x,y,z) = (x',y',z') = (0,0,0).
+
+The Lorentz factor g = 1 / (sqrt(1 - (v^2 / c^2)))
+
+x' = g(x-vt)
+t' = g(t-(vx/c^2))
+y' = y
+z' = z
+
+This is not a complete coordinate transformation since F' has to be rotated and translated so as to be co-linear with F. However, it does add the impact that relative velocity (v) has on the measurements of x and t. In most cases this impact is neglegible (v^2 / c^2 approaches 0).  However, when v is a significant percentage of c it should be applied.
+
+

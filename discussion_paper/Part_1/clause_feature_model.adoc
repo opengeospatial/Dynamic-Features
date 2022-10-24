@@ -1,7 +1,7 @@
 [[feature_model_section]]
 === A Feature Model for Space Objects
 
-Before we can Space Objects, we must first have a conceptual model of the universe. The OGC and ISO TC211 provide that model in ISO 19109. This standard defines the General Feature Model (GFM). The GFM defines the concept of a Feature, its components, and behaviors.
+Before we can describe Space Objects, we must first have a conceptual model of the universe. The OGC and ISO TC211 provide that model in ISO 19109. This standard defines the General Feature Model (GFM). The GFM defines the concept of a Feature, its components, and behaviors.
 
 ISO TC211 defines a Feature as an "Abstraction of real world phenomena" (ISO 19101-1:2014)
 
@@ -14,7 +14,9 @@ The General Feature Model further refines the concept of a Feature. The followin
 . Features possess characteristics (Properties)
 . A Property of a Feature can be an Operation, Attribute, or Association.
 
-image::./images/General-Feature-Model-L1.png[]
+[[general_feature_model_figure]]
+.General Feature Model 
+image::images/General-Feature-Model-L1.png[align ="center"]
 
 The resulting model is sufficient to describe a Feature's identity (IdentifiedType), what it is (FeatureType), what it can do (Operations), its observable characterisitics (Attributes), and any associations with other Feature instances.
 

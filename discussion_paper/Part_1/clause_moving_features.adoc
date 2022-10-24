@@ -1,11 +1,11 @@
 [[moving_features_section]]
 === Moving Features
 
-*Topic:* Is the OGC geometry model sufficient to support 3D Moving Features?
-
 The ISO Standard for Moving Features is ISO 19141:2008. This standard extends the geometry model from ISO 19107 and, by association, the Feature Model from ISO 19109.
 
-image::./images/Movement.png[]
+[[moving_features_figure]]
+.Moving Features
+image::images/Movement.png[]
 
 A high level view of ISO 19141 is provided in Figure --. The classes identified in this figure are described below. But first, a discussion of coordinate reference systems (CRS) is in-order. 
 
@@ -120,7 +120,7 @@ The JSON encoding of the OGC Moving Features standard introduces the concept of 
 
 Logically TemporalProperties should be a subclass of MF_OneParamProperties. Since Geometry is a property, then MF_TemporalGeometry should be a subclass of TemporalProperties. Which gives us the following UML.
 
-image::./images/Temporal_Properties.png[]
+image::images/Temporal_Properties.png[]
 
 Temporal properties are particularly useful for capturing state change. For example, the fuel load of an aircraft will change over time. The leafproperty() operation on a temporal fuel_load object would return the amount of fuel onboard at the specified time.
 
@@ -148,7 +148,7 @@ If an application focuses on only the linear movement (i.e., the spatiotemporal 
 
 A trajectory provides the location of a Moving Feature as a function of time. Prism Geometry represents the full geometry (location, orientaion, and shape) of the Feature as a function of time. 
 
-image::./images/Foliation.png[]
+image::images/Foliation.png[]
 
 The key concepts in the Prism model are:
 
@@ -162,7 +162,7 @@ The key concepts in the Prism model are:
 
 Like a Temporal Trajectory, a Prism is a subclass of MF_TemporalGeometry. 
 
-image::./images/Prism_Context.png[]
+image::images/Prism_Context.png[]
 
 A MF_PrismGeometry class has the following characteristics.
 

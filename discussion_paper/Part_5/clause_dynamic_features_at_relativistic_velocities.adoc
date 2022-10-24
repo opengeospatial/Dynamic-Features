@@ -46,7 +46,7 @@ Minkowski spacetime is a 4-dimensional coordinate system in which the axes are g
 
 Where ct is time (t) times the speed of light (c)
 
-ds^2 = -c^2dt^2 + dx^2 + dy^2, + dz^2 = the differential arc length in space time where:
+ds^2 = -c^2 dt^2 + dx^2 + dy^2, + dz^2 = the differential arc length in space time where:
 
 . dt = change in time
 . dx = change in x direction
