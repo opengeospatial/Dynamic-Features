@@ -19,7 +19,16 @@ image::images/LocationalAttributeType.png[align="center"]
 
 image::images/TemporalAttributeType.png[align="center"]
 
-NOTE: add discussion of how the geometry is not limited to a specific number of dimensions. That comes from the CRS definition associated with the geometry.
+==== The Geometry Model
+
+An important feature of the ISO Geometry Model is that it does not specify or assume a coordinate reference system. The SC_CRS class, defined in ISO 19111, is used to define a coordinate reference system. The "Coordinate Reference System" association is used to associate a GM_Object instance with the appropriate SC_CRS instance. Since all geometry classes are decended from GM_Object, any geometry object can have its own unique coordinate reference system.
+
+The DirectPosition class contains two attributes, "dimension" and "coordinate". The "coordinate" attribute is a sequence of numbers. Each number represents the location of the DirectPosition on a coordinate axis. There are no constraints on the number of numbers in the sequence. Therefore, a DirectPosition can represent an unlimited number of dimensions. The "dimension" attribute specifies the number of axis in the applicable coordinate reference system. This corresponds to the number of numbers in the "coordinate" sequence.
+
+
+From  UML model:
+
+DirectPosition object data types (Figure 14) hold the coordinates for a position within some coordinate reference system. The coordinate reference system is described in ISO 19111. Since DirectPositions, as data types, will often be included in larger objects (such as GM_Objects) that have references to ISO19111::SC_CRS, the DirectPosition::cordinateReferenceSystem may be left NULL if this particular DirectPosition is included in a larger object with such a reference to a SC_CRS. In this case, the DirectPosition::cordinateReferenceSystem is implicitly assumed to take on the value of the containing object's SC_CRS.
 
 ==== Features in 3D
 
