@@ -23,26 +23,35 @@ image::images/TemporalAttributeType.png[align="center"]
 
 An important feature of the ISO Geometry Model is that it does not specify or assume a coordinate reference system. The SC_CRS class, defined in ISO 19111, is used to define a coordinate reference system. The "Coordinate Reference System" association is used to associate a GM_Object instance with the appropriate SC_CRS instance. Since all geometry classes are decended from GM_Object, any geometry object can have its own unique coordinate reference system.
 
-The DirectPosition class contains two attributes, "dimension" and "coordinate". The "coordinate" attribute is a sequence of numbers. Each number represents the location of the DirectPosition on a coordinate axis. There are no constraints on the number of numbers in the sequence. Therefore, a DirectPosition can represent an unlimited number of dimensions. The "dimension" attribute specifies the number of axis in the applicable coordinate reference system. This corresponds to the number of numbers in the "coordinate" sequence.
+image::images/GM_Object.png[align="center"]
 
+While the ISO Geometry Model is very complex, at its core is the DirectPosition class. This is the fundamental specification of a position within a coordinate reference system. Its purpose is simply to hold the coordinates for a position within the coordinate reference system. 
 
-From  UML model:
+image::images/DirectPosition.png[align="center"]
 
-DirectPosition object data types (Figure 14) hold the coordinates for a position within some coordinate reference system. The coordinate reference system is described in ISO 19111. Since DirectPositions, as data types, will often be included in larger objects (such as GM_Objects) that have references to ISO19111::SC_CRS, the DirectPosition::cordinateReferenceSystem may be left NULL if this particular DirectPosition is included in a larger object with such a reference to a SC_CRS. In this case, the DirectPosition::cordinateReferenceSystem is implicitly assumed to take on the value of the containing object's SC_CRS.
+The DirectPosition class contains two attributes, "dimension" and "coordinate". The "coordinate" attribute is a sequence of numbers. Each number represents the location of the DirectPosition on a coordinate axis. There are no constraints on the number of numbers in the sequence. Therefore, a DirectPosition can represent an unlimited number of dimensions. The "dimension" attribute specifies the number of axis in the applicable coordinate reference system. This corresponds to the number of values in the "coordinate" sequence.
+
+Like GM_Object, DirectPositions are associated with an SC_CRS through the cordinateReferenceSystem association. This association is typically not used since DirectPositions, as data types, will usually be included in larger objects (such as GM_Objects) that have their own references to SC_CRS. When this association is left NULL, the coordinate reference system of the DirectPosition instance will take on the value of the containing object's SC_CRS.
+
+One limitation of the DirectPosition class is that it does not support complex numbers. However, since DirectPosition does have a "coordinateReferencesystem" association with SC_CRS, it should be possible to model complex numbers in the CRS definition as as two orthagonal axis.
+
+*Conclusion:* The ISO 19107 Geometry Model is suitable for geometries of three or more dimensions.
+
+*Issue:* Support for coordinate values which are complex numbers needs to be validated.
 
 ==== Features in 3D
 
 In our discussion of Dynamic Features, we must allow for Features which are moving through three dimensions and have non-trivial three dimensional shapes. We must also consider that the shape of these objects may change with time. From this we see that the movement of the Feature and the shape of the Feature are two separate properties. 
 
-A measurement of movement would capture changes in location and orientation. Movement is in the eyes of an external observer. Therefore, movement should be specified using a coordinate reference system which is external to the Feature.
+A measurement of movement would capture changes in location and orientation. Movement is measured from the perspective of an external observer. Therefore, movement should be specified using a coordinate reference system which is external to the Feature.
 
 The shape of a Feature is independent of its location. A rigid body has the same shape regardless of where it is or who is observing it. It's geometry should be self-contained. This requires use of an internal coordinate reference system.
 
 This leads up to two postulates:
 
-Postulate 1: The Locational Attribute of a 3D Feature is a GM_Point which locates the origin of the local CRS within an <<external_coordinate_reference_system_definition,external CRS>>.
+*Postulate 1:* The Locational Attribute of a 3D Feature is a GM_Point which locates the origin of the local CRS within an <<external_coordinate_reference_system_definition,external CRS>>.
 
-Postulate 2: The Spatial Attribute of a 3D Feature is one or more GM_Objects which define the shape of the Feature in the <<local_coordinate_reference_system_definition,local coordinate refrence system>>.
+*Postulate 2:* The Spatial Attribute of a 3D Feature is one or more GM_Objects which define the shape of the Feature in the <<local_coordinate_reference_system_definition,local coordinate refrence system>>.
 
 One and two dimensional geometries are well understood. So the locational attribute poses few immediate problems. Three-dimensional shapes are another matter. Particularly if they are free from any bounding surface and capable of movement.
 

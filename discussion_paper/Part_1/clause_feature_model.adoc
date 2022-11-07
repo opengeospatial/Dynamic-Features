@@ -20,3 +20,5 @@ image::images/General-Feature-Model-L1.png[align ="center"]
 
 The resulting model is sufficient to describe a Feature's identity (IdentifiedType), what it is (FeatureType), what it can do (Operations), its observable characterisitics (Attributes), and any associations with other Feature instances.
 
+*Conclusion:* ISO 19109 provides a model for Real World Objects that is suitable for non-terrestrial use.
+
