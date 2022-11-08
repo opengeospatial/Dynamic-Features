@@ -57,33 +57,19 @@ This leads up to two postulates:
 
 ISO 19107 makes a distinction between a geometric object and the surface which contains that object. One advantage of this approach is that there can be multiple surfaces associated with one object. For example, an island located in a lake would be represented by an interior surface (the island) of a polygon (the lake) bounded by the exterior surface (the shoreline). 
 
-ISO 19107 uses the GM_Object class to define an object and the GM_Boundary class to define a containing surface. Both GM_Object and GM_Boundary are defines as root level geometry classes. The association between GM_Object and GM_Boundary is achieved through the “boundary()” operation on the GM_Object class. This operation is inherited by all subclasses of GM_Object.
+ISO 19107 uses the GM_Object class to define an object and the GM_Boundary class to define a containing surface. Both GM_Object and GM_Boundary are defined as root level geometry classes. The association between GM_Object and GM_Boundary is achieved through the “boundary()” operation on the GM_Object class. This operation is inherited by all subclasses of GM_Object.
 
-In the case of a 3D Feature, GM_Solid is the subclass of GM_Object while GM_SolidBoundary is the subclass of GM_Boundary. GM_Solid describes the volume while GM_SolidBoundary describes the shape. Notice that GM_SolidBoundary includes both interior and exterior surfaces.
+In the case of a 3D Feature, GM_Solid is the subclass of GM_Object while GM_SolidBoundary is the subclass of GM_Boundary. GM_Solid describes the volume while GM_SolidBoundary describes the shape.   
 
 image::images/Geometry_3D.png[]
 
-An example of this Geometry Model applied to a practical application can be found in the CityGML family of standards. CityGML uses the 19107 geometry model to define buildings, the exterior spaces surounding the buildings, as well as interior spaces and even movable furniture. This should be sufficient for any complex object, whether on the surface of the Earth or in Space. 
-
-*Conclusion:* The ISO 19107 Geometry Model is sufficient to represent the geometry of complex space objects.
-
-There are a number of techniques in use to represent the surface of a 3D object. These include point clouds, triangulated or polygonal surfaces, and tesselated surfaces. A GM_SolidBoundary is componsed of GM_Shell objects. But ISO 19107 does not provide a decomposition of GM_Shell. So there is no way to specify the geometry underlying the shell. 
-
-*Issue:* Can and should we extend the GM_Shell class of ISO 19107 to address the underlying geometry of the surface of a 3D object?
-
-The GM_Solid and GM_SolidBoundary classes are designed to represent a 3D space. It is not clear if they can also represent a 4D or even 5D space. While it's clear that the basic coordinate representation is independent of the number of dimensions, that may not be true of the more complex geometry constructs.
-
-*Issue:* Can the GM_Solid and GM_SolidBoundary classes represent an n-dimensional solid?
-
-Note: the following sectons should be integated into the text above.
-
-===== Volumetrics
+===== Volumes
 
 GM_Object is subclassed into GM_Primitive and then into GM_Solid.  The “volume()” operation on GM_Solid returns the volume (defined in ISO 19103) associated with a Feature. Thus, ISO 19107 supports the concept of a 3D volume.
 
 Real 3D objects are often not solid. So the 3D model must also support voids, or even entire 3D Features within their interior. GM_Primitive addresses this need through the “interior to” association. The two roles on this association are the containingPrimitive (the GM_Primitive which contains another GM_Primitive) and the containedPrimitive (the GM_Primitive which is contained). This association has proven its worth in 2D space so there is little doubt that it will be just as effective in 3D.
 
-===== Boundaries
+===== Shapes
 
 A 3D volume is delineated by a bounding surface.  GM_Boundary is the root class for boundaries. The subclass GM_PrimitiveBoundary provides the boundary for GM_Primitives. The GM_PrimitiveBoundary subclass GM_SolidBoundary is defined as the boundary for a GM_Solid.
 
@@ -120,4 +106,21 @@ https://en.wikipedia.org/wiki/Boundary_representation
 ====== Point Clouds
 
 Boundary surfaces can also be defined using 3D point clouds. This allows the spatial represention a bounding surface by a set of points located on that surface. In this way, the geometry of a Feature could, for instance, be modelled directly from the result of a mobile laser scanning campaign. 
+
+==== Conclusions and Future Work
+
+The ISO 19107 Geometry Model appears to be suitable for representing complex, non-terrestrial objects of three or more dimensions. But will it work in reality? 
+
+An example of this Geometry Model applied to a practical application can be found in the CityGML family of standards. CityGML uses the 19107 geometry model to define buildings, the exterior spaces surounding the buildings, as well as interior spaces and even movable furniture. This should be sufficient for any complex object, whether on the surface of the Earth or in Space. 
+
+*Conclusion:* The ISO 19107 Geometry Model is sufficient to represent the geometry of complex space objects.
+
+Two techniques have been described to represent the surface of a 3D object, point clouds and B-Rep. This list is certainly not exhausitve. According to ISO 19107, a GM_SolidBoundary object is composed of GM_Shell objects. But the Standard does not provide a decomposition of GM_Shell. So there is no way to specify the geometry underlying the shell. 
+
+*Issue:* Can and should we extend the GM_Shell class of ISO 19107 to address the underlying geometry of the surface of a 3D object?
+
+The GM_Solid and GM_SolidBoundary classes are designed to represent a 3D space. It is not clear if they can also represent a 4D or even 5D space. While it's clear that the basic coordinate representation is independent of the number of dimensions, that may not be true of the more complex geometry constructs.
+
+*Issue:* Can the GM_Solid and GM_SolidBoundary classes represent an n-dimensional solid?
+
 
