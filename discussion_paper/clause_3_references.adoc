@@ -1,4 +1,0 @@
-== References
-As a Discussion Paper, this document contains no normative references. Citations for resources referenced in this document are listed in the <<bibliography_section,Bibliography>> (Annex B).
-
-
