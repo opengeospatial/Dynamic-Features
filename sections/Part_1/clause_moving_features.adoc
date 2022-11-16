@@ -7,31 +7,42 @@ The ISO Standard for Moving Features is ISO 19141:2008. This standard extends th
 .Moving Features
 image::images/Movement.png[align="center"]
 
-A high level view of ISO 19141 is provided in Figure --. The classes identified in this figure are described below. But first, a discussion of coordinate reference systems (CRS) is in-order. 
+A high level view of ISO 19141 is provided in <<moving_features_figure>>. The classes identified in this figure are described below. But first, a discussion of coordinate reference systems (CRS) is in-order. 
 
 ==== Coordinate systems
 
-[#local_global_crs_figure,reftext='{figure-caption} {counter:figure-num}']
-.Local and Global CRS
+[#external_global_local_crs,reftext='{figure-caption} {counter:figure-num}']
+.External, Global, and Local CRS
 image::images/LocalGlobalCRS.png[align="center"]
 
-Moving Features deal with three spatial coordinate systems as well at one temporal coordinate system. The spatial coordinate systems are referred to as the External, Global, and Local CRS.
+Moving Features deal with three spatial coordinate systems as well at one temporal coordinate system. The spatial coordinate systems are referred to as the External, Global, and Local CRS (see <<external_global_local_crs>>).
 
 When dealing with Moving Features, we frequently need to convert coordinates between the three spatial CRS. The GM_Object class provides us with the transform() operation which can be used for this purpose.  
 
 ===== External CRS
 
-The <<external_coordinate_reference_system_definition,External coordinate system>> is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS. For example, WGS 84.
-
-===== Global CRS
-
-The <<global_coordinate_reference_system_definition,Global coordinate system>> is a moving CRS which describes the area external to the Feature at a specific time. Typically the origin is the location of the Feature on the trajectory and the principal axis is the tangent to the trajectory at that point.
-
-Using an aircraft for an example, the origin would be the center of mass, positive X is the magnetic heading, the Z axis is perpendicular to the tangential plane, and the Y axis is on the tangential plane and completes a right-handed coordinate system.
+The <<external_coordinate_reference_system_definition,External coordinate system>> is the coordinate system within which the Moving Feature exists. Typically this is an Earth-centric geographic CRS such as WGS 84.
 
 ===== Local CRS
 
-The <<local_coordinate_reference_system_definition,local coordinate system>> is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominant point in the Feature such as the center of mass. The origin of the local coordinate system should also be the point where the location and orientation of the Feature is measured.
+The <<local_coordinate_reference_system_definition,local coordinate system>> is internal to the Feature. This is usually a cartisian coordinate system with the origin at a prominent point in the Feature such as the center of mass. 
+For rigid bodies, the local coordinate system is fixed over time. It does not change reqardless of any motion by the associated Feature.
+
+This constraint does not hold for non-rigid bodies. This case will be discussed in the sections on <<articulated_geometries_section,articulated geometries>> and <<plastic_geometries_section,plastic geometries>>.  
+
+===== Global CRS
+
+The <<global_coordinate_reference_system_definition,Global coordinate system>> provides a transition between the External CRS and Local CRS. It is a moving CRS which follows the trajectory of the Moving Feature. As such, it provides the External CRS a time variant local reference system, while providing a time invariant context for the Local CRS.
+
+The origin of the Global CRS is the location of the Moving Feature on the trajectory curve at a specific time. From the perspective of the External CRS, the origin translates as a funcion of time. From the perspective of the Internal CRS, however, the origin of the Global CRS is static.
+
+The axis of the Global CRS can be defined using two techniques.
+
+The first approach treats the Moving Feature as a black box viewed by an external observer. From this perspective, the Global CRS is defined in terms of the trajectory alone. No knowledge of the properties or even the shape of the Moving Feature are required. This CRS starts by defining x and y as two orthagonal axis which define a plane tangential to the Trajectory curve at the origin. Positive x is in the direction of motion. The positive y axis is perpendicular to the x axis and forms either a right or left handed CRS. The z axis is perpendicular to the tangent plane. Positive z can be either up or down. The result is a cartesian refernce system which is always tangential to the trajectory of the Moving Feature.
+
+The second approach defines the Global CRS in terms of motion properties of the Moving Feature. The x axis, for example, could be defined as the heading of the Moving Feature. This is the direction the Feature is pointing, but not necessarily the direction it is moving. The y and z axis can be defined using similar properties (for example; pitch, yaw, and roll). 
+
+In general, the black box approach is appropriate for ballistic Moving Features. Cases where the Feature is not anticipated to take any actions which would modify the trajectory. The motion properties approach is appropriate for navigated Moving Features. Cases where a Feature is expected to take actions which would modify the trajectory.
 
 ===== Temporal Reference Systems
 
