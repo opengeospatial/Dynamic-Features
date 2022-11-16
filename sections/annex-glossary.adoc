@@ -1,7 +1,5 @@
-[appendix]
-:appendix-caption: Annex
 [[glossary_section]]
-= Glossary
+== Glossary
 
 The following terms and definitions are used in this Discussion Paper.
 

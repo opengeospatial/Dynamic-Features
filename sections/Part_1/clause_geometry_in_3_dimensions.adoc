@@ -79,7 +79,7 @@ image::images/Geometry_3D.png[align="center"]
 
 ===== Volumes
 
-GM_Object is subclassed into GM_Primitive and then into GM_Solid.  The “volume()” operation on GM_Solid returns the volume (defined in ISO 19103) associated with a Feature. Thus, ISO 19107 supports the concept of a 3D volume.
+GM_Object is subclassed into GM_Primitive and then into GM_Solid.  The “volume()” operation on GM_Solid returns the volume (defined in ISO 19103) of space contained within that GM_Solid. Thus, ISO 19107 supports the concept of a 3D volume.
 
 Real 3D objects are often not solid. So the 3D model must also support voids, or even entire 3D Features within their interior. GM_Primitive addresses this need through the “interior to” association. The two roles on this association are the containingPrimitive (the GM_Primitive which contains another GM_Primitive) and the containedPrimitive (the GM_Primitive which is contained). This association has proven its worth in 2D space so there is little doubt that it will be just as effective in 3D.
 
@@ -101,7 +101,7 @@ GM_OrientablePrimitives
 * A GM_PolyhedralSurface can be composed of
 GM_Polygons 
 
-A surface constructed of polygons is an example of Boundary Representation (B-Rep) of a surface. This approach is fundamental to rendering 3D computer graphics. (ref Adam Powers 1981)
+A GM_PolyhedralSurface which is composed of GM_Polygons is an example of Boundary Representation (B-Rep) of a surface. This approach is fundamental to rendering 3D computer graphics. (ref Adam Powers 1981)
 
 ====== Closure Surfaces
 
