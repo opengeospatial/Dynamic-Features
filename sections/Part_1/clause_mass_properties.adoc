@@ -1,6 +1,26 @@
 [[mass_properties_section]]
 === Mass Properties
 
+A space object does not have a medium to push against. 
+
+When a force is applied to a 3D object, the resulting motion of that object depends on how the mass of the object is distributed througout the volume of that object.
+
+The mass properties of most interest are:
+
+*Center of mass:* The center of mass of a distribution of mass in space (sometimes referred to as the balance point) is the unique point where the weighted relative position of the distributed mass sums to zero. This is the point to which a force may be applied to cause a linear acceleration without an angular acceleration. 
+
+*Axis of rotation:* The rotation of a moving object can be expresses as the rotations of the object around three perpendicular axis. These axis are the axis of rotation. Axis of rotation are distinct from, and rarely align with, the three coordinate axis.   
+
+*Moment of inertia:* The objects's resistance to changes in its rotation. This property depends on the objects's mass and the distribution of that mass across the object.
+
+*Angular velocity:* Change in angular displacement per unit time with direction along the axis of rotation.
+
+*Linear Momentum:* The product of the mass and velocity of an object. It is a vector quantity, possessing a magnitude and a direction.
+
+*Angular Momemtum:* The product of the moment of inertia and angular velocity around an axis of rotation. The rotational analog of linear momentum. It is an important physical quantity because it is a conserved quantity--the total angular momentum of a closed system remains constant. Angular momentum has both a direction and a magnitude, and both are conserved.  
+
+
 Consider an articulated vehicle in free-flight. As the components change position, they change the center of mass, priciple axis of rotation, and a number of other mass properties. These changes affect the dynamic behavior of the vehicle. Most designers take great care to assure that problems cannot occur. But that doesn't mean we should ignore the issue.
 
 Comments?
+
