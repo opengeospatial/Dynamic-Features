@@ -12,7 +12,7 @@
 :comment: ### Internal reference number; mandatory
 :docnumber: 22-005
 :comment: ### Date on which the standard was updated; mandatory
-:received-date: 2022-11-15
+:received-date: 2022-11-27
 :comment: ### Date on which the standard was approved by the issuing authority; mandatory
 :issued-date: 2019-02-28
 :comment: ### Date on which the standard was published; mandatory
@@ -66,8 +66,9 @@ include::sections/annex-n.adoc[]
 Revision History should be the last annex before the Bibliography
 Bibliography should be the last annex
 ////
-include::sections/annex-history.adoc[]
 
 include::sections/annex-glossary.adoc[]
+
+include::sections/annex-history.adoc[]
 
 include::sections/annex-bibliography.adoc[]

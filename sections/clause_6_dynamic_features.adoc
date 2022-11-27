@@ -15,8 +15,6 @@ include::Part_1/clause_plastic_geometries.adoc[]
 
 include::Part_1/clause_mass_properties.adoc[]
 
-include::Part_1/clause_kinematics.adoc[]
-
 == Time
 
 include::Part_2/clause_clocks_and_timers.adoc[]

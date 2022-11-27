@@ -1,26 +1,42 @@
 [[mass_properties_section]]
 === Mass Properties
 
-A space object does not have a medium to push against. 
+A space object does not have a medium to hold it in place. As a result, these objects have six degrees of freedom. They can move laterally along the x, y, and z axis. They can also rotate around the x, y, and z axis. This freedom of motion means that the movement of an object is dependent, not just on the forces applied, but where these forces are applied. 
 
-When a force is applied to a 3D object, the resulting motion of that object depends on how the mass of the object is distributed througout the volume of that object.
+When a force is applied to a 3D object in free flight, the resulting motion depends on the mass of the object and how that mass is distributed throughout that object. These are the mass properties of the object.
 
-The mass properties of most interest are:
+[[mass_properties_linear_motion_section]]
+==== Linear motion
 
-*Center of mass:* The center of mass of a distribution of mass in space (sometimes referred to as the balance point) is the unique point where the weighted relative position of the distributed mass sums to zero. This is the point to which a force may be applied to cause a linear acceleration without an angular acceleration. 
+Linear motion occurs when a force (or forces) are applied to an object in such as way that there is a change in the objects velocity but no change in rotation.
 
-*Axis of rotation:* The rotation of a moving object can be expresses as the rotations of the object around three perpendicular axis. These axis are the axis of rotation. Axis of rotation are distinct from, and rarely align with, the three coordinate axis.   
+An analysis of linear motion starts with the mass of the object. The observed mass of an object is usually the same for all observers. Therefore, we should treat mass as a physical property that should be present in all 3D Features.
 
-*Moment of inertia:* The objects's resistance to changes in its rotation. This property depends on the objects's mass and the distribution of that mass across the object.
+The mass of an object is distributed across the object. Yet we often want to deal with that mass as a point mass, a mass of quantity _M_ located at coordinates (x,y,z). The position of this point mass is called the `Center of mass`. The center of mass, however, is not an arbitrary point. This is the one location where the distributed mass of the object ballances out. Where the moments of inertia sum to zero. This allows the object to be treated as a single point with a mass of _M_ and located at the `center of mass` (x,y,z). Both of these parameters must be present and defined in the local coordinate reference system. 
 
-*Angular velocity:* Change in angular displacement per unit time with direction along the axis of rotation.
+NOTE: If the object is not a rigid body, then the center of mass may move as the object changes configuration. 
 
-*Linear Momentum:* The product of the mass and velocity of an object. It is a vector quantity, possessing a magnitude and a direction.
+Newtons First Law states that "Every body continues in its state of rest, or of uniform motion in a straight line, unless it is compelled to change that state by forces impressed upon it." In other words, the velocity (speed and direction) of an object will not change unless you apply a force to the object. This property is known as inertia.
 
-*Angular Momemtum:* The product of the moment of inertia and angular velocity around an axis of rotation. The rotational analog of linear momentum. It is an important physical quantity because it is a conserved quantity--the total angular momentum of a closed system remains constant. Angular momentum has both a direction and a magnitude, and both are conserved.  
+Inertia is governed by the formula F = M * A. Where F = Force, A = Acceleration, and M = Mass. The amount of force required to change the velocity by amount A is porportional to the mass of the object. While inertial is important, it is a computed value and not a property of the Feature.
 
+When you use a force to accelerate an object that object gains momentum. Linear momentum is gained (or lost) when the force is applied through the center of mass. The value is the product of the rest mass and the accelerated velocity of the object. Since velocity is measured relative to the observer, this is not a property of the space object. Rather it is a value that must be computed by the observing system.
 
-Consider an articulated vehicle in free-flight. As the components change position, they change the center of mass, priciple axis of rotation, and a number of other mass properties. These changes affect the dynamic behavior of the vehicle. Most designers take great care to assure that problems cannot occur. But that doesn't mean we should ignore the issue.
+[[mass_properties_rotational_motion_section]]
+==== Rotational motion:
 
-Comments?
+Linear motion is motion resulting when a force is applied through the center of mass of an object. Reality is rarely that accomodating. If the force is applied to a point even a little off the center or mass, the object will acquire both linear and rotational movement. This section explores the rotational movement. 
 
+Rotation of an object is usually evaluated in terms of three axis of rotation. These axis often align with the three axis of the local coordinate reference system. But not always. For example, satellites are often spun in order to stabilize them. This "principal axis of rotation" is selected based on the performance parameters of the satellite. The local coordinate system is not a governing factor. 
+
+The rate of rotation around each axis is the `angular velocity`. This value is typically measured in radians or degrees per second. Angular velocity is a physical property of the object so it is measured relative to the local coordinate system. While it can be measured by an observer, values measured and reported by the object would be more reliable.
+
+Rotational motion must accomodate not only the mass of the object, but how that mass is distributed. This distribution of mass is represented by the moment of inertia. There is one moment for each axis of rotation. The moment of inertia is calculated by summing up all of the products of the point masses that make up the object multiplied by their distance from the rotaional axis. These mass and distance values are all measured in the local coordinate reference system. They are properties of the object and are not usually measured remotely.
+
+Once a object starts to rotate, it has angular momentum. This is the product of the moment of inertia around one axis of rotation and the associated angular velocity. Since the components of angular momentum are properties of the object, the angular momentum is also a property of the object. As such, it is defined relative to the local reference system.
+
+Like linear momentum, angular momentum is conserved. It cannot be changed except through the application of a force.
+
+For example, consider a spacecraft with solar panels. 
+
+When launched, the panels are retracted close to the center of mass. Once free of the boosters, the spacecraft will be spun. This gives it angular momentum. The solar panels are then deployed. As the panels are deployed, their mass moves away from the axis of rotation. This increases the moment of inertia of the spacecraft. Since angular momentum is conserved, then the angular velocity must decrease.
