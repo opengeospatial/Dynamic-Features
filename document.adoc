@@ -12,9 +12,9 @@
 :comment: ### Internal reference number; mandatory
 :docnumber: 22-005
 :comment: ### Date on which the standard was updated; mandatory
-:received-date: 2022-11-27
+:received-date: 2022-11-28
 :comment: ### Date on which the standard was approved by the issuing authority; mandatory
-:issued-date: 2019-02-28
+:issued-date: 2019-02-11
 :comment: ### Date on which the standard was published; mandatory
 :published-date: 2019-12-11
 :comment: ### Author one
